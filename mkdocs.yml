@@ -1,7 +1,7 @@
 ---
 site_name: Trustworthy Platform Module (TwPM)
-#site_url: TBD
-repo_url: https://github.com/3mdeb/twpm-docs
+site_url: https://twpm.dasharo.com
+repo_url: https://github.com/dasharo/twpm-docs
 theme:
   name: material
 #  favicon: images/favicon.png
