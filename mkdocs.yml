@@ -4,17 +4,16 @@ site_url: https://twpm.dasharo.com
 repo_url: https://github.com/dasharo/twpm-docs
 theme:
   name: material
-#  favicon: images/favicon.png
-#  logo: images/dasharo-logo.png
+  favicon: images/favicon.png
+  logo: images/dasharo-logo.png
   features:
     - content.tabs.link
     - navigation.instant
     - navigation.tracking
-    - navigation.tabs
-    - navigation.tabs.sticky
-google_analytics:
-  - UA-39420295-13
-  - auto
+      # - navigation.tabs
+      # - navigation.tabs.sticky
+extra_css:
+  - stylesheets/extra.css
 markdown_extensions:
   - footnotes
   - pymdownx.highlight
@@ -33,3 +32,9 @@ plugins:
   - search
 nav:
   - 'Intro': index.md
+  - 'Tutorials': tutorials/index.md
+  - 'Development': development/index.md
+  - 'Explanation': explanation/index.md
+  - 'Changelog': changelog/index.md
+  - 'Contributing': contributing/index.md
+  - 'Roadmap': roadmap/index.md
