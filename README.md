@@ -32,8 +32,9 @@ grep -E "TBD|TODO" docs/**/*.md -r
 ```
 
 Iterate over all occurrences and check if:
+
 - file, where TBD or TODO occurs, is displayed (included in nav section of
-mkdocs.yml)
+  mkdocs.yml)
 - TBD or TODO is visible on the website
 
 There should be no TBD or TODO visible on the website.

@@ -131,7 +131,7 @@ State: Backlog
 
 ## 8. Explore the usage of using simpler hardware platform
 
-Additionaly, we want to explore whether we can meet the TPM specification
+Additionally, we want to explore whether we can meet the TPM specification
 requirements using simpler (and cheaper) microcontroller platform (with no FPGA
 involved). That may not be feasible due to the hardware limitations, but it
 is a great potential opportunity of increasing the adoption of the solution,
