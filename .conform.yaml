@@ -14,4 +14,3 @@ policies:
       spellcheck:
         locale: US
       maximumOfOneCommit: false
-
