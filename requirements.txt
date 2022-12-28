@@ -1,4 +1,4 @@
-mkdocs
-mkdocs-material
-mkdocs-material-extensions
-pre-commit
+mkdocs==1.4.2
+mkdocs-material==8.5.11
+mkdocs-material-extensions==1.1.1
+pre-commit==2.21.0
