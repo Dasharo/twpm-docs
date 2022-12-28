@@ -2,4 +2,3 @@ mkdocs
 mkdocs-material
 mkdocs-material-extensions
 pre-commit
-

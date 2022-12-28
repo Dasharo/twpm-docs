@@ -39,4 +39,3 @@ repos:
 ci:
   autoupdate_commit_msg: 'pre-commit: autoupdate hooks'
   autofix_prs: false
-
