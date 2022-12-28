@@ -1,0 +1,35 @@
+---
+site_name: Trustworthy Platform Module (TwPM)
+#site_url: TBD
+repo_url: https://github.com/3mdeb/twpm-docs
+theme:
+  name: material
+#  favicon: images/favicon.png
+#  logo: images/dasharo-logo.png
+  features:
+    - content.tabs.link
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+google_analytics:
+  - UA-39420295-13
+  - auto
+markdown_extensions:
+  - footnotes
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.keys
+  - attr_list
+  - meta
+  - toc:
+      toc_depth: 2
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+plugins:
+  - search
+nav:
+  - 'Intro': index.md
