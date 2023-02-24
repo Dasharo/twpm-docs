@@ -4,8 +4,12 @@ TwPM is
 
 ---
 # Acronyms
-* CRB - Command Response Buffer
-* 
+* Legend:
+* PTP – Platform TPM Profile
+* CRB – Command Response Buffer interface
+* DDWG – Device Driver’s Writers Guide
+* Certification PP – Certification Protection Profile
+* TIS – TPM Interface Specification
 
 ---
 # TCG PC Client Specific TPM Interface Specification
@@ -48,6 +52,11 @@ a serial interrupt, SIRQ.
   - Optional implementation VBAT and/or 3VSB pins
 * 7. External References 
 
+---
+# TCG PC Client Platform Physical Presence Interface Specification
+* link: https://trustedcomputinggroup.org/wp-content/uploads/Physical-Presence-Interface_1-30_0-52.pdf
+* Version 1.30 Revision 0.0.52
+* ACPI Functions
 ---
 # Bibliography
 * Trusted Computing Group, PC Client specific Platform, TPM Profile
