@@ -27,6 +27,9 @@ Source: [tcg_client_v13r27] Chapter 6.4.1, line 1331
 
 Source: [tcg_client_v13r27] l.1373-1375
 
+#### Power supply
+
+
 #### Power sequence
 
   * TPM_Init (LRESET#/SPI_RST#) signal connected to platform CPU Reset signa
@@ -67,9 +70,8 @@ with the state of their fields valid.
 Source: [tcg_client_v13r27], chapter 6.6 
 
 
-
 [TCG PC Client, v1.3, rev 27][tcg_client_v13r27]: https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCClientTPMInterfaceSpecification_TIS__1-3_27_03212013.pdf
-
+[TCG TPM I2C Interface Specification][tcg_i2cspec_v200rev1]https://trustedcomputinggroup.org/wp-content/uploads/TCG-TPM-I2C-Interface-Specification-v1.00.pdf
 
 
 # TCG PC Client Platform Physical Presence Interface Specification
