@@ -11,11 +11,26 @@
 
 ## Requirements
 
+### Power supply
+
+#### Power supply voltage
+
+1. TPM MUST support a supply voltage of 1.8V or 3.3V.
+2. TPM MAY support supply and I/O voltages of both 1.8V and 3.3V.
+3. TPM MAY support other supply voltages.
+
+Source: [tcg_client_v13r27] l.1373-1375
+
+#### Power supply max current
+
+Maximum power supply taken by TPM MUST be 250mA.
+
 ### SPI Interface
 
 #### Frequency
 
-Default clock frequency for PC Client platforms is defined to be 24MHz
+Default clock frequency for PC Client platforms is defined to be 24MHz.
+Clock frequency signal, minimum, is 10MHz.
 
 Source: [tcg_client_v13r27] Chapter 6.4.1, line 1331
 
