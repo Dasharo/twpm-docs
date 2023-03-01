@@ -47,7 +47,7 @@ Source: [tcg_client_v13r27] l.1373-1375
 
 #### Power sequence
 
-  * TPM_Init (LRESET#/SPI_RST#) signal connected to platform CPU Reset signa
+  * TPM_Init (LRESET#/SPI_RST#) signal connected to platform CPU Reset signal
   * TPM main power pins (3V) must be connected such that the TPM is powered
   during ACPI states S0-S2 and may be powered in S3-S5
   * Optional implementation VBAT and/or 3VSB pins
