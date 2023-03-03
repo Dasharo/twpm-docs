@@ -57,6 +57,24 @@ Source: [tcg_client_v13r27] l.1373-1375
 
 Source: [tcg_client_v13r27], Chapter 6.7.2
 
+### LPC Interface
+
+#### LPC Interrupts
+
+* Service of SIRQ protocol for interrupts
+* Implementation: emulate the set of individual hardware signals using time
+division multiplexing between frames
+Source: [tcg_client_PTP_v1p5r14], chapter 6.6.1
+
+* CRB Interrupts
+  * Locality Change
+  * Establishment Clear
+  * TPM Ready
+  * Response Available
+  * Interrupt Enable
+  * Interrupt status
+Source: [tcg_client_PTP_v1p5r14], chapter 6.6.2
+
 ### Run-time requirements
 
 #### Command Duration
