@@ -80,6 +80,14 @@ slave modes".
 ## ST33TPHF20SPI
 
 * Link to documentation: <https://www.st.com/en/secure-mcus/st33tphf20spi.html>
+* Compliant with Trusted Computing Group (TCG) Trusted Platform Module (TPM)
+Library specifications 2.0, Level 0, Revision 138 and TCG PC Client Specific
+TPM Platform Specifications 1.03 
+* SPI support for up to 33 MHz in FIFO and CRB protocol modes
+* Arm® SecurCore® SC300™ 32-bit RISC core
+* 1.8 V or 3.3 V supply voltage range 
+* 28-lead thin shrink small outline and 32-lead very thin fine pitch quad flat
+pack ECOPACK packages 
 
 Excluded chips
 
