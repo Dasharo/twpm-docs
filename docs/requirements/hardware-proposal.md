@@ -93,6 +93,6 @@ Excluded chips
 
 ## NXP EdgeLock(TM) SE050
 
-* Link to documentation: [NXP_edgelock_se050]<https://www.nxp.com/docs/en/white-paper/NXP_SE050_USE_CASE07_WP.pdf>
+* Link to documentation: [NXP_edgelock_se050](https://www.nxp.com/docs/en/white-paper/NXP_SE050_USE_CASE07_WP.pdf)
 * Reason to exclude:
   * I2C Bus
