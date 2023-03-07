@@ -5,7 +5,7 @@ which meet requirements gathered earlier.
 
 ## Microchip ATTPM20P
 
-* Link to documentation: [mcp_attpm20p]:<https://ww1.microchip.com/downloads/en/DeviceDoc/ATTPM20P-Trusted-Platform-Module-TPM-2.0-SPI-Interface-Summary-Data-Sheet-DS40002082A.pdf>
+* Link to documentation: [mcp_attpm20p](https://ww1.microchip.com/downloads/en/DeviceDoc/ATTPM20P-Trusted-Platform-Module-TPM-2.0-SPI-Interface-Summary-Data-Sheet-DS40002082A.pdf)
 * Compliant to the Trusted Computing Group (TCG) Trusted Platform Module (TPM)
 Version 2.0, r116 Trusted Platform Module Library
 * Single-Chip Turnkey Solution
