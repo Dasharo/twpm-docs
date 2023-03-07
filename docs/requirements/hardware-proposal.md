@@ -33,7 +33,7 @@ Generator (RNG), HMAC, AES, SHA, ECC, and RSA Engines
 
 ## Infineon CY8C6xxxx Series
 
-* Link to documentation: [Infineon PSoC6 Family]<https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/>
+* Link to documentation: [Infineon PSoC6 Family](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/)
 * Point of interest: PSoC 64-Secured MCU series
 * 32-bit Programmable System-on-Chip, integrates in one structure
 ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
@@ -42,11 +42,11 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
   * RAM 176-944KB
 * Interfaces I2C, SPI, UART, USB
 * Crypto Accelerator (DES/TDES, AES, SHA, CRC, TRNG, RSA/ECC)
-* Software ModusToolbox: [Modus Toolbox]<https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/>
+* Software ModusToolbox: [Modus Toolbox](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/)
 
 ## SparkFun QuickLogic Thing Plus - EOS S3
 
-* Link to documentation: <https://www.sparkfun.com/products/17273>
+* Link to documentation: [QuickLogic Thing Plus - EOS S3 Datasheet](https://www.sparkfun.com/products/17273)
 * eFPGA-enabled ARM  Cortex©-M4F MCU
 * Fully supported with Zephyr RTOS, FreeRTOS
 * Based fully on open source hardware
@@ -55,8 +55,8 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 
 ## STM32L476RG Nucleo board
 
-* Link to documentation: <https://www.st.com/en/evaluation-tools/nucleo-l476rg.html>
-* Link to datasheet: <https://www.st.com/resource/en/datasheet/stm32l476rg.pdf>
+* Link to documentation: [STM32L476RG Nucleo Web Page](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html)
+* Link to datasheet: [STM32L476RG Nucleo Datasheet](https://www.st.com/resource/en/datasheet/stm32l476rg.pdf)
 * Ultra low power ARM Cortex-M4 MCU with FPU
 * Power supply 1.71-3.6V
 * 80MHz system clock
@@ -68,7 +68,7 @@ slave modes".
 
 ## STM32G474 Nucleo board
 
-* Link to documentation: <https://www.st.com/en/evaluation-tools/nucleo-g474re.html>
+* Link to documentation: [STM32G474 Nucleo Board Documentation](https://www.st.com/en/evaluation-tools/nucleo-g474re.html)
 * ARM Cortex-M4 MCU
 * Power supply 1.71-3.6V
 * 170MHz system clock
@@ -79,7 +79,7 @@ slave modes".
 
 ## ST33TPHF20SPI
 
-* Link to documentation: <https://www.st.com/en/secure-mcus/st33tphf20spi.html>
+* Link to documentation: [ST33TPHF20SPI Documentation](https://www.st.com/en/secure-mcus/st33tphf20spi.html)
 * Compliant with Trusted Computing Group (TCG) Trusted Platform Module (TPM)
 Library specifications 2.0, Level 0, Revision 138 and TCG PC Client Specific
 TPM Platform Specifications 1.03
@@ -95,4 +95,4 @@ Excluded chips
 
 * Link to documentation: [NXP_edgelock_se050](https://www.nxp.com/docs/en/white-paper/NXP_SE050_USE_CASE07_WP.pdf)
 * Reason to exclude:
-  * I2C Bus
+  * Lack of SPI, LPC interface
