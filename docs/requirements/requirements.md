@@ -66,15 +66,6 @@ Source: [tcg_client_v13r27], Chapter 6.7.2
 division multiplexing between frames
 Source: [tcg_client_PTP_v1p5r14], chapter 6.6.1
 
-* CRB Interrupts
-  * Locality Change
-  * Establishment Clear
-  * TPM Ready
-  * Response Available
-  * Interrupt Enable
-  * Interrupt status
-Source: [tcg_client_PTP_v1p5r14], chapter 6.6.2
-
 ### Run-time requirements
 
 #### Command Duration
@@ -110,14 +101,12 @@ Source: [tcg_client_v13r27], chapter 6.6
 
 ## TCG PC Client Platform Physical Presence Interface Specification
 
-* link: <https://trustedcomputinggroup.org/wp-content/uploads/Physical-Presence-Interface_1-30_0-52.pdf>
+* link: [TCG PC Client Platform Physical Presence Interface Specification](https://trustedcomputinggroup.org/wp-content/uploads/Physical-Presence-Interface_1-30_0-52.pdf)
 * Version 1.30 Revision 0.0.52
 * ACPI Functions
 
 ## Bibliography
 
-* Trusted Computing Group, PC Client specific Platform, TPM Profile
-<https://trustedcomputinggroup.org/wp-content/uploads/PC-Client-Specific-Platform-TPM-Profile-for-TPM-2p0-v1p05p_r14_pub.pdf>
+* [Trusted Computing Group, PC Client specific Platform, TPM Profile](https://trustedcomputinggroup.org/wp-content/uploads/PC-Client-Specific-Platform-TPM-Profile-for-TPM-2p0-v1p05p_r14_pub.pdf)
 
-* Trusted Computing Group, collection of documents, abbreviations, acronyms
-<https://trustedcomputinggroup.org/work-groups/pc-client/>
+* [Trusted Computing Group, collection of documents, abbreviations, acronyms](https://trustedcomputinggroup.org/work-groups/pc-client/)
