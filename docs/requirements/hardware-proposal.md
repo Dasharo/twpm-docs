@@ -1,7 +1,7 @@
 # Hardware proposal
 
 Current document covers requirements in proposal real hardware solutions,
-which meet requirements gathered earlier.
+which meet requirements gathered earlier. [requirements.md](requirements.md)
 
 ## Microchip ATTPM20P
 
@@ -48,10 +48,10 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 
 * Link to documentation: [QuickLogic Thing Plus - EOS S3 Datasheet](https://www.sparkfun.com/products/17273)
 * eFPGA-enabled ARM  Cortex©-M4F MCU
-* Fully supported with Zephyr RTOS, FreeRTOS
 * Based fully on open source hardware
 * Software environment is round 100% open source
-(with support for FreeRTOS, Zephyr, nMingen, Docker, and SymbiFlow)
+(with support for FreeRTOS, Zephyr, nMingen and SymbiFlow)
+* Partial support for Zephyr, rather old.
 
 ## STM32L476RG Nucleo board
 

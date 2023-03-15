@@ -23,7 +23,7 @@ Legend:
 * TPM MAY support supply and I/O voltages of both 1.8V and 3.3V.
 * TPM MAY support other supply voltages.
 
-Source: [tcg_client_v13r27] l.1373-1375
+Source: [tcg_client_v13r27] lines 1373-1375
 
 #### Power supply max current
 
@@ -37,6 +37,7 @@ Source: [tcg_client_PTP_v1p5r14], Table 60, VDD row
 
 Default clock frequency for PC Client platforms is defined to be 24MHz.
 Clock frequency signal, minimum, is 10MHz.
+Every platform, with higher frequencies is recommended.
 
 Source: [tcg_client_v13r27] Chapter 6.4.1, line 1331
 
@@ -46,14 +47,13 @@ Source: [tcg_client_v13r27] Chapter 6.4.1, line 1331
 1. TPM MAY support supply and I/O voltages of both 1.8 and 3.3V.
 1. TPM MAY support other supply and I/O voltages.
 
-Source: [tcg_client_v13r27] l.1373-1375
+Source: [tcg_client_v13r27] lines 1373-1375
 
 #### Power sequence
 
 * TPM_Init (LRESET#/SPI_RST#) signal connected to platform CPU Reset signal
 * TPM main power pins (3V) must be connected such that the TPM is powered
   during ACPI states S0-S2 and may be powered in S3-S5
-* Optional implementation VBAT and/or 3VSB pins
 
 Source: [tcg_client_v13r27], Chapter 6.7.2
 
