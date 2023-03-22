@@ -3,16 +3,6 @@
 [tcg_client_v13r27]:<https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCClientTPMInterfaceSpecification_TIS__1-3_27_03212013.pdf>
 [tcg_client_PTP_v1p5r14]:<https://trustedcomputinggroup.org/wp-content/uploads/PC-Client-Specific-Platform-TPM-Profile-for-TPM-2p0-v1p05p_r14_pub.pdf>
 
-## Acronyms
-
-Legend:
-
-* PTP – Platform TPM Profile
-* CRB – Command Response Buffer interface
-* DDWG – Device Driver’s Writers Guide
-* Certification PP – Certification Protection Profile
-* TIS – TPM Interface Specification
-
 ## Requirements
 
 ### Power supply
