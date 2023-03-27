@@ -1,7 +1,7 @@
 # Hardware proposal
 
-Current document covers requirements in proposal real hardware solutions,
-which meet requirements gathered earlier. [requirements.md](requirements.md)
+Current document covers [requirements](requirements.md) in proposal real hardware solutions,
+which meet requirements gathered earlier.
 
 ## Microchip ATTPM20P
 
