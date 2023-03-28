@@ -47,11 +47,16 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 ## SparkFun QuickLogic Thing Plus - EOS S3
 
 * Link to documentation: [QuickLogic Thing Plus - EOS S3 Datasheet](https://www.sparkfun.com/products/17273)
-* eFPGA-enabled ARM  Cortex©-M4F MCU
+* eFPGA-enabled ARM Cortex©-M4F MCU
 * Based fully on open source hardware
-* Software environment is round 100% open source
-(with support for FreeRTOS, Zephyr, nMingen and SymbiFlow)
-* Partial support for Zephyr, rather old.
+* Supports open-source FPGA synthesis software - SymbiFlow (now known as F4PGA).
+  * Partial upstream support from F4PGA - lack of BlockRAM support can be a
+    serious obstacle for complex FPGA designs. This is not a problem for a
+    simple LPC controller.
+* Downstream support for [Zephyr](https://github.com/QuickLogic-Corp/zephyr/tree/eos-s3-support)
+  and FreeRTOS (as part of the [QORC SDK](https://github.com/QuickLogic-Corp/qorc-sdk))
+  * Based on an old version of Zephyr. Mainline Zephyr has only the most basic
+    support EOS S3 and it is not usable without porting additional drivers.
 
 ## STM32L476RG Nucleo board
 
@@ -74,9 +79,9 @@ slave modes".
 * 170MHz system clock
 * 4xSPI interfaces, 4-16 programmable bit frames
   * Max SPI clock frequency:
-    * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
-    * Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
-    * Slave mode Transmitter, with fulll duplex, 1.7V < Vdd < 3.6V: 27MHz
+    - Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
+    - Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
+    - Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
 * Mathematical hardware accelerators
   * CORDIC for trigonometric functions acceleration
   * FMAC: filter mathematical accelerator
