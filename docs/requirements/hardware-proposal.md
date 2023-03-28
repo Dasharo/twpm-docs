@@ -1,7 +1,7 @@
 # Hardware proposal
 
-Current document covers [requirements](requirements.md) in proposal real hardware solutions,
-which meet requirements gathered earlier.
+Current document covers [requirements](requirements.md) in proposal real hardware
+solutions, which meet requirements gathered earlier.
 
 ## Microchip ATTPM20P
 
@@ -73,6 +73,10 @@ slave modes".
 * Power supply 1.71-3.6V
 * 170MHz system clock
 * 4xSPI interfaces, 4-16 programmable bit frames
+  * Max SPI clock frequency:
+    * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
+    * Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
+    * Slave mode Transmitter, with fulll duplex, 1.7V < Vdd < 3.6V: 27MHz
 * Mathematical hardware accelerators
   * CORDIC for trigonometric functions acceleration
   * FMAC: filter mathematical accelerator

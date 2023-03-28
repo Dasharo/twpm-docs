@@ -21,23 +21,26 @@ Maximum power supply taken by TPM MUST be 250mA.
 
 Source: [tcg_client_PTP_v1p5r14], Table 60, VDD row
 
+### Memory requirements
+
+1. The TPM SHALL be capable of supporting a minimum of 100KB written
+to TPM non-volatile memory over the life of the TPM.
+2. The TPM shall support allocation of at least 68 indices, with a total
+minimum data size of 3834 Bytes(decimal).
+
+The TPM specification does not define the required lifetime or endurance
+of the NV memory.
+Source: [tcg_client_PTP_v1p5r14], Chapter 4.5.1
+
 ### SPI Interface
 
 #### Frequency
 
-Default clock frequency for PC Client platforms is defined to be 24MHz.
-Clock frequency signal, minimum, is 10MHz.
-Every platform, with higher frequencies is recommended.
+TPM must be capable of operating at frequencies 10-24MHz. However, the maximum
+frequency requirement may be raised in the future, so the target platform
+should have the SPI interface with capability to handle higher frequencies.
 
 Source: [tcg_client_v13r27] Chapter 6.4.1, line 1331
-
-### Voltage levels
-
-1. TPM MUST support a supply and I/O voltage of 1.8V or 3.3V
-1. TPM MAY support supply and I/O voltages of both 1.8 and 3.3V.
-1. TPM MAY support other supply and I/O voltages.
-
-Source: [tcg_client_v13r27] lines 1373-1375
 
 #### Power sequence
 

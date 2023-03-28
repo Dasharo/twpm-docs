@@ -35,6 +35,7 @@ nav:
   - 'Tutorials': tutorials/index.md
   - 'Development': development/index.md
   - 'Requirements': requirements/requirements.md
+  - 'Hardware proposal': requirements/hardware-proposal.md
   - 'Explanation': explanation/index.md
   - 'Changelog': changelog/index.md
   - 'Contributing': contributing/index.md
