@@ -3,34 +3,6 @@
 Current document covers [requirements](requirements.md) in proposal real hardware
 solutions, which meet requirements gathered earlier.
 
-## Microchip ATTPM20P
-
-* Link to documentation: [mcp_attpm20p](https://ww1.microchip.com/downloads/en/DeviceDoc/ATTPM20P-Trusted-Platform-Module-TPM-2.0-SPI-Interface-Summary-Data-Sheet-DS40002082A.pdf)
-* Compliant to the Trusted Computing Group (TCG) Trusted Platform Module (TPM)
-Version 2.0, r116 Trusted Platform Module Library
-* Single-Chip Turnkey Solution
-* Hardware Asymmetric Crypto Engine
-* Microchip ARM® M0+Microprocessor
-* Internal FLASH Storage for Keys
-* Serial Peripheral Interface (SPI) Protocol up to 36 MHz
-* Secure Hardware and Firmware Design and Device Layout
-* FIPS-140-2 Module Compliant Including the High-Quality Random Number
-Generator (RNG), HMAC, AES, SHA, ECC, and RSA Engines
-
-* Offered in Commercial (0°C to +70°C) Temperature Range
-  * Supply Voltage: 1.8V to 3.3V
-* Offered in Industrial (-40°C to +85°C) Temperature Range
-  * Supply Voltage: 3.3V
-* Cryptographic Support for:
-  * HMAC
-  * AES-128
-  * SHA-1
-  * SHA-256
-  * ECC BN_P256, ECCNIST_P256
-  * RSA 1024-2048 bit keys
-* 16 KB of User-Accessible Nonvolatile Memory
-* X.509 EK Certificates (Optional)
-
 ## Infineon CY8C6xxxx Series
 
 * Link to documentation: [Infineon PSoC6 Family](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/)
@@ -79,12 +51,51 @@ slave modes".
 * 170MHz system clock
 * 4xSPI interfaces, 4-16 programmable bit frames
   * Max SPI clock frequency:
-    - Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
-    - Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
-    - Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
+    * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
+    * Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
+    * Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
 * Mathematical hardware accelerators
   * CORDIC for trigonometric functions acceleration
   * FMAC: filter mathematical accelerator
+
+Excluded chips
+
+## NXP EdgeLock(TM) SE050
+
+* Link to documentation: [NXP_edgelock_se050](https://www.nxp.com/docs/en/white-paper/NXP_SE050_USE_CASE07_WP.pdf)
+* Reason to exclude:
+  * Lack of SPI, LPC interface
+
+## Microchip ATTPM20P
+
+* Link to documentation: [mcp_attpm20p](https://ww1.microchip.com/downloads/en/DeviceDoc/ATTPM20P-Trusted-Platform-Module-TPM-2.0-SPI-Interface-Summary-Data-Sheet-DS40002082A.pdf)
+* Compliant to the Trusted Computing Group (TCG) Trusted Platform Module (TPM)
+Version 2.0, r116 Trusted Platform Module Library
+* Single-Chip Turnkey Solution
+* Hardware Asymmetric Crypto Engine
+* Microchip ARM® M0+Microprocessor
+* Internal FLASH Storage for Keys
+* Serial Peripheral Interface (SPI) Protocol up to 36 MHz
+* Secure Hardware and Firmware Design and Device Layout
+* FIPS-140-2 Module Compliant Including the High-Quality Random Number
+Generator (RNG), HMAC, AES, SHA, ECC, and RSA Engines
+
+* Offered in Commercial (0°C to +70°C) Temperature Range
+  * Supply Voltage: 1.8V to 3.3V
+* Offered in Industrial (-40°C to +85°C) Temperature Range
+  * Supply Voltage: 3.3V
+* Cryptographic Support for:
+  * HMAC
+  * AES-128
+  * SHA-1
+  * SHA-256
+  * ECC BN_P256, ECCNIST_P256
+  * RSA 1024-2048 bit keys
+* 16 KB of User-Accessible Nonvolatile Memory
+* X.509 EK Certificates (Optional)
+
+* Reason to exclude:
+  * This chip does not meet the requirement of open-source hardware/software.
 
 ## ST33TPHF20SPI
 
@@ -97,11 +108,3 @@ TPM Platform Specifications 1.03
 * 1.8 V or 3.3 V supply voltage range
 * 28-lead thin shrink small outline and 32-lead very thin fine pitch quad flat
 pack ECOPACK packages
-
-Excluded chips
-
-## NXP EdgeLock(TM) SE050
-
-* Link to documentation: [NXP_edgelock_se050](https://www.nxp.com/docs/en/white-paper/NXP_SE050_USE_CASE07_WP.pdf)
-* Reason to exclude:
-  * Lack of SPI, LPC interface
