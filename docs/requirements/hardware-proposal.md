@@ -22,6 +22,10 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 
 * Link to documentation: [QuickLogic Thing Plus - EOS S3 Datasheet](https://www.sparkfun.com/products/17273)
 * eFPGA-enabled ARM Cortex©-M4F MCU
+  * Clock frequency up to 80 MHz
+  * Memory:
+    * up to 512kB SRAM
+    * 16 Mb NOR Flash
 * Based fully on open source hardware
 * Supports open-source FPGA synthesis software - SymbiFlow (now known as F4PGA).
   * Partial upstream support from F4PGA - lack of BlockRAM support can be a
@@ -39,7 +43,13 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 * Ultra low power ARM Cortex-M4 MCU with FPU
 * Power supply 1.71-3.6V
 * 80MHz system clock
+* 128kB RAM memory
+* 1 MB flash memory
 * 3xSPI interfaces
+  * SPI clock frequency:
+    * Slave mode receiver, 1.7 < VDD < 3.6V: 40MHz
+    * Full duplex/Slave mode transmit, 2.7 < VDD < 3.6V: 26MHz
+    * Full duplex/Slave mode transmit, 1.71 < VDD < 3.6V: 16MHz
 * Cryptography engine
 * SPI interface frequency, below citation from datasheet:
 "Three SPI interfaces allow communication (...) up to 24 Mbits/s
@@ -51,6 +61,8 @@ slave modes".
 * ARM Cortex-M4 MCU
 * Power supply 1.71-3.6V
 * 170MHz system clock
+* 512kB flash memory
+* 96 kB SRAM memory
 * 4xSPI interfaces, 4-16 programmable bit frames
   * Max SPI clock frequency:
     * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
