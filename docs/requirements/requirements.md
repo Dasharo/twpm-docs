@@ -46,7 +46,7 @@ Source: [tcg_client_v13r27] Chapter 6.4.1, line 1331
 
 * TPM_Init (LRESET#/SPI_RST#) signal connected to platform CPU Reset signal
 * TPM main power pins (3V) must be connected such that the TPM is powered
-  during ACPI states S0-S2 and may be powered in S3-S5
+during ACPI states S0-S2 and may be powered in S3-S5
 
 Source: [tcg_client_v13r27], Chapter 6.7.2
 

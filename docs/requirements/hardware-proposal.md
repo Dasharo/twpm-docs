@@ -12,8 +12,8 @@ solutions, which meet requirements gathered earlier.
 * 32-bit Programmable System-on-Chip, integrates in one structure
 ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 * Various variants of memories:
-    * flash 384-1856 KB
-    * RAM 176-944KB
+  * flash 384-1856 KB
+  * RAM 176-944KB
 * Interfaces I2C, SPI, UART, USB
 * Crypto Accelerator (DES/TDES, AES, SHA, CRC, TRNG, RSA/ECC)
 * Software ModusToolbox: [Modus Toolbox](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/)
@@ -24,12 +24,12 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 * eFPGA-enabled ARM Cortex©-M4F MCU
 * Based fully on open source hardware
 * Supports open-source FPGA synthesis software - SymbiFlow (now known as F4PGA).
-    * Partial upstream support from F4PGA - lack of BlockRAM support can be a
+  * Partial upstream support from F4PGA - lack of BlockRAM support can be a
     serious obstacle for complex FPGA designs. This is not a problem for a
     simple LPC controller.
 * Downstream support for [Zephyr](https://github.com/QuickLogic-Corp/zephyr/tree/eos-s3-support)
   and FreeRTOS (as part of the [QORC SDK](https://github.com/QuickLogic-Corp/qorc-sdk))
-    * Based on an old version of Zephyr. Mainline Zephyr has only the most basic
+  * Based on an old version of Zephyr. Mainline Zephyr has only the most basic
     support EOS S3 and it is not usable without porting additional drivers.
 
 ### STM32L476RG Nucleo board
@@ -52,10 +52,10 @@ slave modes".
 * Power supply 1.71-3.6V
 * 170MHz system clock
 * 4xSPI interfaces, 4-16 programmable bit frames
-    * Max SPI clock frequency:
-        * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
-        * Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
-        * Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
+  * Max SPI clock frequency:
+    * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
+    * Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
+    * Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
 * Mathematical hardware accelerators
   * CORDIC for trigonometric functions acceleration
   * FMAC: filter mathematical accelerator
@@ -83,21 +83,21 @@ Version 2.0, r116 Trusted Platform Module Library
 Generator (RNG), HMAC, AES, SHA, ECC, and RSA Engines
 
 * Offered in Commercial (0°C to +70°C) Temperature Range
-    * Supply Voltage: 1.8V to 3.3V
+  * Supply Voltage: 1.8V to 3.3V
 * Offered in Industrial (-40°C to +85°C) Temperature Range
-    * Supply Voltage: 3.3V
+  * Supply Voltage: 3.3V
 * Cryptographic Support for:
-    * HMAC
-    * AES-128
-    * SHA-1
-    * SHA-256
-    * ECC BN_P256, ECCNIST_P256
-    * RSA 1024-2048 bit keys
+  * HMAC
+  * AES-128
+  * SHA-1
+  * SHA-256
+  * ECC BN_P256, ECCNIST_P256
+  * RSA 1024-2048 bit keys
 * 16 KB of User-Accessible Nonvolatile Memory
 * X.509 EK Certificates (Optional)
 
 * Reason to exclude:
-    * This chip does not meet the requirement of open-source hardware/software.
+  * This chip does not meet the requirement of open-source hardware/software.
 
 ### ST33TPHF20SPI
 
