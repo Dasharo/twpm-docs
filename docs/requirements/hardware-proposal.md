@@ -24,9 +24,9 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 * eFPGA-enabled ARM Cortex©-M4F MCU
   * Clock frequency up to 80 MHz
   * Memory:
-    * up to 512kB SRAM
     * 16 Mb NOR Flash
-* Based fully on open source hardware
+    * up to 512kB RAM
+    * Based fully on open source hardware
 * Supports open-source FPGA synthesis software - SymbiFlow (now known as F4PGA).
   * Partial upstream support from F4PGA - lack of BlockRAM support can be a
     serious obstacle for complex FPGA designs. This is not a problem for a
@@ -55,7 +55,7 @@ ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 "Three SPI interfaces allow communication (...) up to 24 Mbits/s
 slave modes".
 
-### STM32G474 Nucleo board
+### STM32G474RE Nucleo board
 
 * Link to documentation: [STM32G474 Nucleo Board Documentation](https://www.st.com/en/evaluation-tools/nucleo-g474re.html)
 * ARM Cortex-M4 MCU
@@ -71,6 +71,15 @@ slave modes".
 * Mathematical hardware accelerators
   * CORDIC for trigonometric functions acceleration
   * FMAC: filter mathematical accelerator
+
+## Requirements summary
+
+|Property		|Infineon CY8C6xxxx	|Thing Plus - EOS S3	|STM32L476RG Nucleo	|STM32G474RE Nucleo	|
+|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|
+|Memory 		|			|			|			|			|
+|Clock Frequency 	|			|			|			|			|
+|SPI Frequency 		|			|			|			|			|
+|Software support	|			|			|			|			|
 
 ## Excluded chips
 
