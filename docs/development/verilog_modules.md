@@ -2,7 +2,8 @@
 
 Below is description of FPGA modules used by TwPM for EOS-S3. The design may
 change as the project progresses, state described here is valid for revision
-**TBD** of top module.
+[84511f8e0e66](https://github.com/Dasharo/TwPM_toplevel/tree/84511f8e0e6659eb1efbf77b91cb033ed20a1bb8)
+of top module.
 
 ## Top level
 
