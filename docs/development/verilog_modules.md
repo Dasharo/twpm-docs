@@ -1,8 +1,8 @@
 # Verilog modules
 
-Below is description of FPGA modules used by TwPM. The design may change as the
-project progresses, state described here is valid for revision **TBD** of top
-module.
+Below is description of FPGA modules used by TwPM for EOS-S3. The design may
+change as the project progresses, state described here is valid for revision
+**TBD** of top module.
 
 ## Top level
 
@@ -18,6 +18,32 @@ usable board yet.
 
 After other modules are added and interconnected, this section will show mapping
 of interface signals (LPC or SPI) to board's IO pins.
+
+Current FPGA utilization:
+
+```text
+Device Utilization: 0.14 (target 1.00)
+	Physical Tile TL-LOGIC:
+	Block Utilization: 0.16 Logical Block: PB-LOGIC
+	Physical Tile TL-RAM:
+	Block Utilization: 0.00 Logical Block: PB-RAM
+	Physical Tile TL-MULT:
+	Block Utilization: 0.00 Logical Block: PB-MULT
+	Physical Tile TL-BIDIR:
+	Block Utilization: 0.94 Logical Block: PB-BIDIR
+	Physical Tile TL-CLOCK:
+	Block Utilization: 0.00 Logical Block: PB-CLOCK
+	Physical Tile TL-SDIOMUX:
+	Block Utilization: 0.79 Logical Block: PB-SDIOMUX
+	Physical Tile TL-GMUX:
+	Block Utilization: 0.20 Logical Block: PB-GMUX
+	Physical Tile TL-ASSP:
+	Block Utilization: 1.00 Logical Block: PB-ASSP
+	Physical Tile TL-SYN_VCC:
+	Block Utilization: 1.00 Logical Block: PB-SYN_VCC
+	Physical Tile TL-SYN_GND:
+	Block Utilization: 1.00 Logical Block: PB-SYN_GND
+```
 
 ## LPC module
 
