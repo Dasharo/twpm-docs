@@ -2,7 +2,7 @@
 
 [tcg_client_v13r27]:<https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCClientTPMInterfaceSpecification_TIS__1-3_27_03212013.pdf>
 [tcg_client_PTP_v1p5r14]:<https://trustedcomputinggroup.org/wp-content/uploads/PC-Client-Specific-Platform-TPM-Profile-for-TPM-2p0-v1p05p_r14_pub.pdf>
-
+[intel_600_series_pch_ds_1of2]:<https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/intel-600-series-chipset-family-platform-controller-hub-pch-datasheet-volume/004/spi0-support-for-tpm/>
 ## Requirements
 
 ### Power supply
@@ -41,6 +41,24 @@ frequency requirement may be raised in the future, so the target platform
 should have the SPI interface with capability to handle higher frequencies.
 
 Source: [tcg_client_v13r27] Chapter 6.4.1, line 1331
+
+#### Frequency supported by PCH
+
+The PCH’s SPI0 flash controller supports a discrete TPM on the platform
+via its dedicated SPI0_CS2# signal. The platform must have no more than 1 TPM.
+
+SPI0 controller supports accesses to SPI0 TPM at approximately 17 MHz,
+33 MHz and 48 MHz depending on the PCH soft strap. 20 MHz is the reset default,
+a valid PCH soft strap setting overrides the requirement for the 20 MHz. 
+SPI0 TPM device must support a clock of 20 MHz, and thus should handle
+15-20 MHz. It may but is not required to support a frequency
+greater than 20 MHz.
+
+TPM requires the support for the interrupt routing. However, the TPM’s
+interrupt pin is routed to the PCH's interrupt configurable GPIO pin.
+Thus, TPM interrupt is completely independent from the SPI0 controller.
+
+Source: [intel_600_series_pch_ds_1of2]
 
 #### Power sequence
 
