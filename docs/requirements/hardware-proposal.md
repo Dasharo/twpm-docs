@@ -77,12 +77,12 @@ slave modes".
 
 |Property		|Infineon CY8C6xxxx	|Thing Plus - EOS S3	|STM32L476RG Nucleo	|STM32G474RE Nucleo	|
 |:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|
-|Supply voltage		|1.7-5.5V		|yes			|yes			|yes			|
-|NV Memory 		|384-1856 KiB		|yes			|yes			|yes			|
-|RAM Memory 		|176-944KiB		|			|			|			|
-|Clock Frequency 	|2 cores,M4:150, M0:100	|			|			|			|
-|SPI Frequency 		|(no data)		|			|			|			|
-|OSSoftware support	|			|			|			|			|
+|Supply voltage	[V]	|1.7-5.5V		|1.62-3.63		|1.71-3.6		|1.71-3.6		|
+|NV Memory 		|384-1856 KiB		|16 Mb			|1MiB			|512KiB			|
+|RAM Memory 		|176-944KiB		|512KiB			|128KiB			|96KiB			|
+|Clock Frequency [MHz]	|2 cores,M4:150, M0:100	|80			|80			|170			|
+|SPI Frequency 		|(no data)		|(no data)		|26			|41			|
+|OSSoftware support	|			|			|yes			|yes			|
 
 ## Excluded chips
 
