@@ -122,11 +122,13 @@ solutions, which meet requirements gathered earlier.
 
 * The goal for this task is to collect and summarize, in convenient form,
 functionalities of the boards available in market, with interesting
-functionalities (communication, math/crypto accelerators)
+functionalities (communication, math/crypto accelerators). This document
+should aim to decide, which solution best fits the requirements.
 * if feature is present/useful for our solution, then factor is +1
 * if feature is not present/has limited functionality factor is 0
   * If feature is hard to implement, score is -1
-* if this is 
+* if the property could add extra feature (e.g. ease of implementation,
+add flexibility in further extension of the project) then multiply weight by 2. 
 
 |Property			|Reference val.	|Infineon CY8C6xxxx		|Thing Plus - EOS S3	|STM32L476RG Nucleo	|STM32G474RE Nucleo	|
 |:------------------------------|:-------------:|:------------------------------|:----------------------|:----------------------|:----------------------|
