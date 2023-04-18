@@ -8,13 +8,14 @@ solutions, which meet requirements gathered earlier.
 ### Infineon CY8C6xxxx Series
 
 * Link to documentation: [Infineon PSoC6 Family](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/)
-* Point of interest: PSoC 64-Secured MCU series
+* PSoC 64-Secured MCU series
 * 32-bit Programmable System-on-Chip, integrates in one structure
 ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
 * Various variants of memories:
   * flash 384-1856 KB
   * RAM 176-944KB
 * Interfaces I2C, SPI, UART, USB
+* Voltage range: 1.71 to 5.5V
 * Crypto Accelerator (DES/TDES, AES, SHA, CRC, TRNG, RSA/ECC)
 * Software ModusToolbox: [Modus Toolbox](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/)
 
@@ -76,10 +77,12 @@ slave modes".
 
 |Property		|Infineon CY8C6xxxx	|Thing Plus - EOS S3	|STM32L476RG Nucleo	|STM32G474RE Nucleo	|
 |:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|
-|Memory 		|			|			|			|			|
-|Clock Frequency 	|			|			|			|			|
-|SPI Frequency 		|			|			|			|			|
-|Software support	|			|			|			|			|
+|Supply voltage		|1.7-5.5V		|yes			|yes			|yes			|
+|NV Memory 		|384-1856 KiB		|yes			|yes			|yes			|
+|RAM Memory 		|176-944KiB		|			|			|			|
+|Clock Frequency 	|2 cores,M4:150, M0:100	|			|			|			|
+|SPI Frequency 		|(no data)		|			|			|			|
+|OSSoftware support	|			|			|			|			|
 
 ## Excluded chips
 
@@ -131,3 +134,6 @@ TPM Platform Specifications 1.03
 * 1.8 V or 3.3 V supply voltage range
 * 28-lead thin shrink small outline and 32-lead very thin fine pitch quad flat
 pack ECOPACK packages
+
+* Reason to exclude:
+  * This chip does note meet the requirement of open-source hardware/software

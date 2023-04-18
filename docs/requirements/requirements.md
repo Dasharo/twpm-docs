@@ -2,6 +2,7 @@
 
 [tcg_client_v13r27]:<https://trustedcomputinggroup.org/wp-content/uploads/TCG_PCClientTPMInterfaceSpecification_TIS__1-3_27_03212013.pdf>
 [tcg_client_PTP_v1p5r14]:<https://trustedcomputinggroup.org/wp-content/uploads/PC-Client-Specific-Platform-TPM-Profile-for-TPM-2p0-v1p05p_r14_pub.pdf>
+[intel_300_series_pch_ds_1of2]:<https://www.intel.com/content/www/us/en/products/docs/chipsets/300-series-chipset-on-package-pch-datasheet-vol-1.html>
 [intel_600_series_pch_ds_1of2]:<https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/intel-600-series-chipset-family-platform-controller-hub-pch-datasheet-volume/004/spi0-support-for-tpm/>
 ## Requirements
 
@@ -32,6 +33,10 @@ The TPM specification does not define the required lifetime or endurance
 of the NV memory.
 Source: [tcg_client_PTP_v1p5r14], Chapter 4.5.1
 
+Additional memory requirements, for program and data:
+* at least 2 block, 16KiB each for NV data (plus application)
+* at least 1 block, 16KiB RAM (plus RAM used by application)
+
 ### SPI Interface
 
 #### Frequency
@@ -44,6 +49,9 @@ Source: [tcg_client_v13r27] Chapter 6.4.1, line 1331
 
 #### Frequency supported by PCH
 
+This requirement is crucial from the point of view of the environment,
+which the TwPM device will work.
+
 The PCH’s SPI0 flash controller supports a discrete TPM on the platform
 via its dedicated SPI0_CS2# signal. The platform must have no more than 1 TPM.
 
@@ -54,11 +62,7 @@ SPI0 TPM device must support a clock of 20 MHz, and thus should handle
 15-20 MHz. It may but is not required to support a frequency
 greater than 20 MHz.
 
-TPM requires the support for the interrupt routing. However, the TPM’s
-interrupt pin is routed to the PCH's interrupt configurable GPIO pin.
-Thus, TPM interrupt is completely independent from the SPI0 controller.
-
-Source: [intel_600_series_pch_ds_1of2]
+Source: [intel_300_series_pch_ds_1of2], [intel_600_series_pch_ds_1of2]
 
 #### Power sequence
 
