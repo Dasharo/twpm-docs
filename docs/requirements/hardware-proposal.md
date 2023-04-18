@@ -7,16 +7,28 @@ solutions, which meet requirements gathered earlier.
 
 ### Infineon CY8C6xxxx Series
 
-* Link to documentation: [Infineon PSoC6 Family](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/)
-* PSoC 64-Secured MCU series
-* 32-bit Programmable System-on-Chip, integrates in one structure
-ARM Cortex M4 (150MHz) with Cortex M0+, 100MHz
-* Various variants of memories:
-  * flash 384-1856 KB
-  * RAM 176-944KB
+* [Documentation](Infineon PSoC6 Family)(https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/)
+* CPU
+  * SoC integrates 2 CPUs as part of it's structure:
+    * ARM Cortex M4 (150MHz) 
+    * ARM Cortex M0+ (100MHz)
+  * Flash: 384-1856 KB
+  * RAM: 176-944KB
 * Interfaces I2C, SPI, UART, USB
 * Voltage range: 1.71 to 5.5V
+
+#### SPI Slave Frequency
+
+TODO: Implement text
+
+???
+
+#### Cryptographic accelerators
+
 * Crypto Accelerator (DES/TDES, AES, SHA, CRC, TRNG, RSA/ECC)
+
+#### Software tools
+
 * Software ModusToolbox: [Modus Toolbox](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/)
 
 ### SparkFun QuickLogic Thing Plus - EOS S3
@@ -75,14 +87,16 @@ slave modes".
 
 ## Requirements summary
 
-|Property		|Infineon CY8C6xxxx	|Thing Plus - EOS S3	|STM32L476RG Nucleo	|STM32G474RE Nucleo	|
-|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|
-|Supply voltage	[V]	|1.7-5.5V		|1.62-3.63		|1.71-3.6		|1.71-3.6		|
-|NV Memory 		|384-1856 KiB		|16 Mb			|1MiB			|512KiB			|
-|RAM Memory 		|176-944KiB		|512KiB			|128KiB			|96KiB			|
-|Clock Frequency [MHz]	|2 cores,M4:150, M0:100	|80			|80			|170			|
-|SPI Frequency 		|(no data)		|(no data)		|26			|41			|
-|OSSoftware support	|			|			|yes			|yes			|
+|Property			|Reference val.	|Infineon CY8C6xxxx		|Thing Plus - EOS S3	|STM32L476RG Nucleo	|STM32G474RE Nucleo	|
+|------------------------------:|---------------|:------------------------------|:---------------------:|:---------------------:|:---------------------:|
+|Supply voltage			|1.8-3.3[V]	|1.7-5.5V			|1.62-3.63		|1.71-3.6		|1.71-3.6		|
+|Current  			|<250[mA]	|				|			|			|			|
+|NV Memory 			|> 2 * 16[KiB]	|384-1856 KiB			|16 Mb			|1MiB			|512KiB			|
+|RAM Memory 			|> 16[KiB]	|176-944KiB			|512KiB			|128KiB			|96KiB			|
+|Clock Frequency 		|[MHz]		|2 cores, M4:150, M0:100	|80			|80			|170			|
+|SPI Frequency 			|[MHz]		|(no data)			|(no data)		|26			|41			|
+|OSSoftware support		|		|				|			|yes			|yes			|
+|Final rating			|		|				|			|			|			|
 
 ## Excluded chips
 
