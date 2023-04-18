@@ -33,17 +33,28 @@ TODO: Implement text
 
 ### SparkFun QuickLogic Thing Plus - EOS S3
 
-* Link to documentation: [QuickLogic Thing Plus - EOS S3 Datasheet](https://www.sparkfun.com/products/17273)
-* eFPGA-enabled ARM Cortex©-M4F MCU
-  * Clock frequency up to 80 MHz
-  * Memory:
-    * 16 Mb NOR Flash
-    * up to 512kB RAM
-    * Based fully on open source hardware
+* [Documentation](QuickLogic Thing Plus - EOS S3 Datasheet)(https://www.sparkfun.com/products/17273)
+* CPU
+  * eFPGA-enabled ARM Cortex©-M4F MCU
+* Flash: 16 Mb NOR
+* RAM: up to 512KiB
+* Voltage range: 1.7 to 3.6V
+
+#### SPI Slave Frequency
+
+* FPGA based solution
+
+#### Cryptographic accelerators
+
+* FPGA based solution
+
+#### Software tools
+
 * Supports open-source FPGA synthesis software - SymbiFlow (now known as F4PGA).
   * Partial upstream support from F4PGA - lack of BlockRAM support can be a
     serious obstacle for complex FPGA designs. This is not a problem for a
     simple LPC controller.
+
 * Downstream support for [Zephyr](https://github.com/QuickLogic-Corp/zephyr/tree/eos-s3-support)
   and FreeRTOS (as part of the [QORC SDK](https://github.com/QuickLogic-Corp/qorc-sdk))
   * Based on an old version of Zephyr. Mainline Zephyr has only the most basic
@@ -51,39 +62,59 @@ TODO: Implement text
 
 ### STM32L476RG Nucleo board
 
-* Link to documentation: [STM32L476RG Nucleo Web Page](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html)
-* Link to datasheet: [STM32L476RG Nucleo Datasheet](https://www.st.com/resource/en/datasheet/stm32l476rg.pdf)
-* Ultra low power ARM Cortex-M4 MCU with FPU
-* Power supply 1.71-3.6V
-* 80MHz system clock
-* 128kB RAM memory
-* 1 MB flash memory
-* 3xSPI interfaces
-  * SPI clock frequency:
-    * Slave mode receiver, 1.7 < VDD < 3.6V: 40MHz
-    * Full duplex/Slave mode transmit, 2.7 < VDD < 3.6V: 26MHz
-    * Full duplex/Slave mode transmit, 1.71 < VDD < 3.6V: 16MHz
+* [Documentation](STM32L476RG Nucleo Web Page)(https://www.st.com/en/evaluation-tools/nucleo-l476rg.html)
+* [Documentation](STM32L476RG Nucleo Datasheet)(https://www.st.com/resource/en/datasheet/stm32l476rg.pdf)
+* CPU
+  * ARM Cortex-M4 MCU with FPU(80MHz) with low power
+* Flash: 1MiB
+* RAM: 128KiB
+* Interfaces I2C, SPI, UART, USB
+* Voltage range: 1.71 to 5.5V
+
+#### SPI Slave Frequency
+
+* SPI clock frequency:
+  * Slave mode receiver, 1.7 < VDD < 3.6V: 40MHz
+  * Full duplex/Slave mode transmit, 2.7 < VDD < 3.6V: 26MHz
+  * Full duplex/Slave mode transmit, 1.71 < VDD < 3.6V: 16MHz
+
+#### Cryptographic accelerators
+
 * Cryptography engine
-* SPI interface frequency, below citation from datasheet:
-"Three SPI interfaces allow communication (...) up to 24 Mbits/s
-slave modes".
+
+#### Software tools
+
+* RTOS Support (e.g. Zephyr)
+* STM32CubeIDE [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 
 ### STM32G474RE Nucleo board
 
-* Link to documentation: [STM32G474 Nucleo Board Documentation](https://www.st.com/en/evaluation-tools/nucleo-g474re.html)
-* ARM Cortex-M4 MCU
-* Power supply 1.71-3.6V
-* 170MHz system clock
-* 512kB flash memory
-* 96 kB SRAM memory
-* 4xSPI interfaces, 4-16 programmable bit frames
-  * Max SPI clock frequency:
-    * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
-    * Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
-    * Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
+* [Documentation](STM32G474 Nucleo Board Documentation)(https://www.st.com/en/evaluation-tools/nucleo-g474re.html)
+* CPU
+  * ARM Cortex-M4 MCU (170MHz)
+
+* Flash: 512KiB
+* RAM: 96KiB
+* Interfaces I2C, SPI, UART, USB
+* Voltage range: 1.71 to 5.5V
+
+#### SPI Slave Frequency
+
+* Max SPI clock frequency:
+  * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
+  * Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
+  * Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
+
+#### Cryptographic accelerators
+
 * Mathematical hardware accelerators
   * CORDIC for trigonometric functions acceleration
   * FMAC: filter mathematical accelerator
+
+#### Software tools
+
+* RTOS Support (e.g. Zephyr)
+* STM32CubeIDE [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 
 ## Requirements summary
 
