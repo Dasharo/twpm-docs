@@ -128,6 +128,9 @@ quickly test modified code without having to build everything from scratch.
 
 Note that if you already have built whole project earlier, `make` should be able
 to detect which components have changed and rebuild only those. In that case you
+<!-- when "-" is in path, the link in mkdocs is generated with a single
+character, not three -->
+<!-- markdownlint-disable-next-line MD051 -->
 can follow [the easy path](#building-easy).
 
 ### MCU
