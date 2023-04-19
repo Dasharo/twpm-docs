@@ -179,14 +179,15 @@ MD041:
 # MD042/no-empty-links - No empty links
 MD042: true
 
+# TODO: also ignore links and repository names?
 # MD044/proper-names - Proper names should have the correct capitalization
 MD044:
   # List of proper names
-  names: [ "TwPM", "Dasharo" ]
+  names: ["TwPM", "Dasharo", "twpm-sdk"]
   # Include code blocks
   code_blocks: false
   # Include HTML elements
-  html_elements: true
+  html_elements: false
 
 # MD046/code-block-style - Code block style
 # MD046: Rule temporarily disabled, it prevents new tabs from being formatted

@@ -32,8 +32,10 @@ plugins:
   - search
 nav:
   - 'Intro': index.md
-  - 'Tutorials': tutorials/index.md
-  - 'Development': development/index.md
+  - 'Tutorials':
+      - 'Building TwPM': tutorials/building.md
+  - 'Development':
+      - 'Verilog modules': development/verilog_modules.md
   - 'Explanation': explanation/index.md
   - 'Changelog': changelog/index.md
   - 'Contributing': contributing/index.md
