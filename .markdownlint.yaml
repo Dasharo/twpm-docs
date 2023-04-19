@@ -109,7 +109,7 @@ MD025:
 
 # MD026/no-trailing-punctuation - Trailing punctuation in heading
 MD026:
-  # Punctuation characters
+  # Punctuation characters not allowed at end of headings
   punctuation: ".,;:!。，；：！"
 
 # MD027/no-multiple-space-blockquote - Multiple spaces after blockquote symbol
@@ -138,6 +138,9 @@ MD030:
 MD031:
   # Include list items
   list_items: true
+
+# MD032/blanks-around-lists - Lists should be surrounded by blank lines
+MD032: true
 
 # MD033/no-inline-html - Inline HTML
 # MD033:before uncomment, update docs/dasharo-tools-suite/documentation.md:18:1
