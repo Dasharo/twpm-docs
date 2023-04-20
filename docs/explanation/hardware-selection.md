@@ -1,4 +1,4 @@
-# Hardware proposal
+# Hardware selection
 
 ## Intro
 

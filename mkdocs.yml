@@ -45,7 +45,7 @@ nav:
   - Explanation:
       - explanation/index.md
       - Hardware requirements: explanation/hardware-requirements.md
-      - Hardware proposal: explanation/hardware-proposal.md
+      - Hardware selection: explanation/hardware-selection.md
       - Compliance: explanation/compliance.md
   - Changelog:
       - changelog/index.md
