@@ -1,197 +1,198 @@
 # Hardware proposal
 
-Current document covers [requirements](hardware-requirements.md) in proposal real hardware
-solutions, which meet requirements gathered earlier.
+## Intro
 
-## Considered boards
+The goal of this document is to select a target hardware (development board),
+which will be used for the development and prototyping of the TwPM. We have
+pre-selected some of the boards based on our best knowledge, and some
+suggestions from the community (e.g. during and after our
+[presentation at FOSDEM 2023](https://fosdem.org/2023/schedule/event/twpm_osf_tpm/)).
 
-### Infineon CY8C6xxxx Series
+We aim to evaluate whether the pre-selected boards can meet the [identified
+hardware requirements](hardware-requirements.md).
 
-* [Infineon PSoC6 Family - web page](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/)
-* CPU
-  * SoC integrates 2 CPUs as part of it's structure:
-    * ARM Cortex M4 (150MHz) 
-    * ARM Cortex M0+ (100MHz)
+## Infineon CY8C6xxxx Series
+
+### Basic information
+
+* SoC
+    - SoC integrates 2 CPUs as part of its structure:
+        * ARM Cortex M4 (150MHz)
+        * ARM Cortex M0+ (100MHz)
 * Memory:
-  * Flash: 384-1856 KB
-  * RAM: 176-944KB
+    - Flash: 384-1856 KB
+    - RAM: 176-944KB
 * Interfaces I2C, SPI, UART, USB
 * Voltage range: 1.71 to 5.5V
 
-#### SPI Slave Frequency
+### SPI slave frequency
 
-(no information)
+* **No information**
 
-#### Cryptographic accelerators
+### Cryptographic accelerators
 
-* Crypto Accelerator (DES/TDES, AES, SHA, CRC, TRNG, RSA/ECC)
+* DES/TDES, AES, SHA, CRC, TRNG, RSA/ECC
 
-#### Software tools
+### Tools and documentation
 
-* Software ModusToolbox: [Modus Toolbox](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/)
+* [Modus Toolbox](https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/)
+* [SoC datasheet](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/)
 
-### SparkFun QuickLogic Thing Plus - EOS S3
+## SparkFun QuickLogic Thing Plus - EOS S3
 
-* [QuickLogic Thing Plus - EOS S3 Datasheet](https://www.sparkfun.com/products/17273)
-* CPU
-  * eFPGA-enabled ARM Cortex©-M4F MCU
+* SoC
+    - eFPGA-enabled ARM Cortex©-M4F MCU
 * Memory
-  * Flash: 16 Mb NOR
-  * RAM: up to 512KiB
+    - Flash: 2 MB NOR
+    - RAM: up to 512 KB
 * Interfaces: FPGA-based solution
 * Voltage range: 1.7 to 3.6V
 
-#### SPI Slave Frequency
+### SPI slave frequency
 
-* FPGA-based solution
+* Up to 20 MHz in slave mode
 
-#### Cryptographic accelerators
+### Cryptographic accelerators
 
-* FPGA-based solution
+* Can be implemented in FPGA
 
-#### Software tools
+### Tools and documentation
 
-* Supports open-source FPGA synthesis software - SymbiFlow (now known as F4PGA).
-  * Partial upstream support from F4PGA - lack of BlockRAM support can be a
-    serious obstacle for complex FPGA designs. This is not a problem for a
-    simple LPC controller.
-
+* Supports open-source FPGA synthesis software - SymbiFlow (now known as
+  F4PGA).
+    - Partial upstream support from F4PGA
+    - [lack of BlockRAM support](https://github.com/YosysHQ/apicula/pull/45/files)
+      can be a serious obstacle for complex FPGA designs, but should not be a
+      problem for a simple LPC controller
 * Downstream support for [Zephyr](https://github.com/QuickLogic-Corp/zephyr/tree/eos-s3-support)
   and FreeRTOS (as part of the [QORC SDK](https://github.com/QuickLogic-Corp/qorc-sdk))
-  * Based on an old version of Zephyr. Mainline Zephyr has only the most basic
-    support EOS S3 and it is not usable without porting additional drivers.
+    - Based on an old version of Zephyr
+    - [Mainline Zephyr](https://github.com/zephyrproject-rtos/zephyr/tree/main/boards/arm/quick_feather)
+      supports the most basic peripherals, and may be generally not usable without
+      porting additional drivers
+* [Board webpage](https://www.quicklogic.com/products/eos-s3/sparkfun-thing-plus/)
+* [SoC datasheet](https://www.quicklogic.com/wp-content/uploads/2020/06/QL-EOS-S3-Ultra-Low-Power-multicore-MCU-Datasheet.pdf)
 
-### STM32L476RG Nucleo board
+## STM32L476RG Nucleo board
 
-* [STM32L476RG Nucleo Web Page](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html)
-* [STM32L476RG Nucleo Datasheet](https://www.st.com/resource/en/datasheet/stm32l476rg.pdf)
 * CPU
-  * ARM Cortex-M4 MCU with FPU(80MHz) with low power
+    - ARM Cortex-M4 MCU with FPU (80MHz) with low power
 * Memory
-  * Flash: 1MiB
-  * RAM: 128KiB
+    - Flash: 1 MB
+    - RAM: 128 KB
 * Interfaces I2C, SPI, UART, USB
 * Voltage range: 1.71 to 5.5V
 
-#### SPI Slave Frequency
+### SPI slave frequency
 
 * SPI clock frequency:
-  * Slave mode receiver, 1.7 < VDD < 3.6V: 40MHz
-  * Full duplex/Slave mode transmit, 2.7 < VDD < 3.6V: 26MHz
-  * Full duplex/Slave mode transmit, 1.71 < VDD < 3.6V: 16MHz
+    - Slave mode receiver, 1.7 < VDD < 3.6V: 40MHz
+    - Full duplex/Slave mode transmit, 2.7 < VDD < 3.6V: 26MHz
+    - Full duplex/Slave mode transmit, 1.71 < VDD < 3.6V: 16MHz
 
-#### Cryptographic accelerators
+### Cryptographic accelerators
 
-* Cryptography engine
+* True RNG
+* Some (but not the one installed on the Nucleo board by default) STM32 chips
+  from this family offer also AES-128, AES-256 hardware encryption
 
-#### Software tools
+### Tools and documentation
 
-* RTOS Support (e.g. Zephyr)
-* STM32CubeIDE [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+* Good open-source RTOS Support (e.g. [Zephyr](https://docs.zephyrproject.org/3.2.0/boards/arm/nucleo_l476rg/doc/index.html))
+* [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+* [STM32L476RG Nucleo Web Page](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html)
+* [STM32L476RG Nucleo Datasheet](https://www.st.com/resource/en/datasheet/stm32l476rg.pdf)
 
-### STM32G474RE Nucleo board
+## STM32G474RE Nucleo board
 
-* [STM32G474 Nucleo Board Documentation](https://www.st.com/en/evaluation-tools/nucleo-g474re.html)
 * CPU
-  * ARM Cortex-M4 MCU (170MHz)
+    - ARM Cortex-M4 MCU (170MHz)
 * Memory:
-  * Flash: 512KiB
-  * RAM: 96KiB
+    - Flash: 512 KB
+    - RAM: 128 KB (32 KB is used for parity checks, so only 96 KB is available
+      for program usage)
 * Interfaces I2C, SPI, UART, USB
 * Voltage range: 1.71 to 5.5V
 
-#### SPI Slave Frequency
+### SPI slave frequency
 
 * Max SPI clock frequency:
-  * Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
-  * Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
-  * Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
+    - Slave, receiver mode,  1.71V < Vdd < 3.6V: 50MHz
+    - Slave mode transmitter, with full duplex, 2.7V < Vdd < 3.6V: 41MHz
+    - Slave mode Transmitter, with full duplex, 1.7V < Vdd < 3.6V: 27MHz
 
-#### Cryptographic accelerators
+### Cryptographic accelerators
 
+* True RNG
+* Some (but not the one installed on the Nucleo board by default) STM32 chips
+  from this family offer also AES-128, AES-256 hardware encryption
 * Mathematical hardware accelerators
-  * CORDIC for trigonometric functions acceleration
-  * FMAC: filter mathematical accelerator
+    - CORDIC for trigonometric functions acceleration
+    - FMAC: filter mathematical accelerator
+    - these are not that useful for the TwPM use-case
 
-#### Software tools
+### Tools and documentation
 
-* RTOS Support (e.g. Zephyr)
-* STM32CubeIDE [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+* Good open-source RTOS Support (e.g. [Zephyr](https://docs.zephyrproject.org/2.7.4/boards/arm/nucleo_g474re/doc/index.html)
+* [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
+* [STM32G474 Nucleo Web Page](https://www.st.com/en/evaluation-tools/nucleo-g474re.html)
+* [STM32L476RG Nucleo Datasheet](https://www.st.com/resource/en/datasheet/stm32g474re.pdf)
 
-## Requirements summary
+## Scoring methodology
 
-* The goal for this task is to collect and summarize, in convenient form,
-functionalities of the boards available in market, with interesting
-functionalities (communication, math/crypto accelerators). This document
-should aim to decide, which solution best fits the requirements.
-* if feature is present/useful for our solution, then factor is +1
-* if feature is not present/has limited functionality factor is 0
-  * If feature is hard to implement, score is -1
-* if the property could add extra feature (e.g. ease of implementation,
-add flexibility in further extension of the project) then multiply weight by 2. 
+* Following methodology is applied to assign grades in the below table:
+    - if the desired value is met, then `+1`,
+    - if the desired value is not met, then `0`,
+    - if the desired value is not present and would be difficult to workaround (or
+      there is no data about the given property), then `-1`,
+    - if this is a critical requirement, then multiply the result by `2`
+      (critical requirements are marked **in bold** in the table below).
 
-|Property			|Reference val.	|Infineon CY8C6xxxx		|Thing Plus - EOS S3	|STM32L476RG Nucleo	|STM32G474RE Nucleo	|
-|:------------------------------|:-------------:|:------------------------------|:----------------------|:----------------------|:----------------------|
-|Supply voltage			|1.8-3.3[V]	|1.7-5.5V			|1.62-3.63		|1.71-3.6		|1.71-3.6		|
-|Current  			|<250[mA]	|				|			|			|			|
-|NV Memory 			|> 2 * 16[KiB]	|384-1856 KiB		(+1)	|16 Mb		(+2)	|1MiB		(+1)	|512KiB		(+1)	|
-|RAM Memory 			|> 16[KiB]	|176-944KiB		(+1)	|512KiB		(+2)	|128KiB		(+1)	|96KiB		(+1)	|
-|Clock Frequency 		|[MHz]		|2 cores, M4:150, M0:100  (+2)	|80		(+1)	|80		(+1)	|170		(+2)	|
-|SPI Frequency 			|[MHz]		|(no data)		(0)	|(no data)	(0)	|26		(+1)	|41		(+2)	|
-|OSSoftware support		|		|(no data)		(0)	|FPGA-based	(+1)	|yes		(+1)	|yes		(+2)	|
-|Math/crypto funcions accel.	|		|				|FPGA-based	(+1)	|yes		(+1)	|yes		(+2)	|
-|Final rating			|		|				|			|			|			|
+## Summary
 
-## Excluded chips
+* The above report outlines 4 development boards, that were evaluated more
+  closely, after the initial research.
+* The supply voltage was not a challenging requirement and is similar across
+  devices.
+* The actual data on current consumption is not clear at the moment. It might
+  also highly depend on the workflow, and enabled peripherals. To indicate that
+  risk, `-1` grade was added, where applicable. It will need actual
+  measurements in the future.
+* All of the boards should meet the RAM and CPU requirements (although that was
+  was set to an arbitrary value right now, and is subject to change in the future).
+* The most flexible choice would be the board with the `EOS S3` SoC, due to the
+  significant RAM and flash size, and integrated FPGA, which allows us to
+  implement LPC interface, and potentially also offload other features (SPI,
+  crypto), as needed
+* If we would want to implement a TwPM module with SPI interface only, we could
+  try to go with either `STM32L476RG`, or `STM32G474RE`. The first one has a bit
+  more resources (flash, and RAM), but the second one features much higher CPU
+  and SPI speeds, which makes it an interesting target for the future.
 
-### NXP EdgeLock(TM) SE050
+| Property            | Desired value       | CY8C6xxxx              | EOS S3                  | STM32L476RG      | STM32G474RE        |
+|:--------------------|:--------------------|:-----------------------|:------------------------|:-----------------|:-------------------|
+| Supply voltage      | 1.8-3.3 V (+1)      | 1.7-5.5 V (+1)         | 1.62-3.63 V (+1)        | 1.71-3.6 V (+1)  | 1.71-3.6 (+1)      |
+| Current             | < 250 mA            | (no data) (-1)         | (no data) (-1)          | (no data) (-1)   | (no data) (-1)     |
+| Flash               | >= 1 MB             | 384-1856 KB (+1)       | 2 MB (+1)               | 1 MB (+1)        | 512 KB (0)         |
+| **RAM**             | >= 128 KB           | 176-944KB (+2)         | 512 KB (+2)             | 128 KB (+2)      | 128 KB [^8] (0)    |
+| Clock Frequency     | >= 80 MHz           | 150 MHz (+1)           | 80 MHz (+1)             | 80 (+1)          | 170 (+1)           |
+| **LPC interface**   | yes                 | no [^5] (0)            | no [^6] (0)             | no (-2)          | no (-2)            |
+| **SPI Frequency**   | >= 20 MHz           | 25 MHz (+2)            | 20 (+2)                 | 26 (+1)          | 41 (+2)            |
+| **OSS support**     | Fully OSS toolchain | limited (-2) [^1]      | yes, limited (+1) [^3]  | yes (+2)         | yes (+2)           |
+| Crypto Acceleration | RNG/hash/enc        | AES/SHA/RNG (+1) [^2]  | can use FPGA (+1) [^4]  | RNG (+1) [^7]    | RNG (+1) [^7]      |
+| Score               |                     | 5                      | 8                       | 6                | 4                  |
 
-* Link to documentation: [NXP_edgelock_se050](https://www.nxp.com/docs/en/white-paper/NXP_SE050_USE_CASE07_WP.pdf)
-* Reason to exclude:
-  * Lack of SPI, LPC interface
-
-### Microchip ATTPM20P
-
-* Link to documentation: [mcp_attpm20p](https://ww1.microchip.com/downloads/en/DeviceDoc/ATTPM20P-Trusted-Platform-Module-TPM-2.0-SPI-Interface-Summary-Data-Sheet-DS40002082A.pdf)
-* Compliant to the Trusted Computing Group (TCG) Trusted Platform Module (TPM)
-Version 2.0, r116 Trusted Platform Module Library
-* Single-Chip Turnkey Solution
-* Hardware Asymmetric Crypto Engine
-* Microchip ARM® M0+Microprocessor
-* Internal FLASH Storage for Keys
-* Serial Peripheral Interface (SPI) Protocol up to 36 MHz
-* Secure Hardware and Firmware Design and Device Layout
-* FIPS-140-2 Module Compliant Including the High-Quality Random Number
-Generator (RNG), HMAC, AES, SHA, ECC, and RSA Engines
-
-* Offered in Commercial (0°C to +70°C) Temperature Range
-  * Supply Voltage: 1.8V to 3.3V
-* Offered in Industrial (-40°C to +85°C) Temperature Range
-  * Supply Voltage: 3.3V
-* Cryptographic Support for:
-  * HMAC
-  * AES-128
-  * SHA-1
-  * SHA-256
-  * ECC BN_P256, ECCNIST_P256
-  * RSA 1024-2048 bit keys
-* 16 KB of User-Accessible Nonvolatile Memory
-* X.509 EK Certificates (Optional)
-
-* Reason to exclude:
-  * This chip does not meet the requirement of open-source hardware/software.
-
-### ST33TPHF20SPI
-
-* Link to documentation: [ST33TPHF20SPI Documentation](https://www.st.com/en/secure-mcus/st33tphf20spi.html)
-* Compliant with Trusted Computing Group (TCG) Trusted Platform Module (TPM)
-Library specifications 2.0, Level 0, Revision 138 and TCG PC Client Specific
-TPM Platform Specifications 1.03
-* SPI support for up to 33 MHz in FIFO and CRB protocol modes
-* Arm® SecurCore® SC300™ 32-bit RISC core
-* 1.8 V or 3.3 V supply voltage range
-* 28-lead thin shrink small outline and 32-lead very thin fine pitch quad flat
-pack ECOPACK packages
-
-* Reason to exclude:
-  * This chip does note meet the requirement of open-source hardware/software
+[^1]: It looks like the usage of proprietary tools is required, especially for the
+      programmable logic part
+[^2]: Score is increased from `+1` o `+2` due to the support of additional
+      hash/encryption algorithms
+[^3]: Support in the upstream project might miss some crucial drivers, as described
+<!-- markdownlint-disable-next-line MD051 -->
+      in the [EOS S3 section](#sparkfun-quicklogic-thing-plus-eos-s3)
+[^4]: The SoC does not provide crypto accelerators, but we could potentially
+      use FPGA to offload some operations
+[^5]: Potentially could be implemented in programmable logic (not a "standard"
+      FPGA)
+[^6]: Can be implemented in FPGA via LPC module, for example via Verilog
+[^7]: Some STM32 chips from this family offer also AES-128, AES-256 hardware encryption
+[^8]: 32 KB is used for parity checks, so only 96 KB is available for program usage
