@@ -27,7 +27,7 @@ hardware requirements](hardware-requirements.md).
 
 ### SPI slave frequency
 
-* **No information**
+* 25 MHz
 
 ### Cryptographic accelerators
 
@@ -186,9 +186,12 @@ hardware requirements](hardware-requirements.md).
       programmable logic part
 [^2]: Score is increased from `+1` o `+2` due to the support of additional
       hash/encryption algorithms
+<!-- when "-" is in path, the link in mkdocs is generated with a single
+character, not three -->
+<!-- markdownlint-disable MD051 -->
 [^3]: Support in the upstream project might miss some crucial drivers, as described
-<!-- markdownlint-disable-next-line MD051 -->
       in the [EOS S3 section](#sparkfun-quicklogic-thing-plus-eos-s3)
+<!-- markdownlint-enable MD051 -->
 [^4]: The SoC does not provide crypto accelerators, but we could potentially
       use FPGA to offload some operations
 [^5]: Potentially could be implemented in programmable logic (not a "standard"
