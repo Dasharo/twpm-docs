@@ -60,7 +60,7 @@ have to be kept open. In order to enter programming mode:
 The container can be started from `TwPM_toplevel` with:
 
 ```shell
-$ docker run --rm -it -v $PWD:/home/qorc-sdk/workspace \
+docker run --rm -it -v $PWD:/home/qorc-sdk/workspace \
     --device=/dev/ttyACM0:/dev/ttyS_QORC ghcr.io/dasharo/twpm-sdk:main
 ```
 
@@ -126,12 +126,13 @@ Components of TwPM may also be built separately. Such approach is most useful
 to developers and [hackers](https://en.wikipedia.org/wiki/Hacker_culture) to
 quickly test modified code without having to build everything from scratch.
 
-Note that if you already have built whole project earlier, `make` should be able
-to detect which components have changed and rebuild only those. In that case you
 <!-- when "-" is in path, the link in mkdocs is generated with a single
 character, not three -->
-<!-- markdownlint-disable-next-line MD051 -->
+<!-- markdownlint-disable MD051 -->
+Note that if you already have built whole project earlier, `make` should be able
+to detect which components have changed and rebuild only those. In that case you
 can follow [the easy path](#building-easy).
+<!-- markdownlint-enable MD051 -->
 
 ### MCU
 
