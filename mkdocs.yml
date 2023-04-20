@@ -10,8 +10,11 @@ theme:
     - content.tabs.link
     - navigation.instant
     - navigation.tracking
-    # - navigation.tabs
-    # - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.indexes
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
@@ -31,12 +34,22 @@ markdown_extensions:
 plugins:
   - search
 nav:
-  - 'Intro': index.md
-  - 'Tutorials':
-      - 'Building TwPM': tutorials/building.md
-  - 'Development':
-      - 'Verilog modules': development/verilog_modules.md
-  - 'Explanation': explanation/index.md
-  - 'Changelog': changelog/index.md
-  - 'Contributing': contributing/index.md
-  - 'Roadmap': roadmap/index.md
+  - Intro:
+      - index.md
+  - Tutorials:
+      - tutorials/index.md
+      - Building TwPM: tutorials/building.md
+  - Development:
+      - development/index.md
+      - Verilog modules: development/verilog_modules.md
+  - Explanation:
+      - explanation/index.md
+      - Hardware requirements: explanation/hardware-requirements.md
+      - Hardware proposal: explanation/hardware-proposal.md
+      - Compliance: explanation/compliance.md
+  - Changelog:
+      - changelog/index.md
+  - Contributing:
+      - contributing/index.md
+  - Roadmap:
+      - roadmap/index.md
