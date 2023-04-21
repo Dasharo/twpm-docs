@@ -29,3 +29,18 @@ of feedback.
 * [Join TwPM channel in Dasharo Matrix space](https://matrix.to/#/#twpm:matrix.org)
 * [How to contribute](contributing/index.md)
 * [Roadmap](roadmap/index.md)
+
+## Funding
+
+This project was partially funded through the
+[NGI Assure](https://nlnet.nl/assure) Fund, a fund established by
+[NLnet](https://nlnet.nl/) with financial support from the European
+Commission's [Next Generation Internet](https://ngi.eu/) programme, under the
+aegis of DG Communications Networks, Content and Technology under grant
+agreement No 957073.
+
+<center>
+![](https://nlnet.nl/logo/banner.svg){: style="height:75px;text-align:right"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](https://nlnet.nl/image/logos/NGIAssure_tag.svg){: style="height:75px"}
+</center>
