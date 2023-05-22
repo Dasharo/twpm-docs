@@ -57,7 +57,7 @@ More generic solution is to pay attention about nesting the directories.
 
 ## Example code
 
-There is example applications, in :[Source](https://github.com/coolbreeze413/qorc-onion-apps/tree/master/qorc_helloworldm4fpgaheader). 
+There is example applications, in :[Source](https://github.com/coolbreeze413/qorc-onion-apps/tree/master/). 
 Bunch of them, with pattern: `qorc_helloworld*` are the examples of basic
 snippets, which we could use as a template for further applications.
 
