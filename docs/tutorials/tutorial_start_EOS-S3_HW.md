@@ -21,7 +21,8 @@ is used.
 
 ## Development of the ARM Cortex-M4
 
-To develop the M4 part of the SoC `arm-none-eabi-*` tools could be used.
+To develop the M4 part of the SoC standard ARM toolchain
+could be used.
 
 ## Basic steps 
 
@@ -52,4 +53,11 @@ to
 
 Warning: this correction reorganizes structure of the catalog in Docker image.
 
+More generic solution is to pay attention about nesting the directories. 
+
+## Example code
+
+There is example applications, in :[Source](https://github.com/coolbreeze413/qorc-onion-apps/tree/master/qorc_helloworldm4fpgaheader). 
+Bunch of them, with pattern: `qorc_helloworld*` are the examples of basic
+snippets, which we could use as a template for further applications.
 
