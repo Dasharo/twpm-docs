@@ -91,3 +91,8 @@ Assigning pin to FPGA structure could be performed as in the following [example]
 ### FPGA-RAM Communication
 
 This task has been depicted in the [qf_ramblockinit example](https://github.com/QuickLogic-Corp/qorc-testapps/tree/92bf33c9dd51aed94554d26e85fd37faf756f42e/qf_ramblockinit). 
+
+Communication between RAM and FPGA/M4 is peformed by AHB bus. Initialization
+is showed in the [following example](https://github.com/QuickLogic-Corp/qorc-testapps/blob/92bf33c9dd51aed94554d26e85fd37faf756f42e/qf_ramblockinit/fpga/rtl/AL4S3B_FPGA_IP.v#L119)
+
+Access to already declared RAM has been instantiated in the following [example](https://github.com/QuickLogic-Corp/qorc-testapps/blob/92bf33c9dd51aed94554d26e85fd37faf756f42e/qf_ramblockinit/fpga/rtl/AL4S3B_FPGA_RAMs.v#L165).
