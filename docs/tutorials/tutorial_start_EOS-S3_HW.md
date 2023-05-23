@@ -51,7 +51,7 @@ to
  -v $PWD:/home/qorc-sdk/qorc-sdk/workspace 
 ```
 
-Warning: this correction reorganizes structure of the catalog in Docker image.
+Warning: this correction reorganizes structure of the catalog in Docker container.
 
 More generic solution is to pay attention about nesting the directories. 
 
