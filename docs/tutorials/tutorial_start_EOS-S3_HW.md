@@ -83,7 +83,10 @@ This program uses the following modules:
 
 Entry point for this application is [main.c](https://github.com/coolbreeze413/qorc-onion-apps/blob/master/qorc_helloworldm4/src/main.c).
 Assigning the signal to pad has been done in the [qorc_hardwareSetup() function](https://github.com/coolbreeze413/qorc-onion-apps/blob/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_helloworldm4/src/qorc_hardwaresetup.c#LL48C9-L48C9).
+To proper asignment the array `PadConfig pincfg_table[]`, passed as first
+argument should be initialized [code here](https://github.com/coolbreeze413/qorc-onion-apps/blob/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_helloworldm4/src/pincfg_table.c#L21)
 
+Assigning pin to FPGA structure could be performed as in the following [example](https://github.com/coolbreeze413/qorc-onion-apps/blob/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_helloworldfpga/fpga/rtl/quickfeather.pcf#LL44C8-L44C8)
 
 ### FPGA-RAM Communication
 
