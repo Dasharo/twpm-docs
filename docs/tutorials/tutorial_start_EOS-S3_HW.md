@@ -69,7 +69,8 @@ There is example applications, in :[Source](https://github.com/coolbreeze413/qor
 Bunch of them, with pattern: `qorc_helloworld*` are the examples of basic
 snippets, which we could use as a template for further applications.
 
-Currently, I use `qorc_helloworldm4` app. 
+Currently, as example, I use `qorc_helloworldm4` app. This is
+FreeRTOS-compatible, fully working snippet. 
 
 This program uses the following modules:
 * Basic ARM Cortex M4 initialization;
@@ -80,6 +81,10 @@ This program uses the following modules:
 
 ### Pin mapping
 
-### FPGA Communication
+Entry point for this application is [main.c](https://github.com/coolbreeze413/qorc-onion-apps/blob/master/qorc_helloworldm4/src/main.c).
+Assigning the signal to pad has been done in the [qorc_hardwareSetup() function](https://github.com/coolbreeze413/qorc-onion-apps/blob/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_helloworldm4/src/qorc_hardwaresetup.c#LL48C9-L48C9).
 
-Example for this par
+
+### FPGA-RAM Communication
+
+This task has been depicted in the [qf_ramblockinit example](https://github.com/QuickLogic-Corp/qorc-testapps/tree/92bf33c9dd51aed94554d26e85fd37faf756f42e/qf_ramblockinit). 
