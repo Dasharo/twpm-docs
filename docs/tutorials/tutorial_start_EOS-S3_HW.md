@@ -55,9 +55,31 @@ Warning: this correction reorganizes structure of the catalog in Docker image.
 
 More generic solution is to pay attention about nesting the directories. 
 
+## Architecture overview
+
+Architectural overview of this SoC has been depicted in document: 
+[EOS S3 Datasheet](https://www.quicklogic.com/wp-content/uploads/2020/12/QL-EOS-S3-Ultra-Low-Power-multicore-MCU-Datasheet-2020.pdf), page 19.
+ 
+There is also different block diagram of the S3, with main subsystems,
+printed in [QL S3 Technical Reference Manual](https://www.quicklogic.com/wp-content/uploads/2020/06/QL-S3-Technical-Reference-Manual.pdf), page 23. 
+
 ## Example code
 
 There is example applications, in :[Source](https://github.com/coolbreeze413/qorc-onion-apps/tree/master/). 
 Bunch of them, with pattern: `qorc_helloworld*` are the examples of basic
 snippets, which we could use as a template for further applications.
 
+Currently, I use `qorc_helloworldm4` app. 
+
+This program uses the following modules:
+* Basic ARM Cortex M4 initialization;
+* Physical interfaces:
+  * UART
+  * I2C
+* GPIO, RGB LED diode
+
+### Pin mapping
+
+### FPGA Communication
+
+Example for this par
