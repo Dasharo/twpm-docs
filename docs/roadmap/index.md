@@ -21,7 +21,7 @@ Milestones:
 software stack and documentation changelog that will be updated after each of
 the remaining phases
 
-State: In progress
+State: [Done (this website)](../index.md)
 
 ## 2. Gather hardware requirements and choose target board
 
@@ -37,7 +37,7 @@ Milestones:
 - establishment of reference board
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: [Done](../changelog/#2023-04-20)
 
 ## 3. Implement LPC protocol in FPGA
 
@@ -57,7 +57,7 @@ Milestones:
 - documentation describing connection between designed TPM and mainboard
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: [Done](../changelog/#2023-04-20)
 
 ## 4. Implement basic TPM registers in FPGA
 
@@ -72,7 +72,7 @@ Milestones:
 - implementation of finite state machine for changing localities
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: [Done](../changelog/#2023-05-24)
 
 ## 5. Implement TPM command parsing and communication between FPGA and MCU
 
@@ -93,7 +93,7 @@ FPGA and MCU
 TPM stack and writing responses back to FIFO
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: In progress
 
 ## 6. Base tests
 
