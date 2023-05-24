@@ -7,4 +7,4 @@
 * [Hardware requirements in Explanation section](../explanation/index.md)
 * [Hardware selection in Explanation section](../explanation/index.md)
 * [Building TwPM in Tutorials section](../tutorials/building.md)
-* [Verilog Modules specification in Development section](../development/building.md)
+* [Verilog Modules specification in Development section](../development/verilog_modules.md)

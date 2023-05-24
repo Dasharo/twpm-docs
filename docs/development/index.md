@@ -5,4 +5,4 @@ in developing and contributing to the TwPM project.
 
 | Document                              | Goal                                                                           |
 |---------------------------------------|--------------------------------------------------------------------------------|
-| [Verilog modules](verilog modules.md) | Learn the specification of the existing Verilog modules, so you can contribute |
+| [Verilog modules](verilog_modules.md) | Learn the specification of the existing Verilog modules, so you can contribute |
