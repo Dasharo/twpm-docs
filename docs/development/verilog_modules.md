@@ -48,23 +48,13 @@ Device Utilization: 0.14 (target 1.00)
 
 ## LPC module
 
+Source code: [Dasharo/verilog-lpc-module](https://github.com/Dasharo/verilog-lpc-module)
+
 This module is responsible for managing LPC communication. It responds only to
 TPM cycles, other cycle types are ignored. SERIRQ (both continuous and quiet
 mode), cycle aborts and LPC resets are implemented.
 
-```text
-   LPC interface:                                   Data provider interface:
-                           +-------------+
-            clk_i  ------->|             |>=======  lpc_addr_o [15:0]
-           nrst_i  ------->|             |<>======  lpc_data_io [7:0]
-         lframe_i  ------->|             |>-------  lpc_data_wr
-    lad_bus [3:0]  ======<>|     LPC     |<-------  lpc_wr_done
-           serirq  ------<>|   module    |>-------  lpc_data_req
-                           |             |<-------  lpc_data_rd
-                           |             |<=======  irq_num [3:0]
-                           |             |<-------  interrupt
-                           +-------------+
-```
+![LPC peripheral module](/images/lpc_periph.svg)
 
 Ports for LPC interface (refer to [LPC specification](https://www.intel.com/content/dam/www/program/design/us/en/documents/low-pin-count-interface-specification.pdf)
 for details):
@@ -120,3 +110,38 @@ Ports for signals to/from data provider:
   IRQ latched from `irq_num`, both in quiet and continuous mode. In addition to
   that, in quiet mode this signal initializes SERIRQ cycle. Data provider should
   drive this signal as long as reason for interrupt is valid.
+
+## TPM registers module
+
+Source code: [Dasharo/verilog-tpm-fifo-registers](https://github.com/Dasharo/verilog-tpm-fifo-registers)
+
+This module implements TPM register space. It also handles locality transitions
+and TPM interrupt generation. Register values are reported accordingly to the
+current state. Registers not defined by PC Client specification return 0xFF on
+reads, and writes are dropped.
+
+In the future this module will also contain command finite state machine. Until
+then, `TPM_STS` and `TPM_DATA_FIFO` registers are not supported - writes are
+ignored and reads return 0xFF, just as for any other unimplemented register.
+
+The module is located between host interface module (LPC or, in the future, SPI)
+and module responsible for communication with MCU. At this point, the latter is
+not yet implemented and no connections towards it are defined.
+
+**NOTE: this submodule is not included in the top level module at this point.**
+
+![TPM registers module](/images/regs_module.svg)
+
+Ports for signals to/from LPC module:
+
+- `input clk_i`: LPC clock is used for this module to allow for synchronous
+  communication with LPC module. Because of that, all registers' values are
+  available in one clock cycle and no wait states have to be inserted.
+- `input addr_i`: 16-bit address of register to access.
+- `inout data_io`: 8-bit bi-directional data from or to LPC module.
+- `input data_wr`, `output wr_done`, `input data_req`, `output data_rd`: 4
+  signals coordinating communication over `data_io`. Their functions can be
+  found in the [LPC module description](#lpc-module) above.
+- `output irq_num`, `output interrupt`: configuration and request of interrupts
+  sent to host, see [LPC module description](#lpc-module) for details. Note that
+  these are not interrupts sent towards MCU.
