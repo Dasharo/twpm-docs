@@ -110,7 +110,7 @@ types)
 - documentation of results
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: In progress
 
 ## 7. Implement SPI TPM protocol
 
@@ -144,7 +144,7 @@ Milestones:
 - publish test results to the public documentation website
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: In progress
 
 ## 9. Flash driver for TPM stack
 
