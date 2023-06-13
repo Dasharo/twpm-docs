@@ -100,6 +100,15 @@ is showed in the [following example][snippet-m4-ram-fpga-communication].
 
 Access to already declared RAM has been instantiated in the following [example][snippet-access-to-ram-from-fpga].
 
+### Examples: qorc_helloworldm4fpga, qorc_helloworldm4fpgaheader
+
+These two examples are located here: [qorc_helloworldm4fpga][example-helloworldm4fpga]
+and [qorc_helloworldm4fpgaheader][example-helloworldm4fpga_header].
+These two examples are similar, in system behaviour (blinking red LED).
+The difference between those two project is to load dynamically FPGA
+bitstream by M4 part of the SoC. 
+
+
 [build-instr-url]:https://github.com/Dasharo/twpm-docs/blob/main/docs/tutorials/building.md
 [eos-s3-datasheet-url]: https://www.quicklogic.com/wp-content/uploads/2020/12/QL-EOS-S3-Ultra-Low-Power-multicore-MCU-Datasheet-2020.pdf
 [ql-eos-s3-tech-ref-man-url]: https://www.quicklogic.com/wp-content/uploads/2020/06/QL-S3-Technical-Reference-Manual.pdf
@@ -112,3 +121,5 @@ Access to already declared RAM has been instantiated in the following [example][
 [snippet-ramblockinit]: https://github.com/QuickLogic-Corp/qorc-testapps/tree/92bf33c9dd51aed94554d26e85fd37faf756f42e/qf_ramblockinit
 [snippet-m4-ram-fpga-communication]: https://github.com/QuickLogic-Corp/qorc-testapps/blob/92bf33c9dd51aed94554d26e85fd37faf756f42e/qf_ramblockinit/fpga/rtl/AL4S3B_FPGA_IP.v#L119
 [snippet-access-to-ram-from-fpga]: https://github.com/QuickLogic-Corp/qorc-testapps/blob/92bf33c9dd51aed94554d26e85fd37faf756f42e/qf_ramblockinit/fpga/rtl/AL4S3B_FPGA_RAMs.v#L165
+[example-helloworldm4fpga]: https://github.com/coolbreeze413/qorc-onion-apps/tree/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_helloworldm4fpga
+[example-helloworldm4fpga_header]: https://github.com/coolbreeze413/qorc-onion-apps/tree/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_helloworldm4fpgaheader
