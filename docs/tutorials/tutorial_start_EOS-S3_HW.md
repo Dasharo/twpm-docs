@@ -67,7 +67,7 @@ printed in [QL S3 Technical Reference Manual][ql-eos-s3-tech-ref-man-url], page 
 
 ## Example code
 
-There is example applications, in [Source][examples-source].
+There are example applications, in [Source][examples-source].
 Bunch of them, with pattern: `qorc_helloworld*` are the examples of basic
 snippets, which we could use as a template for further applications.
 
