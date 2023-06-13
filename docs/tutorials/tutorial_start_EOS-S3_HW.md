@@ -68,7 +68,7 @@ printed in [QL S3 Technical Reference Manual][ql-eos-s3-tech-ref-man-url], page 
 ## Example code
 
 There are example applications, in [Source][examples-source].
-Bunch of them, with pattern: `qorc_helloworld*` are the examples of basic
+cunch of them, with pattern: `qorc_helloworld*` are the examples of basic
 snippets, which we could use as a template for further applications.
 
 Currently, as example, I use `qorc_helloworldm4` app. This is
@@ -105,9 +105,8 @@ Access to already declared RAM has been instantiated in the following [example][
 These two examples are located here: [qorc_helloworldm4fpga][example-helloworldm4fpga]
 and [qorc_helloworldm4fpgaheader][example-helloworldm4fpga_header].
 These two examples are similar, in system behaviour (blinking red LED).
-The difference between those two project is to load dynamically FPGA
-bitstream by M4 part of the SoC. 
-
+The difference between those two projects is the dynamic loading bitstream
+to FPGA (`qorc_helloworldm4fpgaheader`).
 
 [build-instr-url]:https://github.com/Dasharo/twpm-docs/blob/main/docs/tutorials/building.md
 [eos-s3-datasheet-url]: https://www.quicklogic.com/wp-content/uploads/2020/12/QL-EOS-S3-Ultra-Low-Power-multicore-MCU-Datasheet-2020.pdf
