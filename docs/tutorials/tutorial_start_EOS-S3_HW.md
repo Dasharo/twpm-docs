@@ -57,6 +57,20 @@ Warning: this correction reorganizes structure of the catalog in Docker containe
 
 More generic solution is to pay attention about nesting the directories.
 
+> Note: with newest environment, run by command:
+```shell
+$ docker run --rm -it -v $PWD:/home/qorc-sdk/workspace \
+    --device=/dev/ttyACM0:/dev/ttyS\_QORC ghcr.io/dasharo/twpm-sdk:main
+```
+After succesful download it stops during execution `make`, with error, there
+is no `yosys` utility. 
+
+There is workaround for this problem, by using older version of the container.
+```shell
+$ docker run --rm -it -v $PWD:/home/qorc-sdk/workspace \
+    --device=/dev/ttyACM0:/dev/ttyS\_QORC 8f6e8a2450a3080d1f6d121214b88bc461299c201c61205d373f3510b2dfc3b4
+```
+
 ## Architecture overview
 
 Architectural overview of this SoC has been depicted in document:
