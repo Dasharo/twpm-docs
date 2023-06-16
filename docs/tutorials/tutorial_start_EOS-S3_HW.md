@@ -63,13 +63,15 @@ $ docker run --rm -it -v $PWD:/home/qorc-sdk/workspace \
     --device=/dev/ttyACM0:/dev/ttyS\_QORC ghcr.io/dasharo/twpm-sdk:main
 ```
 After succesful download it stops during execution `make`, with error, there
-is no `yosys` utility. 
-
-There is workaround for this problem, by using older version of the container.
+is no `yosys` utility. There is workaround for this problem, by using older
+version of the container.
 ```shell
 $ docker run --rm -it -v $PWD:/home/qorc-sdk/workspace \
     --device=/dev/ttyACM0:/dev/ttyS\_QORC 8f6e8a2450a3080d1f6d121214b88bc461299c201c61205d373f3510b2dfc3b4
 ```
+With this workaround there is one problem solved: FPGA synthesis is succesful.
+There is still problem with compiling code for M4 (probable problem
+with paths; `make` doesn't have proper rule for compiling C code).
 
 ## Architecture overview
 
