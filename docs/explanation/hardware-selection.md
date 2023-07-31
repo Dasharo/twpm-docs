@@ -85,6 +85,11 @@ hardware requirements](hardware-requirements.md).
 
 ### SPI slave frequency
 
+> In reality, the maximum SPI slave frequency achieved on this board so far was
+> 24 MHz and it worked reliably when writing only, not while reading. More
+> details can be found in [this
+> blogpost](https://blog.3mdeb.com/2023/2023-07-28-optimizing-spi-on-stm32/).
+
 * SPI clock frequency:
     - Slave mode receiver, 1.7 < VDD < 3.6V: 40MHz
     - Full duplex/Slave mode transmit, 2.7 < VDD < 3.6V: 26MHz
