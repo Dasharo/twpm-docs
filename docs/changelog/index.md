@@ -1,5 +1,12 @@
 # Changelog
 
+## 2023-07-31
+
+### Added
+
+* [Blog post on optimizing SPI communitation on STM32](https://blog.3mdeb.com/2023/2023-07-28-optimizing-spi-on-stm32/)
+* Information on maximum real SPI frequency on STM32 in the [hardware selection section](../explanation/hardware-selection/#stm32l476rg-nucleo-board)
+
 ## 2023-05-24
 
 ### Added
