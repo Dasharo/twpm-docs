@@ -108,7 +108,7 @@ Access to already declared RAM has been instantiated in the following [example][
 These two examples are located here: [qorc_helloworldm4fpga][example-helloworldm4fpga]
 and [qorc_helloworldm4fpgaheader][example-helloworldm4fpga_header].
 These two examples are similar, in system behaviour (blinking red LED).
-The difference between those two projects is the dynamic loading bitstream
+The difference between those two projects is the dynamically loading bitstream
 to FPGA (`qorc_helloworldm4fpgaheader`).
 
 There are 3 significant differences between those two:
@@ -146,7 +146,55 @@ There are 3 significant differences between those two:
 
 ### FPGA interrupts
 
-TBD
+Four outputs from the on-chip programmable logic can be used as messages. Each
+interrupt message can be selected to be either edge or level detection. For edge
+detection, it can be configured to be positive or negative edge; similarly, if
+selected to be level detect, it can be configured to be level high or low. All
+of FPGA interrupts arrive to M4 as [IRQ 4][qorc-sdk-fb-irq], and exact interrupt
+can [be read from `FB_INTR_RAW` NVIC register][example-timerctrl-fbmsg-handler].
+
+One of the examples using dedicated FPGA interrupts is [qorc_fpga_timerctrl][example-timerctrl].
+It shows how to set up both sides of the communication.
+
+1. Configure and enable IRQ handling on M4 by calling [this function][example-timerctrl-irq-enable]
+   from `main()`:
+
+    ```c
+    void hal_fpga_onion_timerctrl_init()
+    {
+        //Clear any pending interrupt of FPGA
+        NVIC_ClearPendingIRQ(FbMsg_IRQn);
+
+        //Register FPGA ISR callbacks FPGA Slow Down and Speed up interrupts
+        FB_RegisterISR(FB_INTERRUPT_0, hal_fpga_onion_timerctrl0_isr);
+        FB_ConfigureInterrupt(FB_INTERRUPT_0,
+                                FB_INTERRUPT_TYPE_EDGE,
+                                FB_INTERRUPT_POL_LEVEL_HIGH,
+                                FB_INTERRUPT_DEST_AP_DISBLE,
+                                FB_INTERRUPT_DEST_M4_ENABLE);
+
+        //Enable the FPGA interrupts
+        NVIC_EnableIRQ(FbMsg_IRQn);
+    }
+    ```
+
+2. [Route interrupt signal][example-timerctrl-fpga] from FPGA towards NVIC:
+
+    ```verilog
+    // Verilog model of QLAL4S3B
+    qlal4s3b_cell_macro u_qlal4s3b_cell_macro
+    (
+        // More signals here, removed for clarity
+
+        // FB Interrupts
+        .FB_msg_out                ( { 1'b0, 1'b0, 1'b0, FPGA_INTR[0] }       ), // input   [3:0]
+        .FB_Int_Clr                ( 8'h0                           ), // input   [7:0]
+        .FB_Start                  (                                ), // output
+        .FB_Busy                   ( 1'b0                           ), // input
+
+        // More signals here, removed for clarity
+    );
+    ```
 
 [build-instr-url]:/tutorials/building/#docker-image
 [eos-s3-datasheet-url]: https://www.quicklogic.com/wp-content/uploads/2020/12/QL-EOS-S3-Ultra-Low-Power-multicore-MCU-Datasheet-2020.pdf
@@ -162,3 +210,8 @@ TBD
 [snippet-access-to-ram-from-fpga]: https://github.com/QuickLogic-Corp/qorc-testapps/blob/92bf33c9dd51aed94554d26e85fd37faf756f42e/qf_ramblockinit/fpga/rtl/AL4S3B_FPGA_RAMs.v#L165
 [example-helloworldm4fpga]: https://github.com/coolbreeze413/qorc-onion-apps/tree/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_helloworldm4fpga
 [example-helloworldm4fpga_header]: https://github.com/coolbreeze413/qorc-onion-apps/tree/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_helloworldm4fpgaheader
+[example-timerctrl]: https://github.com/coolbreeze413/qorc-onion-apps/tree/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_fpga_timerctrl
+[example-timerctrl-fbmsg-handler]: https://github.com/coolbreeze413/qorc-onion-apps/blob/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_fpga_timerctrl/src/exceptions.c#L344
+[example-timerctrl-irq-enable]: https://github.com/coolbreeze413/qorc-onion-apps/blob/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_fpga_timerctrl/fpga/src/hal_fpga_onion_timerctrl.c#L18
+[example-timerctrl-fpga]: https://github.com/coolbreeze413/qorc-onion-apps/blob/a960ca3f450fafde9da07547b35efe8e1caa2574/qorc_fpga_timerctrl/fpga/rtl/AL4S3B_FPGA_Top.v#L131
+[qorc-sdk-fb-irq]: https://github.com/QuickLogic-Corp/qorc-sdk/blob/d61d064146c0ee927aa12b088b3bbbce60615f4d/HAL/inc/eoss3_dev.h#L68
