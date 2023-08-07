@@ -62,7 +62,7 @@ The container can be started from `TwPM_toplevel` with:
 ```shell
 docker run --rm -it -v $PWD:/home/qorc-sdk/workspace \
     --device=/dev/ttyACM0:/dev/ttyS_QORC \
-    ghcr.io/dasharo/twpm-sdk@sha256:ca99beadbc692e921762fdbe478d79bdfad3afd3db8d3e4084041bd51caaf6af 
+    ghcr.io/dasharo/twpm-sdk@sha256:ca99beadbc692e921762fdbe478d79bdfad3afd3db8d3e4084041bd51caaf6af
 ```
 
 > Note: don't use `ghcr.io/dasharo/twpm-sdk:main`. Even though it was rebuilt
