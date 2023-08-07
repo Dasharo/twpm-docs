@@ -28,7 +28,7 @@ system. Without those steps host's services would get in the way of programmer's
 application running in the container. Execute the following:
 
 ```shell
-id=$(docker create ghcr.io/dasharo/twpm-sdk:main)
+id=$(docker create ghcr.io/dasharo/twpm-sdk@sha256:ca99beadbc692e921762fdbe478d79bdfad3afd3db8d3e4084041bd51caaf6af)
 sudo docker cp \
   $id:/home/qorc-sdk/qorc-sdk/TinyFPGA-Programmer-Application/71-QuickFeather.rules \
   /etc/udev/rules.d/
@@ -61,8 +61,16 @@ The container can be started from `TwPM_toplevel` with:
 
 ```shell
 docker run --rm -it -v $PWD:/home/qorc-sdk/workspace \
-    --device=/dev/ttyACM0:/dev/ttyS_QORC ghcr.io/dasharo/twpm-sdk:main
+    --device=/dev/ttyACM0:/dev/ttyS_QORC \
+    ghcr.io/dasharo/twpm-sdk@sha256:ca99beadbc692e921762fdbe478d79bdfad3afd3db8d3e4084041bd51caaf6af
 ```
+
+> Note: don't use `ghcr.io/dasharo/twpm-sdk:main`. Even though it was rebuilt
+after just the README file was changed, produced image is different. Reason for
+that is that `ubuntu:20.04` on which it was based was updated. One of those
+changes was Python package, to a version that is not supported by `qorc-sdk`
+installer. It won't fail, but produced image lacks `yosys`, without which no
+FPGA code can be synthesized.
 
 Change `ttyACM0` to proper device name, in case there is more than one `ttyACM`
 in your system. `ttyS_QORC` is used to have constant name for use by Makefile.
@@ -160,7 +168,3 @@ To build and flash:
 cd workspace/fpga
 make flash
 ```
-
-Note that this just saves the bitstream in the flash. It is up to MCU code to
-load it and release FPGA from reset, as well as configure I/O ports for being
-used by FPGA, so for some changes flashing just the FGPA part won't be enough.

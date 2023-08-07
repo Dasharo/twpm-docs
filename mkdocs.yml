@@ -39,6 +39,7 @@ nav:
   - Tutorials:
       - tutorials/index.md
       - Building TwPM: tutorials/building.md
+      - Building other examples: tutorials/tutorial_start_EOS-S3_HW.md
   - Development:
       - development/index.md
       - Verilog modules: development/verilog_modules.md
