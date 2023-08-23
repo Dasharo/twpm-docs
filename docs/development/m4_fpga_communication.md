@@ -92,6 +92,6 @@ signals that there is an operation to be performed by TPM stack, and another one
 tells that the currently running operation is to be aborted.
 
 Both interrupts arrive to M4 as IRQ 4, and exact reason for interrupt can be
-read from 4-byte `FB_INTR_RAW` NVIC register located at address 0x40004884. Bits
-0 and 1 represent `exec` and `abort`, respectively. Interrupts are cleared by
+read from 4-byte `FB_INTR_RAW` register located at address 0x40004884. Bits 0
+and 1 represent `exec` and `abort`, respectively. Interrupts are cleared by
 writing the same bits to register `FB_INTR` located at 0x40004880.
