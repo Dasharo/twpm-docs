@@ -1,5 +1,41 @@
 # Hardware selection
 
+## Update - October 2023
+
+TPM registers generally can't be implemented on MCU side because most of them
+have to return valid values without using LPC wait cycles. This means that there
+are only 3 LPC clock cycles between last nibble of address and first nibble of
+response, which gives 3.5 periods (because data must start being driven on
+complementary edge with regard to sampling) for MCU to be notified about the
+read, read and parse the address, check current state and finally create and
+send the response. By transforming from LPC frequency (33 MHz) to M4 frequency
+(80 MHz) this gives about 8 CPU cycles, depending on relative position of clock
+edges.
+
+MCU can't keep checking for requests in a busy loop because it is perfectly
+valid for host (PC) to read status register in order to check whether command
+executed by TPM already finished or not. For this reason interrupts must be
+used, which adds delay of [12 cycles](https://developer.arm.com/documentation/100166/0001/Programmers-Model/Exceptions/Interrupt-latency?lang=en)
+(in good conditions, may be more). Additional delay may be applied because
+multiple bridges and clock domains exist between FPGA and M4 core.
+
+M4 has 3-stage pipeline, which steals another 3 cycles. Then result has to be
+sent back to FPGA through bridges mentioned earlier. Even without those, delay
+is already twice bigger than allowed, and it doesn't include any code to
+actually parse the request. For this reason, TPM register space must be
+implemented on FPGA side.
+
+Unfortunately, FPGA available on EOS S3 platform isn't fast enough to implement
+TPM register space logic and LPC running with standard frequency (33 MHz). Raw
+LPC module allowed for ~30 MHz without any optimisations, but it is possible
+that part of implementation was optimised out as unused - Yosys doesn't clearly
+report such cases. With TPM registers module and rather heavy optimising we
+could get to ~16.5 MHz, but this is way below the requirements.
+
+We decided to switch to [OrangeCrab](https://orangecrab-fpga.github.io/orangecrab-hardware/)
+with Lattice LFE5U-25F-8MG285C FPGA. It has the Feather format, about 23 x 51 mm
+(slightly shorter than EOS S3), and has enough I/O for interfaces we need.
+
 ## Intro
 
 The goal of this document is to select a target hardware (development board),
@@ -138,7 +174,7 @@ hardware requirements](hardware-requirements.md).
 
 ### Tools and documentation
 
-* Good open-source RTOS Support (e.g. [Zephyr](https://docs.zephyrproject.org/2.7.4/boards/arm/nucleo_g474re/doc/index.html)
+* Good open-source RTOS Support (e.g. [Zephyr](https://docs.zephyrproject.org/2.7.4/boards/arm/nucleo_g474re/doc/index.html))
 * [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
 * [STM32G474 Nucleo Web Page](https://www.st.com/en/evaluation-tools/nucleo-g474re.html)
 * [STM32L476RG Nucleo Datasheet](https://www.st.com/resource/en/datasheet/stm32g474re.pdf)
