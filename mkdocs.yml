@@ -40,6 +40,7 @@ nav:
       - tutorials/index.md
       - Building TwPM: tutorials/building.md
       - Building other examples: tutorials/tutorial_start_EOS-S3_HW.md
+      - Connecting TwPM to the mainboard: tutorials/mainboard-connection.md
   - Development:
       - development/index.md
       - Verilog modules: development/verilog_modules.md
