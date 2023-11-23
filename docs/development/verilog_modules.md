@@ -2,7 +2,7 @@
 
 Below is description of FPGA modules used by TwPM for EOS-S3. The design may
 change as the project progresses, state described here is valid for revision
-[84511f8e0e66](https://github.com/Dasharo/TwPM_toplevel/tree/84511f8e0e6659eb1efbf77b91cb033ed20a1bb8)
+**TBD**
 of top module.
 
 ## Top level
@@ -11,39 +11,10 @@ Top level module code is located [in this repository](https://github.com/Dasharo
 It glues together other modules, which are referenced by that repository as git
 submodules. It also describes how the signals are connected to external IO pins.
 
-As of now, there is only one submodule and its ports are connected directly to
-external pins, even those that have special functions and shouldn't be used as
-generic IO. This was done to test if the design can be successfully placed and
-routed, and to get rough estimates of FPGA utilization, but it doesn't produce
-usable board yet.
-
-After other modules are added and interconnected, this section will show mapping
-of interface signals (LPC or SPI) to board's IO pins.
-
 Current FPGA utilization:
 
 ```text
-Device Utilization: 0.14 (target 1.00)
-	Physical Tile TL-LOGIC:
-	Block Utilization: 0.16 Logical Block: PB-LOGIC
-	Physical Tile TL-RAM:
-	Block Utilization: 0.00 Logical Block: PB-RAM
-	Physical Tile TL-MULT:
-	Block Utilization: 0.00 Logical Block: PB-MULT
-	Physical Tile TL-BIDIR:
-	Block Utilization: 0.94 Logical Block: PB-BIDIR
-	Physical Tile TL-CLOCK:
-	Block Utilization: 0.00 Logical Block: PB-CLOCK
-	Physical Tile TL-SDIOMUX:
-	Block Utilization: 0.79 Logical Block: PB-SDIOMUX
-	Physical Tile TL-GMUX:
-	Block Utilization: 0.20 Logical Block: PB-GMUX
-	Physical Tile TL-ASSP:
-	Block Utilization: 1.00 Logical Block: PB-ASSP
-	Physical Tile TL-SYN_VCC:
-	Block Utilization: 1.00 Logical Block: PB-SYN_VCC
-	Physical Tile TL-SYN_GND:
-	Block Utilization: 1.00 Logical Block: PB-SYN_GND
+**TBD**
 ```
 
 ## LPC module
@@ -69,34 +40,28 @@ for details):
 Ports for signals to/from data provider:
 
 - `output lpc_addr_o`: 16-bit address of TPM register.
-- `inout lpc_data_io`: data received from (write) or to be sent (read) to host.
-  See descriptions of next 4 signals for requirements related to driving this
-  signal.
-- `output lpc_data_wr`: signal to data provider that `lpc_data_io` is driven by
-  LPC module. Data provider should stop driving `lpc_data_io` immediately upon
-  receiving this signal. To avoid hazards, data provider should sample data on
-  rising edge of `clk_i` or wait at least half of `clk_i` cycle (15 ns for 33
-  MHz) before sampling.
-- `input lpc_wr_done`: signal from data provider that `lpc_data_io` has been
+- `input lpc_data_i`: data received from data provider (TPM registers module) to
+  be sent to host.
+- `output lpc_data_o`: data received from host to be sent to TPM registers
+  module.
+- `output lpc_data_wr`: signal to data provider that `lpc_addr_o` and
+  `lpc_data_o` have valid data and write is requested.
+- `input lpc_wr_done`: signal from data provider that `lpc_data_o` has been
   read. This signal should be driven until LPC module stops driving
   `lpc_data_wr`, after which this signal should be stopped being driven no later
   than 1 `clk_i` cycle (30ns). LPC module changes `lpc_data_wr` on falling
   `clk_i` edge so it is suggested that data provider module samples that signal
   on rising edge.
 - `output lpc_data_req`: signal to data provider that data is requested (rising
-  edge of this signal) or has been read (falling edge) from `lpc_data_io`.
+  edge of this signal) or has been read (falling edge) from `lpc_data_i`.
   `lpc_data_req` is changed on falling edge of `clk_i`.
-- `input lpc_data_rd`: signal from data provider that `lpc_data_io` has valid
+- `input lpc_data_rd`: signal from data provider that `lpc_data_i` has valid
   data for reading. This signal should be driven in response to `lpc_data_req`.
-  It should never be driven if `lpc_data_wr` is also active. `lpc_data_rd` is
-  sampled by LPC module on falling `clk_i` edge. Data provider module may either
-  start driving both `lpc_data_rd` and `lpc_data_io` signals on rising edge, or
-  drive `lpc_data_io` for at least half a cycle (15 ns) before asserting
-  `lpc_data_rd`. This signal should be driven until LPC module stops driving
-  `lpc_data_req`, after which this signal should be stopped being driven no
-  later than 1 `clk_i` cycle (30ns). LPC module changes `lpc_data_req` on
-  falling `clk_i` edge so it is suggested that data provider module samples that
-  signal on rising edge.
+  `lpc_data_rd` is sampled by LPC module on falling `clk_i` edge. This signal
+  should be driven until LPC module stops driving `lpc_data_req`, after which
+  this signal should be stopped being driven no later than 1 `clk_i` cycle
+  (30ns). LPC module changes `lpc_data_req` on falling `clk_i` edge so it is
+  suggested that data provider module samples that signal on rising edge.
 - `input irq_num`: IRQ (interrupt request) number, for TPM this is configured by
   `TPM_INT_VECTOR_x.sirqVec` (see [TCG PC Client Platform TPM Profile
   Specification for TPM 2.0](https://trustedcomputinggroup.org/wp-content/uploads/PC-Client-Specific-Platform-TPM-Profile-for-TPM-2p0-v1p05p_r14_pub.pdf)
@@ -115,20 +80,15 @@ Ports for signals to/from data provider:
 
 Source code: [Dasharo/verilog-tpm-fifo-registers](https://github.com/Dasharo/verilog-tpm-fifo-registers)
 
-This module implements TPM register space. It also handles locality transitions
-and TPM interrupt generation. Register values are reported accordingly to the
-current state. Registers not defined by PC Client specification return 0xFF on
-reads, and writes are dropped.
-
-In the future this module will also contain command finite state machine. Until
-then, `TPM_STS` and `TPM_DATA_FIFO` registers are not supported - writes are
-ignored and reads return 0xFF, just as for any other unimplemented register.
+This module implements TPM register space. It also handles locality transitions,
+TPM interrupt generation and command finite state machine. Register values are
+reported accordingly to the current state. Registers not defined by PC Client
+specification return 0xFF on reads, and writes are dropped.
 
 The module is located between host interface module (LPC or, in the future, SPI)
-and module responsible for communication with MCU. At this point, the latter is
-not yet implemented and no connections towards it are defined.
-
-**NOTE: this submodule is not included in the top level module at this point.**
+and memory buffer for TPM commands and responses. It also exposes hardware
+interface that is translated by top module into software interface for TPM stack
+running on NEORV32 processor.
 
 ![TPM registers module](/images/regs_module.svg)
 
@@ -138,10 +98,33 @@ Ports for signals to/from LPC module:
   communication with LPC module. Because of that, all registers' values are
   available in one clock cycle and no wait states have to be inserted.
 - `input addr_i`: 16-bit address of register to access.
-- `inout data_io`: 8-bit bi-directional data from or to LPC module.
+- `input data_i`: 8-bit data from LPC module.
+- `output data_o`: 8-bit data to LPC module.
 - `input data_wr`, `output wr_done`, `input data_req`, `output data_rd`: 4
-  signals coordinating communication over `data_io`. Their functions can be
-  found in the [LPC module description](#lpc-module) above.
+  signals coordinating communication over `data_i` and `data_o`. Their functions\
+  can be found in the [LPC module description](#lpc-module) above.
 - `output irq_num`, `output interrupt`: configuration and request of interrupts
   sent to host, see [LPC module description](#lpc-module) for details. Note that
-  these are not interrupts sent towards MCU.
+  these are not interrupts sent towards NEORV32.
+
+Ports for signals for MCU interface:
+
+- `output op_type`: type of operation requested from TPM stack. Currently only
+  `0` (no operation) and `1` (execute TPM2 command located in TPM RAM) are used.
+- `output locality`: locality at which the operation was requested.
+- `output buf_len`: length of data (e.g. TPM2 command) in TPM RAM.
+- `output exec`: signal that all of the above are valid and TPM stack should
+  start performing the operation specified by `op_type`.
+- `output abort`: signal that the host requested the current operation to abort,
+  TPM stack may check this bit intermittently and either finish or stop
+  executing the ongoing operation.
+- `input complete`: signal that the operation has been finished and TPM RAM
+  contains the response (if any).
+
+Ports for TPM RAM interface:
+
+- `output RAM_addr`: address in RAM on which to operate. 
+- `input RAM_data_r`: data read from `RAM_addr`.
+- `output RAM_data_w`: data to be written at `RAM_addr`.
+- `output RAM_wr`: do a write. `RAM_data_r` is undefined as long as this signal
+  is active, this is to allow for different FPGA implementations to be used.
