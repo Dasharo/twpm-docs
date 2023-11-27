@@ -1,5 +1,19 @@
 # Changelog
 
+## 2023-11-26
+
+* [Reduce numbers of bi-directional lines to minimum](../development/verilog_modules/)
+  (Yosys doesn't like them)
+* Switch to OrangeCrab
+    - [Reason](../explanation/hardware-selection/#update-october-2023)
+    - [Updated building instructions](../tutorials/building/) - actual
+      instructions moved to README in top level repository to avoid duplications
+    - [Modified memory map](../development/soc_fpga_communication/)
+    - [New FPGA utilization numbers](../development/verilog_modules/#top-level)
+* [Instructions for connecting TwPM to mainboard - Protectli VP46xx](../tutorials/mainboard-connection/)
+* [Description of new modules](../development/verilog_modules/) (NEORV32,
+  LiteDRAM, TPM buffer)
+
 ## 2023-07-31
 
 ### Added
@@ -11,17 +25,17 @@
 
 ### Added
 
-* [New Verilog Module specification in Development section](../development/verilog_modules.md#tpm-registers-module),
+* [New Verilog Module specification in Development section](../development/verilog_modules/#tpm-registers-module),
   added graphics and links to modules' code
 * Fixed broken links in changelog (here) and [Development section](../development)
-* [First implementation details documented](../explanation/compliance.md)
-* [Update statuses on the roadmap](../roadmap/index.md)
+* [First implementation details documented](../explanation/compliance/)
+* [Update statuses on the roadmap](../roadmap/)
 
 ## 2023-04-20
 
 ### Added
 
-* [Hardware requirements in Explanation section](../explanation/index.md)
-* [Hardware selection in Explanation section](../explanation/index.md)
-* [Building TwPM in Tutorials section](../tutorials/building.md)
-* [Verilog Modules specification in Development section](../development/verilog_modules.md)
+* [Hardware requirements in Explanation section](../explanation/)
+* [Hardware selection in Explanation section](../explanation/)
+* [Building TwPM in Tutorials section](../tutorials/building/)
+* [Verilog Modules specification in Development section](../development/verilog_modules/)
