@@ -42,11 +42,17 @@ find the correct pin).
 In addition to those signals, `3V3` and `GND` must also be connected to supply
 power to the OrangeCrab.
 
+If those pins need to be changed for any reason, it can be done in
+[orangecrab.lpf file](https://github.com/Dasharo/TwPM_toplevel/blob/main/fpga/orangecrab.lpf).
+Remember to change `SITE` of given signal to another physical pin, not only the
+comment which contains I/O number. For OrangeCrab, mapping between I/O pins and
+physical ports can be read from [schematics](https://github.com/orangecrab-fpga/orangecrab-hardware/blob/main/hardware/orangecrab_r0.2.1/plot/OrangeCrab.pdf).
+
 ## Mainboard pinouts
 
-The presented list has only mainboards that were tested and confirmed to be
-working. You are free to try it on the boards no listed below, assuming
-[you know what you're doing](#warning).
+The presented list has only mainboards that are confirmed to be valid. You are
+free to try it on the boards not listed below, assuming [you know what you're
+doing](#warning).
 
 ### Protectli VP46xx
 
