@@ -5,7 +5,7 @@ change as the project progresses, state described here is valid for revision
 marked with tag `v0.2.0` of the top module.
 
 This document includes diagrams generated with [Symbolator](https://kevinpt.github.io/symbolator/).
-On these diagrams, output ports are on the left, and outputs and bi-directional
+On these diagrams, input ports are on the left, and outputs and bi-directional
 signals are on the right. Module parameters are at the top, on gray background.
 In general, clocks are marked with triangle inside, and active-low signals with
 circle outside of rectangle symbolizing the module. However, Symbolator makes
@@ -104,7 +104,8 @@ are used.
 - `uart0_rxd_i`, `uart0_txd_o`: main UART, connected directly to I/O pads.
 - JTAG signals: unused for now.
 - WISHBONE bus interface: configured as WISHBONE Classic. Used for accessing
-  modules external to the processor, like TPM module, RAM or RAM controller.
+  modules external to the processor, like TPM module, DRAM and LiteDRAM
+  controller.
 - SPI interface: connected to top level I/O either directly or through hardware
   macro (`spi_clk_o`).
 - GPIO: only 3 outputs are connected to LEDs to provide some kind of output even
