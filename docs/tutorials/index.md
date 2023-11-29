@@ -1,7 +1,7 @@
 # Tutorials
 
 This section of documentation contains step-by-steps tutorials to help outline
-what TwPM is capable of whie helping you achieving specific aims, such as
+what TwPM is capable of while helping you achieving specific aims, such as
 building, or flashing the TwPM project to the development board.
 
 | Document                     | Goal                                |

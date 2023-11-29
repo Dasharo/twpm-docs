@@ -1,22 +1,23 @@
-# Communication between M4 and FPGA
+# Communication between SoC and FPGA
 
-This document describes how FPGA and M4 communicate with each other in TwPM
-project for EOS-S3. State presented here is valid for revision **TBD** of top
+This document describes how FPGA and SoC communicate with each other in TwPM
+project for NEORV32. State presented here is valid for release v0.2.0 of top
 module.
 
 ## Memory map
 
 | Address    | Size | Name     | Access |
 |------------|------|----------|--------|
-| 0x40020000 | 4B   | STATUS   | RO     |
-| 0x40020004 | 4B   | OP_TYPE  | RO     |
-| 0x40020008 | 4B   | LOCALITY | RO     |
-| 0x4002000C | 4B   | BUF_SIZE | RO     |
-| 0x40020040 | 4B   | COMPLETE | WO     |
-| 0x40020800 | 2KiB | FPGA_RAM | RW     |
+| 0xF0000000 | 4B   | STATUS   | RO     |
+| 0xF0000004 | 4B   | OP_TYPE  | RO     |
+| 0xF0000008 | 4B   | LOCALITY | RO     |
+| 0xF000000C | 4B   | BUF_SIZE | RO     |
+| 0xF0000040 | 4B   | COMPLETE | WO     |
+| 0xF0000800 | 2KiB | FPGA_RAM | RW     |
 
-Reads from invalid addresses return `0xBADFABAC` (BAD FABric ACcess), writes are
-dropped. Most values are valid only if `exec` bit in `STATUS` register is set.
+Reads from invalid addresses in 0xF0000000-0xF0000FFF range return `0xBADFABAC`
+(BAD FABric ACcess), writes are dropped. Most values are valid only if `exec`
+bit in `STATUS` register is set.
 
 ## Registers
 
@@ -26,14 +27,10 @@ Reserved bits are read as 0. They may change in the future.
 
 ![Layout of STATUS register](/images/reg-status.png)
 
-This register is expected to be informational only, it doesn't provide any
-information that isn't conveyed through other means (interrupts).
-
 * `exec` indicates that MCU is expected to act upon request sent from FPGA,
   specified in `OP_TYPE` register. [Interrupt](#interrupts) is generated when
   this signal gets set by FPGA.
 * `abort` is set when PC aborts command currently being executed by TPM.
-  [Interrupt](#interrupts) is generated when this signal gets set by FPGA.
 * `complete` is a signal sent towards FPGA by writing to `COMPLETE` register.
   The signal is active for a few cycles after write to that register, after that
   is should be automatically set back to 0.
@@ -87,11 +84,12 @@ dropped.
 
 ## Interrupts
 
-TwPM uses two interrupt signals from FPGA towards M4. First one is `exec` which
-signals that there is an operation to be performed by TPM stack, and another one
-tells that the currently running operation is to be aborted.
+TwPM needs to communicate from FPGA towards SoC when there is an operation to be
+performed by TPM stack. This is done through `mext_irq_i`, which is responsible
+for signaling Machine external interrupt (MEI). This signal is level-triggered
+and high-active. MEI has a dedicated value in `mcause`, shared between all
+external interrupts. The exact reason has to be obtained in a platform-specific
+way; in case of TwPM it can be read from `STATUS` register.
 
-Both interrupts arrive to M4 as IRQ 4, and exact reason for interrupt can be
-read from 4-byte `FB_INTR_RAW` register located at address 0x40004884. Bits 0
-and 1 represent `exec` and `abort`, respectively. Interrupts are cleared by
-writing the same bits to register `FB_INTR` located at 0x40004880.
+The interrupt signal remains active until SoC signals completion by performing
+a write to `COMPLETE` register.

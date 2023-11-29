@@ -93,7 +93,7 @@ FPGA and MCU
 TPM stack and writing responses back to FIFO
 - review and update existing documentation, add entry to changelog
 
-State: In progress
+State: [Done](../changelog/#2023-11-26)
 
 ## 6. Base tests
 
