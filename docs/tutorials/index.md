@@ -7,3 +7,4 @@ building, or flashing the TwPM project to the development board.
 | Document                     | Goal                                |
 |------------------------------|-------------------------------------|
 | [Building TwPM](building.md) | Learn how to build the TwPM project |
+| [Mainboard connection](mainboard-connection.md) | Learn how to connect the TwPM to your platform |
