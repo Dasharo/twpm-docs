@@ -89,7 +89,9 @@ performed by TPM stack. This is done through `mext_irq_i`, which is responsible
 for signaling Machine external interrupt (MEI). This signal is level-triggered
 and high-active. MEI has a dedicated value in `mcause`, shared between all
 external interrupts. The exact reason has to be obtained in a platform-specific
-way; in case of TwPM it can be read from `STATUS` register.
+way; in case of TwPM it can be read from `STATUS` register, however, as of now
+only `exec` generates an interrupt so this check is redundant.
 
 The interrupt signal remains active until SoC signals completion by performing
-a write to `COMPLETE` register.
+a write to `COMPLETE` register. For this reason, the IRQ must be masked when TPM
+command is being executed outside of interrupt service routine (ISR).
