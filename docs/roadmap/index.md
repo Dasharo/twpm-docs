@@ -110,7 +110,7 @@ types)
 - documentation of results
 - review and update existing documentation, add entry to changelog
 
-State: In progress
+State: [Done](../changelog/#2024-01-16)
 
 ## 7. Implement SPI TPM protocol
 

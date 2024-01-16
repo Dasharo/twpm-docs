@@ -1,5 +1,13 @@
 # Changelog
 
+## 2024-01-16
+
+* Added page about [running tests](../development/testing.md)
+* Published
+  [tests results as part of Task 6. Base tests](../test-results/2024_01_11_orange_crab_without_create_primary.html)
+* Small changes to
+  [description of interrupts handling](../development/soc_fpga_communication.md#interrupts)
+
 ## 2023-11-26
 
 * [Reduce numbers of bi-directional lines to minimum](../development/verilog_modules/)
