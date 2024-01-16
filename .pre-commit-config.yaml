@@ -41,6 +41,9 @@ repos:
       - id: codespell
         exclude: docs/test-results/.*\.html
 
+exclude:
+  ^docs/test-results/.*\.html$
+
 ci:
   autoupdate_commit_msg: 'pre-commit: autoupdate hooks'
   autofix_prs: false
