@@ -44,6 +44,7 @@ nav:
       - development/index.md
       - Verilog modules: development/verilog_modules.md
       - Communication between SoC and FPGA: development/soc_fpga_communication.md
+      - Testing: development/testing.md
   - Explanation:
       - explanation/index.md
       - Hardware requirements: explanation/hardware-requirements.md
