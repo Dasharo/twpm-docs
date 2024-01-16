@@ -45,14 +45,15 @@ the USB-UART converter must also be connected.
 * Apply the [following
   diff](https://github.com/Dasharo/open-source-firmware-validation/issues/198#issuecomment-1893483736)
   if not using [RTE](https://shop.3mdeb.com/shop/open-source-hardware/rte/).
-  Adjust OS credentials to your case. Follow that issue for progress on improving the testing experience
-  with no additional hardware involved.
+  Adjust OS credentials to your case. Follow that issue for progress on
+  improving the testing experience with no additional hardware involved.
 
 * Execute a selection of test:
 
 > At the moment, CreatePrimary() is not supported, that is why tests using it
-> are excluded from the suite. More information can be found in [this issue](TBD).
-
+> are excluded from the suite. More information can be found in [this
+> issue](https://github.com/Dasharo/TwPM_toplevel/issues/23).
+>
 > Replace `$DEVICE_IP` with the IP address of your device, where TwPM is
 > connected. It is assumed running Ubuntu 22.04 OS with OpenSSH server enabled
 > via password authentication.
