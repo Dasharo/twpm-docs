@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document presetns the current status and progress of testing the TwPM
+This document presents the current status and progress of testing the TwPM
 module features. The tests used here are located in the
 [Dasharo OSFV repository](https://github.com/Dasharo/open-source-firmware-validation/blob/main/dasharo-security/tpm2-commands.robot).
 
@@ -24,6 +24,8 @@ The latest results (as of 11/01/2024) can be found
 ### Connection to the platform
 
 Follow the [mainboard connection tutorial](/tutorials/mainboard-connection.md).
+Make sure that LCLK and LAD lines aren't directly next to each other (e.g.
+separate those with GND), otherwise inter-signal noise would cause bad reads.
 
 ![](/images/twpm_connection.png)
 
