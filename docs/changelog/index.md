@@ -1,5 +1,12 @@
 # Changelog
 
+## 2024-01-16
+
+* Added page about [running tests](../development/testing.md)
+* Published
+  [tests results as part of Task 6. Base tests](../test-results/2024_01_11_orange_crab_without_create_primary.html)
+* TBD
+
 ## 2023-11-26
 
 * [Reduce numbers of bi-directional lines to minimum](../development/verilog_modules/)
