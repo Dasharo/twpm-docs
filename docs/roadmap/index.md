@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2024 3mdeb <contact@3mdeb.com>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Roadmap
 
 [TwPM project](https://nlnet.nl/project/TwPM/index.html) is funded by the
@@ -93,7 +99,7 @@ FPGA and MCU
 TPM stack and writing responses back to FIFO
 - review and update existing documentation, add entry to changelog
 
-State: [Done](../changelog/#2023-11-26)
+State: [Done](../changelog/#2024-01-16)
 
 ## 6. Base tests
 

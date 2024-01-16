@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2024 3mdeb <contact@3mdeb.com>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Communication between SoC and FPGA
 
 This document describes how FPGA and SoC communicate with each other in TwPM
