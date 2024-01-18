@@ -29,7 +29,7 @@ The latest results (as of 11/01/2024) can be found
 
 ### Connection to the platform
 
-Follow the [mainboard connection tutorial](/tutorials/mainboard-connection.md).
+Follow the [mainboard connection tutorial](/tutorials/mainboard-connection/).
 Make sure that LCLK and LAD lines aren't directly next to each other (e.g.
 separate those with GND), otherwise inter-signal noise would cause bad reads.
 
