@@ -21,6 +21,8 @@ diagrams.
 
 Current FPGA utilization:
 
+<!-- TODO: update and split this for LPC and SPI after successful testing -->
+
 ```text
 Info: Device utilisation:
 Info:               TRELLIS_IO:    65/  197    32%
@@ -82,9 +84,15 @@ External ports:
   marked as negated on the diagram due to how Symbolator detects such signals,
   i.e. its name doesn't end with either `_n` or `_b`).
 - `uart_rxd_i`, `uart_txd_o`: UART running at 115200n8.
-- LPC signals: those are to be connected to the mainboard, see
-  [Connecting TwPM to mainboard](/tutorials/mainboard-connection/).
-- SPI signals: connected to onboard SPI flash. Note that there is no clock
+- LPC interface: those are to be connected to the mainboard, see
+  [Connecting TwPM to mainboard](/tutorials/mainboard-connection/). Note that
+  only one of LPC or SPI interface is present at any given time, depending on
+  build configuration.
+- SPI interface: those are to be connected to the mainboard, see
+  [Connecting TwPM to mainboard](/tutorials/mainboard-connection/). Note that
+  only one of LPC or SPI interface is present at any given time, depending on
+  build configuration.
+- SPI flash signals: connected to onboard SPI flash. Note that there is no clock
   signal on the diagram, a hardware macro must be used instead of defining it as
   a port.
 - DDR3 interface: signals to and from onboard DRAM, connected directly to
@@ -211,6 +219,40 @@ Ports for signals to/from data provider:
   that, in quiet mode this signal initializes SERIRQ cycle. Data provider should
   drive this signal as long as reason for interrupt is valid.
 
+## SPI module
+
+Source code: [Dasharo/verilog-spi-module](https://github.com/Dasharo/verilog-spi-module)
+
+This module is responsible for managing SPI communication with PC. It only
+supports SPI protocol as described in TPM specification.
+
+![SPI peripheral module](/images/spi_periph.svg)
+
+Ports for SPI interface:
+
+- `clk_i`: SPI clock.
+- `cs_n`: Chip select (active low).
+- `mosi`: SPI Main Out Sub In.
+- `miso`: SPI Main In Sub Out, slow pull-up on host side.
+
+Ports for signals to/from data provider:
+
+- `addr_o`: 16-bit address of TPM register.
+- `data_i`, `data_o`: data received from or sent to TPM registers module.
+- `data_wr`: signal to data provider that `addr_o` and `data_o` have valid data
+  and write is requested.
+- `wr_done`: signal from data provider that `data_o` has been read. This signal
+  isn't used by SPI module because it would most likely arrive when the clock is
+  no longer running. Contrary to the LPC, SPI clock runs only during the
+  transmission.
+- `data_req`: signal to data provider that data is requested.
+- `data_rd`: signal from data provider that `data_i` has valid data for reading.
+  This signal should be driven in response to `data_req`.
+
+Note that there are no signals responsible for interrupts. SPI uses PIRQ, which
+doesn't require any additional logic, so `interrupt` signal from TPM registers
+module is used to drive it directly in the top level module.
+
 ## TPM registers module
 
 Source code: [Dasharo/verilog-tpm-fifo-registers](https://github.com/Dasharo/verilog-tpm-fifo-registers)
@@ -220,27 +262,32 @@ TPM interrupt generation and command finite state machine. Register values are
 reported accordingly to the current state. Registers not defined by PC Client
 specification return 0xFF on reads, and writes are dropped.
 
-The module is located between host interface module (LPC or, in the future, SPI)
-and memory buffer for TPM commands and responses. It also exposes hardware
-interface that is translated by top module into software interface for TPM stack
-running on NEORV32 processor.
+The module is located between host interface module (LPC or SPI) and memory
+buffer for TPM commands and responses. It also exposes hardware interface that
+is translated by top module into software interface for TPM stack running on
+NEORV32 processor.
 
 ![TPM registers module](/images/regs_module.svg)
 
-Ports for signals to/from LPC module:
+Ports for signals to/from LPC or SPI module:
 
-- `clk_i`: LPC clock is used for this module to allow for synchronous
-  communication with LPC module. Because of that, all registers' values are
-  available in one clock cycle and no wait states have to be inserted.
+- `clk_i`: LPC/SPI clock is used for this module to allow for synchronous
+  communication with LPC/SPI module. Because of that, all registers' values are
+  available in one clock cycle and no wait states (LPC) or exactly one wait
+  state (SPI) has to be inserted. For LPC,the clock is free-running, but for SPI
+  it is enabled only during the communication.
 - `addr_i`: 16-bit address of register to access.
-- `data_i`: 8-bit data from LPC module.
-- `data_o`: 8-bit data to LPC module.
+- `data_i`: 8-bit data from LPC/SPI module.
+- `data_o`: 8-bit data to LPC/SPI module.
 - `data_wr`, `wr_done`, `data_req`, `data_rd`: 4 signals coordinating
   communication over `data_i` and `data_o`. Their functions can be found in the
-  [LPC module description](#lpc-module) above.
+  [LPC module description](#lpc-module) or [SPI module description](#spi-module)
+  above.
 - `irq_num`, `interrupt`: configuration and request of interrupts sent to host,
-  see [LPC module description](#lpc-module) for details. Note that these are not
-  interrupts sent towards NEORV32.
+  see [LPC module description](#lpc-module) for details. In case of SPI,
+  `interrupt` is negated and routed directly to I/O pin in top level and
+  `irq_num` is not used. Note that these are not interrupts sent towards
+  NEORV32.
 
 Ports for signals for MCU interface:
 
@@ -284,5 +331,5 @@ Ports:
 
 - `A`: address, counted in 32-bit words.
 - `WD`, `RD`: input and output data, respectively.
-- `Clk`: input clock, arbitrated by top level between LPC and system clocks.
+- `Clk`: input clock, arbitrated by top level between LPC/SPI and system clocks.
 - `WEN`: write enable for each byte of `WD`.
