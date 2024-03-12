@@ -21,7 +21,7 @@ not take responsibility for potential damage caused by it. You have been warned.
 ## Pinout for TwPM based on OrangeCrab
 
 This is valid for TwPM built for [OrangeCrab](https://github.com/orangecrab-fpga/orangecrab-hardware)
-from release v0.2.0.
+from release v0.3.0.
 
 Pinout from [official documentation](https://orangecrab-fpga.github.io/orangecrab-hardware/docs/pinout/):
 
@@ -34,6 +34,20 @@ as they are described in .lpf files, this is what FPGA tools need) and I/O
 numbers (i.e. what is printed on the board, you will most likely use this to
 find the correct pin).
 
+In addition to signals for exchanging data with the mainboard, `3V3` and `GND`
+must also be connected to supply power to the OrangeCrab.
+
+If those pins need to be changed for any reason, it can be done in
+[orangecrab.lpf file](https://github.com/Dasharo/TwPM_toplevel/blob/main/fpga/orangecrab.lpf).
+Remember to change `SITE` of given signal to another physical pin, not only the
+comment which contains I/O number. For OrangeCrab, mapping between I/O pins and
+physical ports can be read from [schematics](https://github.com/orangecrab-fpga/orangecrab-hardware/blob/main/hardware/orangecrab_r0.2.1/plot/OrangeCrab.pdf).
+
+Note that only one of the below interfaces is enabled at any given time.
+Switching between them requires rebuilding and flashing the new bitstream.
+
+### LPC
+
 | Signal name | Physical Pin | I/O number |
 |-------------|:------------:|:----------:|
 | LCLK        | H2           | 12         |
@@ -45,14 +59,15 @@ find the correct pin).
 | LAD[3]      | B10          | 5          |
 | SERIRQ      | C9           | SCL        |
 
-In addition to those signals, `3V3` and `GND` must also be connected to supply
-power to the OrangeCrab.
+### SPI
 
-If those pins need to be changed for any reason, it can be done in
-[orangecrab.lpf file](https://github.com/Dasharo/TwPM_toplevel/blob/main/fpga/orangecrab.lpf).
-Remember to change `SITE` of given signal to another physical pin, not only the
-comment which contains I/O number. For OrangeCrab, mapping between I/O pins and
-physical ports can be read from [schematics](https://github.com/orangecrab-fpga/orangecrab-hardware/blob/main/hardware/orangecrab_r0.2.1/plot/OrangeCrab.pdf).
+| Signal name | Physical Pin | I/O number |
+|-------------|:------------:|:----------:|
+| CLK         | H2           | 12         |
+| MISO        | J2           | 13         |
+| MOSI        | A8           | 11         |
+| CS_N        | B8           | 10         |
+| PIRQ        | C9           | SCL        |
 
 ## Mainboard pinouts
 
@@ -60,10 +75,10 @@ The presented list has only mainboards that are confirmed to be valid. You are
 free to try it on the boards not listed below, assuming [you know what you're
 doing](#warning).
 
-### Protectli VP46xx
+### Protectli VP46xx (LPC)
 
 Protectli platforms from [VP46xx series](https://eu.protectli.com/vault-6-port/)
-have header compatible with [TPM-01](https://kb.protectli.com/kb/tpm-on-the-vault/#articleTOC_1).
+have header compatible with [TPM-01](https://eu.protectli.com/product/tpm-module/).
 It is 2x10 pin header, with key on pin 4. It is dangerously similar to multiple
 Gigabyte and Supermicro TPMs, but their layout is different so those are not
 compatible.
@@ -86,6 +101,33 @@ Pinout:
 | 15      | NC         | 16      | NC         |
 | 17      | GND        | 18      | VDD (3.3V) |
 | 19      | SERIRQ     | 20      | NC         |
+
+Some of the `NC` pins are actually used for other purposes. For clarity and to
+avoid making mistakes they are not marked above.
+
+### Protectli VP66xx (SPI)
+
+Protectli platforms from [VP66xx series](https://eu.protectli.com/vault-6-port/)
+have header compatible with [TPM-02](https://eu.protectli.com/product/tpm02/).
+It is 2x6 pin header, with key on pin 10, and a pitch different than OrangeCrab
+(2.00 mm instead of 2.54 mm), make sure you have proper wiring. The header is
+the same as on some of the MSI boards. Gigabyte uses rotated version of this
+pinout, while it looks the same, the pinout is different.
+
+![Protectli VP66xx TPM header location](https://kb.protectli.com/wp-content/uploads/sites/9/2024/02/6600TPMHeader-1024x756.png)
+
+Pinout:
+
+![Protectli VP66xx TPM pinout](/images/pinout-2x6-key10-vert.png){ align=left }
+
+| Pin No. | Definition | Pin No. | Definition |
+|:-------:|------------|:-------:|------------|
+| 1       | VDD (3.3V) | 2       | CS_N       |
+| 3       | MISO       | 4       | MOSI       |
+| 5       | NC         | 6       | CLK        |
+| 7       | GND        | 8       | NC         |
+| 9       | NC         | 10      | key        |
+| 11      | NC         | 12      | PIRQ       |
 
 Some of the `NC` pins are actually used for other purposes. For clarity and to
 avoid making mistakes they are not marked above.
