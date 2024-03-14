@@ -166,6 +166,50 @@ List of ports:
 
 Source code: [Dasharo/verilog-lpc-module](https://github.com/Dasharo/verilog-lpc-module)
 
+Testbench results:
+
+```text
+VCD info: dumpfile lpc_periph_tb.vcd opened for output.
+Performing TPM write w/o delay
+Performing TPM write with delay
+Performing TPM read with delay
+Performing TPM read w/o delay
+Testing reset behaviour - TPM write w/o delay
+Testing reset behaviour - TPM read w/o delay
+Testing reset behaviour - TPM write with delay
+Testing reset behaviour - TPM read with delay
+Testing non-TPM transactions
+Testing extended LFRAME# timings - write
+Testing extended LFRAME# timings - read
+Testing abort mechanism - write
+Testing abort mechanism - read
+Testing interrupts - Continuous mode:
+  no interrupt reported when not requested?
+  proper IRQ reported?
+  IRQ number latched at start frame?
+  IRQ keeps being sent while active?
+  IRQ stops being sent when no longer active?
+  recovery and turn-around phases executed when int is deactivated?
+  IRQs reported with idle clock cycles before stop frame?
+  IRQs reported with idle clock cycles after stop frame?
+  IRQs reported with longer start pulse width?
+Testing interrupts - switching between modes:
+  peripheral doesn't initialize SERIRQ cycle in Quiet mode when not needed?
+  peripheral initializes SERIRQ cycle when IRQ needed in Quiet mode?
+  reset switches peripheral to Continuous mode?
+Testing interrupts - Quiet mode:
+  proper IRQ reported?
+  IRQ number latched at start frame?
+  IRQ keeps being sent while active?
+  IRQ stops being sent when no longer active?
+  recovery and turn-around phases executed when int is deactivated?
+  IRQs reported with idle clock cycles before stop frame?
+  peripheral keeps working after spurious interrupt?
+  IRQs reported with longer start pulse width?
+Testing interrupts - IRQ stops being reported on reset
+lpc_periph_tb.v:1344: $stop called at 518601000 (1ps)
+```
+
 This module is responsible for managing LPC communication. It responds only to
 TPM cycles, other cycle types are ignored. SERIRQ (both continuous and quiet
 mode), cycle aborts and LPC resets are implemented.
@@ -223,6 +267,21 @@ Ports for signals to/from data provider:
 
 Source code: [Dasharo/verilog-spi-module](https://github.com/Dasharo/verilog-spi-module)
 
+Testbench results:
+
+```text
+VCD info: dumpfile spi_periph_tb.vcd opened for output.
+Performing TPM write w/o delay
+Performing TPM write with delay
+Performing TPM read with delay
+Performing TPM read w/o delay
+Testing transfers with scattered clock between bytes
+Testing over-sized transfers
+Testing non-TPM addresses
+Testing crossing registers boundary
+spi_periph_tb.v:349: $stop called at 86540000 (1ps)
+```
+
 This module is responsible for managing SPI communication with PC. It only
 supports SPI protocol as described in TPM specification.
 
@@ -256,6 +315,27 @@ module is used to drive it directly in the top level module.
 ## TPM registers module
 
 Source code: [Dasharo/verilog-tpm-fifo-registers](https://github.com/Dasharo/verilog-tpm-fifo-registers)
+
+Testbench results:
+
+```text
+VCD info: dumpfile regs_tb.vcd opened for output.
+Testing simple register reads without delay
+Testing simple register reads with delay
+Checking register values against expected.txt
+Checking if RO registers are writable
+Testing mechanisms for changing locality
+Testing mechanisms for seizing locality
+Testing TPM_INT_VECTOR write without delay - proper locality
+Testing TPM_INT_VECTOR write with delay - proper locality
+Testing TPM_INT_VECTOR write without delay - wrong locality
+Testing TPM_INT_VECTOR write with delay - wrong locality
+Testing TPM_INT_VECTOR write without delay - no locality
+Testing TPM_INT_VECTOR write with delay - no locality
+Testing command/response exchange and TPM state machine - basic
+Testing command/response exchange and TPM state machine - advanced
+regs_tb.v:1075: $stop called at 2023220000 (1ps)
+```
 
 This module implements TPM register space. It also handles locality transitions,
 TPM interrupt generation and command finite state machine. Register values are
