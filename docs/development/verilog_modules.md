@@ -19,40 +19,72 @@ a guess about signal function based only on its name, which in some cases gives
 wrong results. Such cases are mentioned in the signal descriptions under the
 diagrams.
 
-Current FPGA utilization:
-
-<!-- TODO: update and split this for LPC and SPI after successful testing -->
+Current FPGA utilization for LPC:
 
 ```text
 Info: Device utilisation:
-Info:               TRELLIS_IO:    65/  197    32%
-Info:                     DCCA:     5/   56     8%
-Info:                   DP16KD:     5/   56     8%
-Info:               MULT18X18D:     1/   28     3%
-Info:                   ALU54B:     0/   14     0%
-Info:                  EHXPLLL:     1/    2    50%
-Info:                  EXTREFB:     0/    1     0%
-Info:                     DCUA:     0/    1     0%
-Info:                PCSCLKDIV:     0/    2     0%
-Info:                  IOLOGIC:    44/  128    34%
-Info:                 SIOLOGIC:     0/   69     0%
-Info:                      GSR:     0/    1     0%
-Info:                    JTAGG:     0/    1     0%
-Info:                     OSCG:     0/    1     0%
-Info:                    SEDGA:     0/    1     0%
-Info:                      DTR:     0/    1     0%
-Info:                  USRMCLK:     1/    1   100%
-Info:                  CLKDIVF:     1/    4    25%
-Info:                ECLKSYNCB:     1/   10    10%
-Info:                  DLLDELD:     0/    8     0%
-Info:                   DDRDLL:     1/    4    25%
-Info:                  DQSBUFM:     2/    8    25%
-Info:          TRELLIS_ECLKBUF:     3/    8    37%
-Info:             ECLKBRIDGECS:     1/    2    50%
-Info:                     DCSC:     0/    2     0%
-Info:               TRELLIS_FF:  5081/24288    20%
-Info:             TRELLIS_COMB: 12350/24288    50%
-Info:             TRELLIS_RAMW:   121/ 3036     3%
+Info: 	          TRELLIS_IO:    65/  197    32%
+Info: 	                DCCA:     5/   56     8%
+Info: 	              DP16KD:     5/   56     8%
+Info: 	          MULT18X18D:     1/   28     3%
+Info: 	              ALU54B:     0/   14     0%
+Info: 	             EHXPLLL:     1/    2    50%
+Info: 	             EXTREFB:     0/    1     0%
+Info: 	                DCUA:     0/    1     0%
+Info: 	           PCSCLKDIV:     0/    2     0%
+Info: 	             IOLOGIC:    44/  128    34%
+Info: 	            SIOLOGIC:     0/   69     0%
+Info: 	                 GSR:     0/    1     0%
+Info: 	               JTAGG:     0/    1     0%
+Info: 	                OSCG:     0/    1     0%
+Info: 	               SEDGA:     0/    1     0%
+Info: 	                 DTR:     0/    1     0%
+Info: 	             USRMCLK:     1/    1   100%
+Info: 	             CLKDIVF:     1/    4    25%
+Info: 	           ECLKSYNCB:     1/   10    10%
+Info: 	             DLLDELD:     0/    8     0%
+Info: 	              DDRDLL:     1/    4    25%
+Info: 	             DQSBUFM:     2/    8    25%
+Info: 	     TRELLIS_ECLKBUF:     3/    8    37%
+Info: 	        ECLKBRIDGECS:     1/    2    50%
+Info: 	                DCSC:     0/    2     0%
+Info: 	          TRELLIS_FF:  5049/24288    20%
+Info: 	        TRELLIS_COMB: 12639/24288    52%
+Info: 	        TRELLIS_RAMW:   121/ 3036     3%
+```
+
+Current FPGA utilization for SPI:
+
+```text
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:    62/  197    31%
+Info: 	                DCCA:     6/   56    10%
+Info: 	              DP16KD:     5/   56     8%
+Info: 	          MULT18X18D:     0/   28     0%
+Info: 	              ALU54B:     0/   14     0%
+Info: 	             EHXPLLL:     1/    2    50%
+Info: 	             EXTREFB:     0/    1     0%
+Info: 	                DCUA:     0/    1     0%
+Info: 	           PCSCLKDIV:     0/    2     0%
+Info: 	             IOLOGIC:    44/  128    34%
+Info: 	            SIOLOGIC:     0/   69     0%
+Info: 	                 GSR:     0/    1     0%
+Info: 	               JTAGG:     0/    1     0%
+Info: 	                OSCG:     0/    1     0%
+Info: 	               SEDGA:     0/    1     0%
+Info: 	                 DTR:     0/    1     0%
+Info: 	             USRMCLK:     1/    1   100%
+Info: 	             CLKDIVF:     1/    4    25%
+Info: 	           ECLKSYNCB:     1/   10    10%
+Info: 	             DLLDELD:     0/    8     0%
+Info: 	              DDRDLL:     1/    4    25%
+Info: 	             DQSBUFM:     2/    8    25%
+Info: 	     TRELLIS_ECLKBUF:     3/    8    37%
+Info: 	        ECLKBRIDGECS:     1/    2    50%
+Info: 	                DCSC:     0/    2     0%
+Info: 	          TRELLIS_FF:  5025/24288    20%
+Info: 	        TRELLIS_COMB: 12175/24288    50%
+Info: 	        TRELLIS_RAMW:   121/ 3036     3%
 ```
 
 ## Top level
