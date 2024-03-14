@@ -276,6 +276,8 @@ Ports for signals to/from LPC or SPI module:
   available in one clock cycle and no wait states (LPC) or exactly one wait
   state (SPI) has to be inserted. For LPC,the clock is free-running, but for SPI
   it is enabled only during the communication.
+- `reset`: reset signal, required to reset registers to their initial values,
+  active low.
 - `addr_i`: 16-bit address of register to access.
 - `data_i`: 8-bit data from LPC/SPI module.
 - `data_o`: 8-bit data to LPC/SPI module.
