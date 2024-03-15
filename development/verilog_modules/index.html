@@ -1,0 +1,1451 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://twpm.dasharo.com/development/verilog_modules/">
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Verilog modules - Trustworthy Platform Module (TwPM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#verilog-modules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Trustworthy Platform Module (TwPM)" class="md-header__button md-logo" aria-label="Trustworthy Platform Module (TwPM)" data-md-component="logo">
+      
+  <img src="../../images/dasharo-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Trustworthy Platform Module (TwPM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Verilog modules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dasharo/twpm-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Intro
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Development
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../explanation/" class="md-tabs__link">
+        Explanation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        Changelog
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        Contributing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Trustworthy Platform Module (TwPM)" class="md-nav__button md-logo" aria-label="Trustworthy Platform Module (TwPM)" data-md-component="logo">
+      
+  <img src="../../images/dasharo-logo.png" alt="logo">
+
+    </a>
+    Trustworthy Platform Module (TwPM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dasharo/twpm-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Intro</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Intro" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Intro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../tutorials/">Tutorials</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/building/" class="md-nav__link">
+        Building TwPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/mainboard-connection/" class="md-nav__link">
+        Connecting TwPM to the mainboard
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Development</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Verilog modules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Verilog modules
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#top-level" class="md-nav__link">
+    Top level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neorv32" class="md-nav__link">
+    NEORV32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#litedram" class="md-nav__link">
+    LiteDRAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lpc-module" class="md-nav__link">
+    LPC module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spi-module" class="md-nav__link">
+    SPI module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tpm-registers-module" class="md-nav__link">
+    TPM registers module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r512x32" class="md-nav__link">
+    r512x32
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soc_fpga_communication/" class="md-nav__link">
+        Communication between SoC and FPGA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../explanation/">Explanation</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Explanation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explanation/hardware-requirements/" class="md-nav__link">
+        Hardware requirements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explanation/hardware-selection/" class="md-nav__link">
+        Hardware selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explanation/compliance/" class="md-nav__link">
+        Compliance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../changelog/">Changelog</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Changelog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Changelog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../contributing/">Contributing</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Contributing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../roadmap/">Roadmap</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Roadmap" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Roadmap
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#top-level" class="md-nav__link">
+    Top level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neorv32" class="md-nav__link">
+    NEORV32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#litedram" class="md-nav__link">
+    LiteDRAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lpc-module" class="md-nav__link">
+    LPC module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spi-module" class="md-nav__link">
+    SPI module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tpm-registers-module" class="md-nav__link">
+    TPM registers module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r512x32" class="md-nav__link">
+    r512x32
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/dasharo/twpm-docs/edit/master/docs/development/verilog_modules.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<!--
+SPDX-FileCopyrightText: 2024 3mdeb <contact@3mdeb.com>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<h1 id="verilog-modules">Verilog modules</h1>
+<p>Below is description of FPGA modules used by TwPM for OrangeCrab. The design may
+change as the project progresses, state described here is valid for revision
+marked with tag <code>v0.2.0</code> of the top module.</p>
+<p>This document includes diagrams generated with <a href="https://kevinpt.github.io/symbolator/">Symbolator</a>.
+On these diagrams, input ports are on the left, and outputs and bi-directional
+signals are on the right. Module parameters are at the top, on gray background.
+In general, clocks are marked with triangle inside, and active-low signals with
+circle outside of rectangle symbolizing the module. However, Symbolator makes
+a guess about signal function based only on its name, which in some cases gives
+wrong results. Such cases are mentioned in the signal descriptions under the
+diagrams.</p>
+<p>Current FPGA utilization for LPC:</p>
+<div class="highlight"><pre><span></span><code>Info: Device utilisation:
+Info:             TRELLIS_IO:    65/  197    32%
+Info:                   DCCA:     5/   56     8%
+Info:                 DP16KD:     5/   56     8%
+Info:             MULT18X18D:     1/   28     3%
+Info:                 ALU54B:     0/   14     0%
+Info:                EHXPLLL:     1/    2    50%
+Info:                EXTREFB:     0/    1     0%
+Info:                   DCUA:     0/    1     0%
+Info:              PCSCLKDIV:     0/    2     0%
+Info:                IOLOGIC:    44/  128    34%
+Info:               SIOLOGIC:     0/   69     0%
+Info:                    GSR:     0/    1     0%
+Info:                  JTAGG:     0/    1     0%
+Info:                   OSCG:     0/    1     0%
+Info:                  SEDGA:     0/    1     0%
+Info:                    DTR:     0/    1     0%
+Info:                USRMCLK:     1/    1   100%
+Info:                CLKDIVF:     1/    4    25%
+Info:              ECLKSYNCB:     1/   10    10%
+Info:                DLLDELD:     0/    8     0%
+Info:                 DDRDLL:     1/    4    25%
+Info:                DQSBUFM:     2/    8    25%
+Info:        TRELLIS_ECLKBUF:     3/    8    37%
+Info:           ECLKBRIDGECS:     1/    2    50%
+Info:                   DCSC:     0/    2     0%
+Info:             TRELLIS_FF:  5049/24288    20%
+Info:           TRELLIS_COMB: 12639/24288    52%
+Info:           TRELLIS_RAMW:   121/ 3036     3%
+</code></pre></div>
+<p>Current FPGA utilization for SPI:</p>
+<div class="highlight"><pre><span></span><code>Info: Device utilisation:
+Info:             TRELLIS_IO:    62/  197    31%
+Info:                   DCCA:     6/   56    10%
+Info:                 DP16KD:     5/   56     8%
+Info:             MULT18X18D:     0/   28     0%
+Info:                 ALU54B:     0/   14     0%
+Info:                EHXPLLL:     1/    2    50%
+Info:                EXTREFB:     0/    1     0%
+Info:                   DCUA:     0/    1     0%
+Info:              PCSCLKDIV:     0/    2     0%
+Info:                IOLOGIC:    44/  128    34%
+Info:               SIOLOGIC:     0/   69     0%
+Info:                    GSR:     0/    1     0%
+Info:                  JTAGG:     0/    1     0%
+Info:                   OSCG:     0/    1     0%
+Info:                  SEDGA:     0/    1     0%
+Info:                    DTR:     0/    1     0%
+Info:                USRMCLK:     1/    1   100%
+Info:                CLKDIVF:     1/    4    25%
+Info:              ECLKSYNCB:     1/   10    10%
+Info:                DLLDELD:     0/    8     0%
+Info:                 DDRDLL:     1/    4    25%
+Info:                DQSBUFM:     2/    8    25%
+Info:        TRELLIS_ECLKBUF:     3/    8    37%
+Info:           ECLKBRIDGECS:     1/    2    50%
+Info:                   DCSC:     0/    2     0%
+Info:             TRELLIS_FF:  5025/24288    20%
+Info:           TRELLIS_COMB: 12175/24288    50%
+Info:           TRELLIS_RAMW:   121/ 3036     3%
+</code></pre></div>
+<h2 id="top-level">Top level</h2>
+<p>Top level module code is located <a href="https://github.com/Dasharo/TwPM_toplevel">in this repository</a>.
+It glues together other modules, which are referenced by that repository as git
+submodules. It also describes how the signals are connected to external IO pins.</p>
+<p><img alt="TwPM top level module" src="/images/twpm_top_orangecrab.svg" /></p>
+<p>Top level module parameters:</p>
+<ul>
+<li><code>TPM_RAM_*</code>, <code>TPM_REGS_*</code>, <code>TPM_REG_*</code>: those specify addresses and sizes used
+  in <a href="/development/soc_fpga_communication/">Communication between SoC and FPGA</a>.</li>
+<li><code>LITEDRAM_*</code> and <code>RAM_*</code>: LiteDRAM controller and main (DDR3) RAM base address
+  and size.</li>
+<li><code>DEFAULT_READ_VALUE</code>: value read from <code>TPM_REGS</code> region outside of any defined
+  register.</li>
+<li><code>COMPLETE_PULSE_WIDTH</code>: width (in system clock cycles) of <code>complete</code> signal.
+  See <a href="#tpm-registers-module">TPM registers module description</a> for details on
+  that signal.</li>
+</ul>
+<p>External ports:</p>
+<ul>
+<li><code>clk_i</code>: input (crystal) clock running at 48 MHz. Note that it is only used
+  for driving PLL, which in turn generates 50 MHz clock for most of the system.</li>
+<li><code>rstn_i</code>: asynchronous reset signal, active low. It is converted to
+  synchronous reset that is used for most of the components. (Note: it is not
+  marked as negated on the diagram due to how Symbolator detects such signals,
+  i.e. its name doesn't end with either <code>_n</code> or <code>_b</code>).</li>
+<li><code>uart_rxd_i</code>, <code>uart_txd_o</code>: UART running at 115200n8.</li>
+<li>LPC interface: those are to be connected to the mainboard, see
+  <a href="/tutorials/mainboard-connection/">Connecting TwPM to mainboard</a>. Note that
+  only one of LPC or SPI interface is present at any given time, depending on
+  build configuration.</li>
+<li>SPI interface: those are to be connected to the mainboard, see
+  <a href="/tutorials/mainboard-connection/">Connecting TwPM to mainboard</a>. Note that
+  only one of LPC or SPI interface is present at any given time, depending on
+  build configuration.</li>
+<li>SPI flash signals: connected to onboard SPI flash. Note that there is no clock
+  signal on the diagram, a hardware macro must be used instead of defining it as
+  a port.</li>
+<li>DDR3 interface: signals to and from onboard DRAM, connected directly to
+  LiteDRAM module. Negative part of differential signals (CK, DQS) are
+  implemented with hardware macros, so they are not listed as I/O ports.</li>
+<li><code>led_r</code>, <code>led_g</code>, <code>led_b</code>: outputs driving RGB LED. All of them are active low
+  (this is how LEDs usually work), even though only one of them is marked as
+  such (again, due to how Symbolator parses names).</li>
+</ul>
+<h2 id="neorv32">NEORV32</h2>
+<p><a href="https://stnolting.github.io/neorv32/">The NEORV32 processor</a> is used to run
+software TPM stack on. It is highly configurable, and many of its modules are
+disabled in TwPM, so not all of the <a href="https://stnolting.github.io/neorv32/#_processor_top_entity_signals">Processor top entity signals</a>
+are used.</p>
+<p><img alt="NEORV32 module" src="/images/neorv32_verilog_wrapper.svg" /></p>
+<ul>
+<li><code>clk_i</code>, <code>rstn_i</code>: main clock and reset signals. Note that these are not the
+  top level clock and reset, instead these are outputs from LiteDRAM described
+  below. This clock runs at 50 MHz. Reset is active-low, but Symbolator didn't
+  represent it correctly on diagram.</li>
+<li><code>uart0_rxd_i</code>, <code>uart0_txd_o</code>: main UART, connected directly to I/O pads.</li>
+<li>JTAG signals: unused for now.</li>
+<li>WISHBONE bus interface: configured as WISHBONE Classic. Used for accessing
+  modules external to the processor, like TPM module, DRAM and LiteDRAM
+  controller.</li>
+<li>SPI interface: connected to top level I/O either directly or through hardware
+  macro (<code>spi_clk_o</code>).</li>
+<li>GPIO: only 3 outputs are connected to LEDs to provide some kind of output even
+  if UART is not connected. Inputs are hardwired to 0 because there is no way of
+  implementing just the outputs.</li>
+</ul>
+<h2 id="litedram">LiteDRAM</h2>
+<p>While the module was generated with <a href="https://github.com/enjoy-digital/litedram">LiteDRAM</a>,
+the entire source is included in <a href="https://github.com/Dasharo/TwPM_toplevel/tree/main/fpga/orangecrab_litedram">TwPM_toplevel repository</a>,
+along with configuration file used to create it. This is done to make the code
+reproducible, as well as to add some customizations, listed in comment at the
+top of Verilog file.</p>
+<p><img alt="LiteDRAM module" src="/images/litedram_core.svg" /></p>
+<p>List of ports:</p>
+<ul>
+<li><code>clk</code>, <code>rst</code>, <code>user_clk</code> and <code>user_rst</code>: this module implements PLL and reset
+  synchronizer, these are respective inputs and outputs for them. On input we
+  have 48 MHz clock and asynchronous reset, and on output 50 MHz clock with
+  synchronous reset signal. Note that both reset signals are <strong>active-high</strong>,
+  contrary to the rest of the project. Both are negated in top level module.</li>
+<li>DDR3 RAM signals: routed directly to top level module's ports.</li>
+<li><code>init_done</code>, <code>init_error</code>, <code>pll_locked</code>: status signals, not really used in
+  current implementation. First two are controlled by software doing the
+  initialization, and the <code>user_rst</code> is active until PLL is locked, which in
+  turn doesn't release NEORV32 core. <code>pll_locked</code> is connected to blue LED as a
+  sign of life.</li>
+<li>RAM WISHBONE interface: WISHBONE Classic interface for accessing the main
+  memory. Mostly standard, except for <code>user_port_wishbone_adr</code> - it specifies
+  (4 bytes) <em>word</em> address, not <em>byte</em> address. Its width is also limited to the
+  size of RAM.</li>
+<li>Controller WISHBONE interface: also a WISHBONE Classic interface, used to set
+  up and initialize RAM before it is usable. Refer to the LiteDRAM and
+  <a href="https://github.com/enjoy-digital/litex/tree/master/litex/soc/software/liblitedram">liblitedram</a>
+  (which for some reason is in main LiteX repository) for details on how to
+  interact with it. <code>wb_ctrl_adr</code> is also using word addresses as above, but its
+  width is not limited otherwise. Only lower bits are compared in the module,
+  which means that top level has to arbitrate other signals (e.g. CYC or STB) to
+  avoid aliasing.</li>
+</ul>
+<h2 id="lpc-module">LPC module</h2>
+<p>Source code: <a href="https://github.com/Dasharo/verilog-lpc-module">Dasharo/verilog-lpc-module</a></p>
+<p>Testbench results:</p>
+<div class="highlight"><pre><span></span><code>VCD info: dumpfile lpc_periph_tb.vcd opened for output.
+Performing TPM write w/o delay
+Performing TPM write with delay
+Performing TPM read with delay
+Performing TPM read w/o delay
+Testing reset behaviour - TPM write w/o delay
+Testing reset behaviour - TPM read w/o delay
+Testing reset behaviour - TPM write with delay
+Testing reset behaviour - TPM read with delay
+Testing non-TPM transactions
+Testing extended LFRAME# timings - write
+Testing extended LFRAME# timings - read
+Testing abort mechanism - write
+Testing abort mechanism - read
+Testing interrupts - Continuous mode:
+  no interrupt reported when not requested?
+  proper IRQ reported?
+  IRQ number latched at start frame?
+  IRQ keeps being sent while active?
+  IRQ stops being sent when no longer active?
+  recovery and turn-around phases executed when int is deactivated?
+  IRQs reported with idle clock cycles before stop frame?
+  IRQs reported with idle clock cycles after stop frame?
+  IRQs reported with longer start pulse width?
+Testing interrupts - switching between modes:
+  peripheral doesn&#39;t initialize SERIRQ cycle in Quiet mode when not needed?
+  peripheral initializes SERIRQ cycle when IRQ needed in Quiet mode?
+  reset switches peripheral to Continuous mode?
+Testing interrupts - Quiet mode:
+  proper IRQ reported?
+  IRQ number latched at start frame?
+  IRQ keeps being sent while active?
+  IRQ stops being sent when no longer active?
+  recovery and turn-around phases executed when int is deactivated?
+  IRQs reported with idle clock cycles before stop frame?
+  peripheral keeps working after spurious interrupt?
+  IRQs reported with longer start pulse width?
+Testing interrupts - IRQ stops being reported on reset
+lpc_periph_tb.v:1344: $stop called at 518601000 (1ps)
+</code></pre></div>
+<p>This module is responsible for managing LPC communication. It responds only to
+TPM cycles, other cycle types are ignored. SERIRQ (both continuous and quiet
+mode), cycle aborts and LPC resets are implemented.</p>
+<p><img alt="LPC peripheral module" src="/images/lpc_periph.svg" /></p>
+<p>Ports for LPC interface (refer to <a href="https://www.intel.com/content/dam/www/program/design/us/en/documents/low-pin-count-interface-specification.pdf">LPC specification</a>
+for details):</p>
+<ul>
+<li><code>clk_i</code>: LPC clock.</li>
+<li><code>nrst_i</code>: LPC reset (active low).</li>
+<li><code>lframe_i</code>: LPC frame input (active low).</li>
+<li><code>lad_bus</code>: LPC data bus, slow pull-up on host side.</li>
+<li><code>serirq</code>: LPC SERIRQ signal, slow pull-up on host side. More information about
+  SERIRQ can be found <a href="https://web.archive.org/web/20150502224201/http://hackipedia.org/Platform/x86/PCI/Serialized%20IRQ%20Support%20for%20PCI%20Systems.doc.pdf">here</a>.</li>
+</ul>
+<p>Ports for signals to/from data provider:</p>
+<ul>
+<li><code>lpc_addr_o</code>: 16-bit address of TPM register.</li>
+<li><code>lpc_data_i</code>: data received from data provider (TPM registers module) to be
+  sent to host.</li>
+<li><code>lpc_data_o</code>: data received from host to be sent to TPM registers module.</li>
+<li><code>lpc_data_wr</code>: signal to data provider that <code>lpc_addr_o</code> and
+  <code>lpc_data_o</code> have valid data and write is requested.</li>
+<li><code>lpc_wr_done</code>: signal from data provider that <code>lpc_data_o</code> has been read. This
+  signal should be driven until LPC module stops driving <code>lpc_data_wr</code>, after
+  which this signal should be stopped being driven no later than 1 <code>clk_i</code> cycle
+  (30ns). LPC module changes <code>lpc_data_wr</code> on falling <code>clk_i</code> edge so it is
+  suggested that data provider module samples that signal on rising edge.</li>
+<li><code>lpc_data_req</code>: signal to data provider that data is requested (rising edge of
+  this signal) or has been read (falling edge) from <code>lpc_data_i</code>. <code>lpc_data_req</code>
+  is changed on falling edge of <code>clk_i</code>.</li>
+<li><code>lpc_data_rd</code>: signal from data provider that <code>lpc_data_i</code> has valid data for
+  reading. This signal should be driven in response to <code>lpc_data_req</code>.
+  <code>lpc_data_rd</code> is sampled by LPC module on falling <code>clk_i</code> edge. This signal
+  should be driven until LPC module stops driving <code>lpc_data_req</code>, after which
+  this signal should be stopped being driven no later than 1 <code>clk_i</code> cycle
+  (30ns). LPC module changes <code>lpc_data_req</code> on falling <code>clk_i</code> edge so it is
+  suggested that data provider module samples that signal on rising edge.</li>
+<li><code>irq_num</code>: IRQ (interrupt request) number, for TPM this is configured by
+  <code>TPM_INT_VECTOR_x.sirqVec</code> (see <a href="https://trustedcomputinggroup.org/wp-content/uploads/PC-Client-Specific-Platform-TPM-Profile-for-TPM-2p0-v1p05p_r14_pub.pdf">TCG PC Client Platform TPM Profile
+  Specification for TPM 2.0</a>
+  chapter 6.6.1.3). No parsing is done by LPC module, meaning that both IRQ0
+  (which in some, but not all parts of TPM specification this means "IRQ
+  disabled") and IRQ2 (SMI) are valid. IRQ number is sampled on <code>clk_i</code> falling
+  edge on SERIRQ start frame, turn-around phase. This is done to avoid sending
+  one interrupt with two different IRQ numbers in one cycle.</li>
+<li><code>interrupt</code>: whether interrupt should be signaled to host to which TwPM is
+  connected, active high. It is checked at the beginning of SERIRQ frame of IRQ
+  latched from <code>irq_num</code>, both in quiet and continuous mode. In addition to
+  that, in quiet mode this signal initializes SERIRQ cycle. Data provider should
+  drive this signal as long as reason for interrupt is valid.</li>
+</ul>
+<h2 id="spi-module">SPI module</h2>
+<p>Source code: <a href="https://github.com/Dasharo/verilog-spi-module">Dasharo/verilog-spi-module</a></p>
+<p>Testbench results:</p>
+<div class="highlight"><pre><span></span><code>VCD info: dumpfile spi_periph_tb.vcd opened for output.
+Performing TPM write w/o delay
+Performing TPM write with delay
+Performing TPM read with delay
+Performing TPM read w/o delay
+Testing transfers with scattered clock between bytes
+Testing over-sized transfers
+Testing non-TPM addresses
+Testing crossing registers boundary
+spi_periph_tb.v:349: $stop called at 86540000 (1ps)
+</code></pre></div>
+<p>This module is responsible for managing SPI communication with PC. It only
+supports SPI protocol as described in TPM specification.</p>
+<p><img alt="SPI peripheral module" src="/images/spi_periph.svg" /></p>
+<p>Ports for SPI interface:</p>
+<ul>
+<li><code>clk_i</code>: SPI clock.</li>
+<li><code>cs_n</code>: Chip select (active low).</li>
+<li><code>mosi</code>: SPI Main Out Sub In.</li>
+<li><code>miso</code>: SPI Main In Sub Out, slow pull-up on host side.</li>
+</ul>
+<p>Ports for signals to/from data provider:</p>
+<ul>
+<li><code>addr_o</code>: 16-bit address of TPM register.</li>
+<li><code>data_i</code>, <code>data_o</code>: data received from or sent to TPM registers module.</li>
+<li><code>data_wr</code>: signal to data provider that <code>addr_o</code> and <code>data_o</code> have valid data
+  and write is requested.</li>
+<li><code>wr_done</code>: signal from data provider that <code>data_o</code> has been read. This signal
+  isn't used by SPI module because it would most likely arrive when the clock is
+  no longer running. Contrary to the LPC, SPI clock runs only during the
+  transmission.</li>
+<li><code>data_req</code>: signal to data provider that data is requested.</li>
+<li><code>data_rd</code>: signal from data provider that <code>data_i</code> has valid data for reading.
+  This signal should be driven in response to <code>data_req</code>.</li>
+</ul>
+<p>Note that there are no signals responsible for interrupts. SPI uses PIRQ, which
+doesn't require any additional logic, so <code>interrupt</code> signal from TPM registers
+module is used to drive it directly in the top level module.</p>
+<h2 id="tpm-registers-module">TPM registers module</h2>
+<p>Source code: <a href="https://github.com/Dasharo/verilog-tpm-fifo-registers">Dasharo/verilog-tpm-fifo-registers</a></p>
+<p>Testbench results:</p>
+<div class="highlight"><pre><span></span><code>VCD info: dumpfile regs_tb.vcd opened for output.
+Testing simple register reads without delay
+Testing simple register reads with delay
+Checking register values against expected.txt
+Checking if RO registers are writable
+Testing mechanisms for changing locality
+Testing mechanisms for seizing locality
+Testing TPM_INT_VECTOR write without delay - proper locality
+Testing TPM_INT_VECTOR write with delay - proper locality
+Testing TPM_INT_VECTOR write without delay - wrong locality
+Testing TPM_INT_VECTOR write with delay - wrong locality
+Testing TPM_INT_VECTOR write without delay - no locality
+Testing TPM_INT_VECTOR write with delay - no locality
+Testing command/response exchange and TPM state machine - basic
+Testing command/response exchange and TPM state machine - advanced
+regs_tb.v:1075: $stop called at 2023220000 (1ps)
+</code></pre></div>
+<p>This module implements TPM register space. It also handles locality transitions,
+TPM interrupt generation and command finite state machine. Register values are
+reported accordingly to the current state. Registers not defined by PC Client
+specification return 0xFF on reads, and writes are dropped.</p>
+<p>The module is located between host interface module (LPC or SPI) and memory
+buffer for TPM commands and responses. It also exposes hardware interface that
+is translated by top module into software interface for TPM stack running on
+NEORV32 processor.</p>
+<p><img alt="TPM registers module" src="/images/regs_module.svg" /></p>
+<p>Ports for signals to/from LPC or SPI module:</p>
+<ul>
+<li><code>clk_i</code>: LPC/SPI clock is used for this module to allow for synchronous
+  communication with LPC/SPI module. Because of that, all registers' values are
+  available in one clock cycle and no wait states (LPC) or exactly one wait
+  state (SPI) has to be inserted. For LPC,the clock is free-running, but for SPI
+  it is enabled only during the communication.</li>
+<li><code>reset</code>: reset signal, required to reset registers to their initial values,
+  active low.</li>
+<li><code>addr_i</code>: 16-bit address of register to access.</li>
+<li><code>data_i</code>: 8-bit data from LPC/SPI module.</li>
+<li><code>data_o</code>: 8-bit data to LPC/SPI module.</li>
+<li><code>data_wr</code>, <code>wr_done</code>, <code>data_req</code>, <code>data_rd</code>: 4 signals coordinating
+  communication over <code>data_i</code> and <code>data_o</code>. Their functions can be found in the
+  <a href="#lpc-module">LPC module description</a> or <a href="#spi-module">SPI module description</a>
+  above.</li>
+<li><code>irq_num</code>, <code>interrupt</code>: configuration and request of interrupts sent to host,
+  see <a href="#lpc-module">LPC module description</a> for details. In case of SPI,
+  <code>interrupt</code> is negated and routed directly to I/O pin in top level and
+  <code>irq_num</code> is not used. Note that these are not interrupts sent towards
+  NEORV32.</li>
+</ul>
+<p>Ports for signals for MCU interface:</p>
+<ul>
+<li><code>op_type</code>: type of operation requested from TPM stack. Currently only <code>0</code> (no
+  operation) and <code>1</code> (execute TPM2 command located in TPM RAM) are used.</li>
+<li><code>locality</code>: locality at which the operation was requested.</li>
+<li><code>buf_len</code>: length of data (e.g. TPM2 command) in TPM RAM.</li>
+<li><code>exec</code>: signal that all of the above are valid and TPM stack should start
+  performing the operation specified by <code>op_type</code>.</li>
+<li><code>abort</code>: signal that the host requested the current operation to abort, TPM
+  stack may check this bit intermittently and either finish or stop executing
+  the ongoing operation.</li>
+<li><code>complete</code>: signal that the operation has been finished and TPM RAM contains
+  the response (if any).</li>
+</ul>
+<p>Ports for TPM RAM interface:</p>
+<ul>
+<li><code>RAM_addr</code>: address in RAM on which to operate, in bytes.</li>
+<li><code>RAM_data_r</code>: data read from <code>RAM_addr</code>.</li>
+<li><code>RAM_data_w</code>: data to be written at <code>RAM_addr</code>.</li>
+<li><code>RAM_wr</code>: do a write. <code>RAM_data_r</code> is undefined as long as this signal is
+  active, this is to allow for different FPGA implementations to be used.</li>
+</ul>
+<h2 id="r512x32">r512x32</h2>
+<p>This module is also <a href="https://github.com/Dasharo/TwPM_toplevel/blob/main/fpga/ram/r512x32_512x32.v">part of TwPM_toplevel repository</a>.
+It implements FPGA RAM (in this case BRAM is used) for TPM command and response
+buffer. As the name suggests, it has depth of 512 words, 32 bits each. The width
+was chosen to keep connection to WISHBONE simple. TPM registers module uses
+8-bit accesses, with simple byte decoder implemented in top level module. While
+it would be possible to use dual-port RAM hardware macros, this implementation
+is more portable. Synthesis tools are usually smart enough to use those macros
+regardless.</p>
+<p>Implemented memory is simple read-first, one-port RAM with byte-enable signal
+for writes.</p>
+<p><img alt="TPM RAM module" src="/images/r512x32.svg" /></p>
+<p>Ports:</p>
+<ul>
+<li><code>A</code>: address, counted in 32-bit words.</li>
+<li><code>WD</code>, <code>RD</code>: input and output data, respectively.</li>
+<li><code>Clk</code>: input clock, arbitrated by top level between LPC/SPI and system clocks.</li>
+<li><code>WEN</code>: write enable for each byte of <code>WD</code>.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Index" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Index
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../soc_fpga_communication/" class="md-footer__link md-footer__link--next" aria-label="Next: Communication between SoC and FPGA" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Communication between SoC and FPGA
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

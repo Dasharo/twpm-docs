@@ -1,0 +1,1261 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://twpm.dasharo.com/tutorials/mainboard-connection/">
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Connecting TwPM to the mainboard - Trustworthy Platform Module (TwPM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connecting-twpm-to-mainboard" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Trustworthy Platform Module (TwPM)" class="md-header__button md-logo" aria-label="Trustworthy Platform Module (TwPM)" data-md-component="logo">
+      
+  <img src="../../images/dasharo-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Trustworthy Platform Module (TwPM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Connecting TwPM to the mainboard
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dasharo/twpm-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Intro
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../development/" class="md-tabs__link">
+        Development
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../explanation/" class="md-tabs__link">
+        Explanation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        Changelog
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        Contributing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Trustworthy Platform Module (TwPM)" class="md-nav__button md-logo" aria-label="Trustworthy Platform Module (TwPM)" data-md-component="logo">
+      
+  <img src="../../images/dasharo-logo.png" alt="logo">
+
+    </a>
+    Trustworthy Platform Module (TwPM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dasharo/twpm-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Intro</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Intro" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Intro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Tutorials</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        Building TwPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Connecting TwPM to the mainboard
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Connecting TwPM to the mainboard
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    WARNING
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinout-for-twpm-based-on-orangecrab" class="md-nav__link">
+    Pinout for TwPM based on OrangeCrab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mainboard-pinouts" class="md-nav__link">
+    Mainboard pinouts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../development/">Development</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/verilog_modules/" class="md-nav__link">
+        Verilog modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soc_fpga_communication/" class="md-nav__link">
+        Communication between SoC and FPGA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../explanation/">Explanation</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Explanation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explanation/hardware-requirements/" class="md-nav__link">
+        Hardware requirements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explanation/hardware-selection/" class="md-nav__link">
+        Hardware selection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../explanation/compliance/" class="md-nav__link">
+        Compliance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../changelog/">Changelog</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Changelog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Changelog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../contributing/">Contributing</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Contributing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../roadmap/">Roadmap</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Roadmap" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Roadmap
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    WARNING
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinout-for-twpm-based-on-orangecrab" class="md-nav__link">
+    Pinout for TwPM based on OrangeCrab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mainboard-pinouts" class="md-nav__link">
+    Mainboard pinouts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/dasharo/twpm-docs/edit/master/docs/tutorials/mainboard-connection.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<!--
+SPDX-FileCopyrightText: 2024 3mdeb <contact@3mdeb.com>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<h1 id="connecting-twpm-to-mainboard">Connecting TwPM to mainboard</h1>
+<p>This document describes how TwPM can be connected to the mainboard.</p>
+<h2 id="warning">WARNING</h2>
+<p>The TPM header is <strong>not</strong> standardized, make sure that you're using proper
+pinout for your mainboard. Just because it physically looks identical (even
+including key that is supposed to make connection of bad TPM type impossible)
+doesn't mean it has the same signals on the same pins. The pinout is usually
+described in the mainboard's manual, refer to it before attempting to connect
+the module. <strong>Wrong connection may break your TPM, mainboard, or both.</strong> We do
+not take responsibility for potential damage caused by it. You have been warned.</p>
+<h2 id="pinout-for-twpm-based-on-orangecrab">Pinout for TwPM based on OrangeCrab</h2>
+<p>This is valid for TwPM built for <a href="https://github.com/orangecrab-fpga/orangecrab-hardware">OrangeCrab</a>
+from release v0.3.0.</p>
+<p>Pinout from <a href="https://orangecrab-fpga.github.io/orangecrab-hardware/docs/pinout/">official documentation</a>:</p>
+<p><img alt="OrangeCrab pinout" src="https://orangecrab-fpga.github.io/orangecrab-hardware/docs/r0.2/OrangeCrab_r0.2_pinout.png" /></p>
+<p>Unfortunately, there are many different labels assigned to each pin. Each of the
+types of identification is important to different group of people, or for
+different tasks. The table below maps signal names to physical pin numbers (i.e.
+as they are described in .lpf files, this is what FPGA tools need) and I/O
+numbers (i.e. what is printed on the board, you will most likely use this to
+find the correct pin).</p>
+<p>In addition to signals for exchanging data with the mainboard, <code>3V3</code> and <code>GND</code>
+must also be connected to supply power to the OrangeCrab.</p>
+<p>If those pins need to be changed for any reason, it can be done in
+<a href="https://github.com/Dasharo/TwPM_toplevel/blob/main/fpga/orangecrab.lpf">orangecrab.lpf file</a>.
+Remember to change <code>SITE</code> of given signal to another physical pin, not only the
+comment which contains I/O number. For OrangeCrab, mapping between I/O pins and
+physical ports can be read from <a href="https://github.com/orangecrab-fpga/orangecrab-hardware/blob/main/hardware/orangecrab_r0.2.1/plot/OrangeCrab.pdf">schematics</a>.</p>
+<p>Note that only one of the below interfaces is enabled at any given time.
+Switching between them requires rebuilding and flashing the new bitstream.</p>
+<h3 id="lpc">LPC</h3>
+<table>
+<thead>
+<tr>
+<th>Signal name</th>
+<th align="center">Physical Pin</th>
+<th align="center">I/O number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LCLK</td>
+<td align="center">H2</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td>LRESET#</td>
+<td align="center">J2</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td>LFRAME#</td>
+<td align="center">A8</td>
+<td align="center">11</td>
+</tr>
+<tr>
+<td>LAD[0]</td>
+<td align="center">B8</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td>LAD[1]</td>
+<td align="center">C8</td>
+<td align="center">9</td>
+</tr>
+<tr>
+<td>LAD[2]</td>
+<td align="center">B9</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td>LAD[3]</td>
+<td align="center">B10</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td>SERIRQ</td>
+<td align="center">C9</td>
+<td align="center">SCL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="spi">SPI</h3>
+<table>
+<thead>
+<tr>
+<th>Signal name</th>
+<th align="center">Physical Pin</th>
+<th align="center">I/O number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLK</td>
+<td align="center">H2</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td align="center">J2</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td align="center">A8</td>
+<td align="center">11</td>
+</tr>
+<tr>
+<td>CS_N</td>
+<td align="center">B8</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td>PIRQ</td>
+<td align="center">C9</td>
+<td align="center">SCL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mainboard-pinouts">Mainboard pinouts</h2>
+<p>The presented list has only mainboards that are confirmed to be valid. You are
+free to try it on the boards not listed below, assuming <a href="#warning">you know what you're
+doing</a>.</p>
+<h3 id="protectli-vp46xx-lpc">Protectli VP46xx (LPC)</h3>
+<p>Protectli platforms from <a href="https://eu.protectli.com/vault-6-port/">VP46xx series</a>
+have header compatible with <a href="https://eu.protectli.com/product/tpm-module/">TPM-01</a>.
+It is 2x10 pin header, with key on pin 4. It is dangerously similar to multiple
+Gigabyte and Supermicro TPMs, but their layout is different so those are not
+compatible.</p>
+<p><img alt="Protectli VP46xx TPM header location" src="https://kb.protectli.com/wp-content/uploads/sites/9/2023/06/VP4600_TPM_2-1024x732.jpg" /></p>
+<p>Pinout:</p>
+<p><img align="left" alt="Protectli VP46xx TPM pinout" src="/images/pinout-2x10-key4-vert.png" /></p>
+<table>
+<thead>
+<tr>
+<th align="center">Pin No.</th>
+<th>Definition</th>
+<th align="center">Pin No.</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td>LCLK</td>
+<td align="center">2</td>
+<td>GND</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>LAD0</td>
+<td align="center">4</td>
+<td>key</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>LAD1</td>
+<td align="center">6</td>
+<td>NC</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td>LAD2</td>
+<td align="center">8</td>
+<td>GND</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td>LAD3</td>
+<td align="center">10</td>
+<td>GND</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td>LFRAME#</td>
+<td align="center">12</td>
+<td>GND</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td>LRESET#</td>
+<td align="center">14</td>
+<td>NC</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td>NC</td>
+<td align="center">16</td>
+<td>NC</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td>GND</td>
+<td align="center">18</td>
+<td>VDD (3.3V)</td>
+</tr>
+<tr>
+<td align="center">19</td>
+<td>SERIRQ</td>
+<td align="center">20</td>
+<td>NC</td>
+</tr>
+</tbody>
+</table>
+<p>Some of the <code>NC</code> pins are actually used for other purposes. For clarity and to
+avoid making mistakes they are not marked above.</p>
+<h3 id="protectli-vp66xx-spi">Protectli VP66xx (SPI)</h3>
+<p>Protectli platforms from <a href="https://eu.protectli.com/vault-6-port/">VP66xx series</a>
+have header compatible with <a href="https://eu.protectli.com/product/tpm02/">TPM-02</a>.
+It is 2x6 pin header, with key on pin 10, and a pitch different than OrangeCrab
+(2.00 mm instead of 2.54 mm), make sure you have proper wiring. The header is
+the same as on some of the MSI boards. Gigabyte uses rotated version of this
+pinout, while it looks the same, the pinout is different.</p>
+<p><img alt="Protectli VP66xx TPM header location" src="https://kb.protectli.com/wp-content/uploads/sites/9/2024/02/6600TPMHeader-1024x756.png" /></p>
+<p>Pinout:</p>
+<p><img align="left" alt="Protectli VP66xx TPM pinout" src="/images/pinout-2x6-key10-vert.png" /></p>
+<table>
+<thead>
+<tr>
+<th align="center">Pin No.</th>
+<th>Definition</th>
+<th align="center">Pin No.</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td>VDD (3.3V)</td>
+<td align="center">2</td>
+<td>CS_N</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>MISO</td>
+<td align="center">4</td>
+<td>MOSI</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>NC</td>
+<td align="center">6</td>
+<td>CLK</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td>GND</td>
+<td align="center">8</td>
+<td>NC</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td>NC</td>
+<td align="center">10</td>
+<td>key</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td>NC</td>
+<td align="center">12</td>
+<td>PIRQ</td>
+</tr>
+</tbody>
+</table>
+<p>Some of the <code>NC</code> pins are actually used for other purposes. For clarity and to
+avoid making mistakes they are not marked above.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../building/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Building TwPM" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Building TwPM
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../development/" class="md-footer__link md-footer__link--next" aria-label="Next: Index" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Index
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

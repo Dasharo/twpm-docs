@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by Symbolator http://kevinpt.github.io/symbolator -->
+<svg xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xml:space="preserve"
+width="496" height="1018" viewBox="-108 -20 496.0 1018.0" version="1.1">
+<style type="text/css">
+<![CDATA[
+.fnt1 {fill:#000000;
+    font-family:Helvetica; font-size:12pt; font-weight:normal; font-style:normal;}
+.fnt2 {fill:#000000;
+    font-family:Times; font-size:12pt; font-weight:normal; font-style:italic;}
+.label {fill:#000;
+  text-anchor:middle;
+  font-size:16pt; font-weight:bold; font-family:Sans;}
+.link {fill: #0D47A1;}
+.link:hover {fill: #0D47A1; text-decoration:underline;}
+.link:visited {fill: #4A148C;}
+]]>
+</style>
+<defs>
+<marker id="arrow_fwd" markerWidth="8.0" markerHeight="8.0" viewBox="0 0 8.0 8.0" refX="3.2" refY="4.0" orient="auto" markerUnits="userSpaceOnUse">
+<g transform="translate(-0.0,4.0)"><path d="M 0 -4 C 2 -1, 2 1, 0 4 L 8 0 z" stroke="none" fill="#000000"/>
+</g>
+</marker>
+<marker id="arrow_back" markerWidth="8.0" markerHeight="8.0" viewBox="0 0 8.0 8.0" refX="4.8" refY="4.0" orient="auto" markerUnits="userSpaceOnUse">
+<g transform="translate(8.0,4.0)"><path d="M 0 -4 C -2 -1, -2 1, 0 4 L -8 0 z" stroke="none" fill="#000000"/>
+</g>
+</marker>
+<marker id="bubble" markerWidth="7.0" markerHeight="7.0" viewBox="0 0 7.0 7.0" refX="3.5" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+<g transform="translate(3.5,3.5)"><ellipse cx="0.0" cy="0.0" rx="3.0" ry="3.0" stroke="#000000" fill="#FFFFFF" stroke-width="1"/>
+</g>
+</marker>
+<marker id="clock" markerWidth="8.0" markerHeight="15.0" viewBox="0 0 8.0 15.0" refX="0.5" refY="7.5" orient="auto" markerUnits="userSpaceOnUse">
+<g transform="translate(0.5,7.5)"><path d="M 0 -7 L 0 7 L 7 0 z" stroke="#000000" fill="#FFFFFF" stroke-width="1"/>
+</g>
+</marker>
+</defs>
+<rect x="-108" y="-20" width="100%" height="100%" fill="white"/><g transform="translate(0,0)">
+<rect x="0" y="-15.0" width="280" height="310.0" stroke="#646464" fill="#C8C8C8" stroke-width="1"/>
+<g transform="translate(0,0)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">LITEDRAM_BASE_ADDRESS</text>
+</g>
+<g transform="translate(0,20)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">LITEDRAM_ADDR_WIDTH</text>
+</g>
+<g transform="translate(0,40)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_RAM_BASE_ADDRESS</text>
+</g>
+<g transform="translate(0,60)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_RAM_ADDR_WIDTH</text>
+</g>
+<g transform="translate(0,80)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_REGS_BASE_ADDRESS</text>
+</g>
+<g transform="translate(0,100)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_REGS_ADDR_WIDTH</text>
+</g>
+<g transform="translate(0,120)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_REG_STATUS</text>
+</g>
+<g transform="translate(0,140)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_REG_OP_TYPE</text>
+</g>
+<g transform="translate(0,160)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_REG_LOCALITY</text>
+</g>
+<g transform="translate(0,180)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_REG_BUF_SIZE</text>
+</g>
+<g transform="translate(0,200)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">TPM_REG_COMPLETE</text>
+</g>
+<g transform="translate(0,220)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">RAM_BASE_ADDRESS</text>
+</g>
+<g transform="translate(0,240)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">RAM_ADDR_WIDTH</text>
+</g>
+<g transform="translate(0,260)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">DEFAULT_READ_VALUE</text>
+</g>
+<g transform="translate(0,280)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">COMPLETE_PULSE_WIDTH</text>
+</g>
+</g>
+<rect x="1.0" y="-14.0" width="278.0" height="308.0" stroke="#646464" fill="none" stroke-width="3"/>
+<g transform="translate(0,318.0)">
+<rect x="0" y="-15.0" width="280" height="67.0" stroke="#000000" fill="#C5DBFC" stroke-width="1"/>
+<text class="fnt2" x="140.0" y="0" text-anchor="middle" dy="2.5">Global control</text>
+<g transform="translate(0,17)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#clock)"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">clk_i</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(0,37)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">rstn_i</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+</g>
+<g transform="translate(0,385.0)">
+<rect x="0" y="-15.0" width="280" height="47.0" stroke="#000000" fill="#E7FDBA" stroke-width="1"/>
+<text class="fnt2" x="140.0" y="0" text-anchor="middle" dy="2.5">UART</text>
+<g transform="translate(0,17)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">uart_rxd_i</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,17)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">uart_txd_o</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+</g>
+<g transform="translate(0,432.0)">
+<rect x="0" y="-15.0" width="280" height="87.0" stroke="#000000" fill="#FFAFFD" stroke-width="1"/>
+<text class="fnt2" x="140.0" y="0" text-anchor="middle" dy="2.5">LPC interface</text>
+<g transform="translate(0,17)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#clock)"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">LCLK</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(0,37)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">LRESET</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(0,57)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">LFRAME</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,17)">
+<line x1="16.16" y1="4.702643708725836e-16" x2="3.84" y2="-4.702643708725836e-16" stroke="#000000" fill="none" stroke-width="3" marker-start="url(#arrow_back)" marker-end="url(#arrow_fwd)"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">LAD</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire <tspan fill="#039BE5">[3:0]</tspan></text>
+</g>
+<g transform="translate(280,37)">
+<line x1="16.16" y1="4.702643708725836e-16" x2="3.84" y2="-4.702643708725836e-16" stroke="#000000" fill="none" stroke-width="1" marker-start="url(#arrow_back)" marker-end="url(#arrow_fwd)"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">SERIRQ</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+</g>
+<g transform="translate(0,519.0)">
+<rect x="0" y="-15.0" width="280" height="87.0" stroke="#000000" fill="#B9FDE9" stroke-width="1"/>
+<text class="fnt2" x="140.0" y="0" text-anchor="middle" dy="2.5">SPI interface - PC</text>
+<g transform="translate(0,17)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#clock)"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">CLK</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(0,37)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">MOSI</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(0,57)">
+<line x1="-20" y1="0" x2="-3.5" y2="0.0" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#bubble)"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">CS_N</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,17)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">MISO</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,37)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">PIRQ</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+</g>
+<g transform="translate(0,606.0)">
+<rect x="0" y="-15.0" width="280" height="67.0" stroke="#000000" fill="#FBDCC4" stroke-width="1"/>
+<text class="fnt2" x="140.0" y="0" text-anchor="middle" dy="2.5">SPI interface - flash</text>
+<g transform="translate(0,17)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">spi_dat_i</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,17)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">spi_dat_o</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,37)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">spi_flash_cs_o</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+</g>
+<g transform="translate(0,673.0)">
+<rect x="0" y="-15.0" width="280" height="247.0" stroke="#000000" fill="#D3CBFE" stroke-width="1"/>
+<text class="fnt2" x="140.0" y="0" text-anchor="middle" dy="2.5">DDR3 interface</text>
+<g transform="translate(0,17)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="3"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">ddram_dq</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire <tspan fill="#039BE5">[15:0]</tspan></text>
+</g>
+<g transform="translate(0,37)">
+<line x1="-20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="3"/>
+<text class="fnt1" x="10" y="0" text-anchor="normal" dy="3.5">ddram_dqs_p</text>
+<text class="fnt1" x="-30" y="0" text-anchor="end" dy="3.5" style="fill:#969696">wire <tspan fill="#039BE5">[1:0]</tspan></text>
+</g>
+<g transform="translate(280,17)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="3"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_a</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire <tspan fill="#039BE5">[15:0]</tspan></text>
+</g>
+<g transform="translate(280,37)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="3"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_ba</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire <tspan fill="#039BE5">[2:0]</tspan></text>
+</g>
+<g transform="translate(280,57)">
+<line x1="20" y1="0" x2="3.5" y2="-4.286263797015736e-16" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#bubble)"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_ras_n</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,77)">
+<line x1="20" y1="0" x2="3.5" y2="-4.286263797015736e-16" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#bubble)"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_cas_n</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,97)">
+<line x1="20" y1="0" x2="3.5" y2="-4.286263797015736e-16" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#bubble)"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_we_n</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,117)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="3"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_dm</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire <tspan fill="#039BE5">[1:0]</tspan></text>
+</g>
+<g transform="translate(280,137)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_clk_p</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,157)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_cke</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,177)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_odt</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,197)">
+<line x1="20" y1="0" x2="3.5" y2="-4.286263797015736e-16" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#bubble)"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_cs_n</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,217)">
+<line x1="20" y1="0" x2="3.5" y2="-4.286263797015736e-16" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#bubble)"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">ddram_reset_n</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+</g>
+<g transform="translate(0,920.0)">
+<rect x="0" y="-15.0" width="280" height="87.0" stroke="#000000" fill="#D3FECB" stroke-width="1"/>
+<text class="fnt2" x="140.0" y="0" text-anchor="middle" dy="2.5">Misc</text>
+<g transform="translate(280,17)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">led_r</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,37)">
+<line x1="20" y1="0" x2="0" y2="0" stroke="#000000" fill="none" stroke-width="1"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">led_g</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+<g transform="translate(280,57)">
+<line x1="20" y1="0" x2="3.5" y2="-4.286263797015736e-16" stroke="#000000" fill="none" stroke-width="1" marker-end="url(#bubble)"/>
+<text class="fnt1" x="-10" y="0" text-anchor="end" dy="3.5">led_b</text>
+<text class="fnt1" x="30" y="0" text-anchor="normal" dy="3.5" style="fill:#969696">wire</text>
+</g>
+</g>
+<rect x="1.0" y="304.0" width="278.0" height="687.0" stroke="#000000" fill="none" stroke-width="3"/>
+</svg>

@@ -1,0 +1,1429 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://twpm.dasharo.com/explanation/hardware-selection/">
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Hardware selection - Trustworthy Platform Module (TwPM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hardware-selection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Trustworthy Platform Module (TwPM)" class="md-header__button md-logo" aria-label="Trustworthy Platform Module (TwPM)" data-md-component="logo">
+      
+  <img src="../../images/dasharo-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Trustworthy Platform Module (TwPM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hardware selection
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dasharo/twpm-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Intro
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorials/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../development/" class="md-tabs__link">
+        Development
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Explanation
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        Changelog
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        Contributing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Trustworthy Platform Module (TwPM)" class="md-nav__button md-logo" aria-label="Trustworthy Platform Module (TwPM)" data-md-component="logo">
+      
+  <img src="../../images/dasharo-logo.png" alt="logo">
+
+    </a>
+    Trustworthy Platform Module (TwPM)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dasharo/twpm-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Intro</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Intro" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Intro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../tutorials/">Tutorials</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/building/" class="md-nav__link">
+        Building TwPM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/mainboard-connection/" class="md-nav__link">
+        Connecting TwPM to the mainboard
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../development/">Development</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/verilog_modules/" class="md-nav__link">
+        Verilog modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/soc_fpga_communication/" class="md-nav__link">
+        Communication between SoC and FPGA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Explanation</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Explanation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Explanation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware-requirements/" class="md-nav__link">
+        Hardware requirements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hardware selection
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Hardware selection
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#update-october-2023" class="md-nav__link">
+    Update - October 2023
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infineon-cy8c6xxxx-series" class="md-nav__link">
+    Infineon CY8C6xxxx Series
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sparkfun-quicklogic-thing-plus-eos-s3" class="md-nav__link">
+    SparkFun QuickLogic Thing Plus - EOS S3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stm32l476rg-nucleo-board" class="md-nav__link">
+    STM32L476RG Nucleo board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stm32g474re-nucleo-board" class="md-nav__link">
+    STM32G474RE Nucleo board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoring-methodology" class="md-nav__link">
+    Scoring methodology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance/" class="md-nav__link">
+        Compliance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../changelog/">Changelog</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Changelog" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Changelog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../contributing/">Contributing</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Contributing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../roadmap/">Roadmap</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Roadmap" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Roadmap
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#update-october-2023" class="md-nav__link">
+    Update - October 2023
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infineon-cy8c6xxxx-series" class="md-nav__link">
+    Infineon CY8C6xxxx Series
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sparkfun-quicklogic-thing-plus-eos-s3" class="md-nav__link">
+    SparkFun QuickLogic Thing Plus - EOS S3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stm32l476rg-nucleo-board" class="md-nav__link">
+    STM32L476RG Nucleo board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stm32g474re-nucleo-board" class="md-nav__link">
+    STM32G474RE Nucleo board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoring-methodology" class="md-nav__link">
+    Scoring methodology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/dasharo/twpm-docs/edit/master/docs/explanation/hardware-selection.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<!--
+SPDX-FileCopyrightText: 2024 3mdeb <contact@3mdeb.com>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<h1 id="hardware-selection">Hardware selection</h1>
+<h2 id="update-october-2023">Update - October 2023</h2>
+<p>TPM registers generally can't be implemented on MCU side because most of them
+have to return valid values without using LPC wait cycles. This means that there
+are only 3 LPC clock cycles between last nibble of address and first nibble of
+response, which gives 3.5 periods (because data must start being driven on
+complementary edge with regard to sampling) for MCU to be notified about the
+read, read and parse the address, check current state and finally create and
+send the response. By transforming from LPC frequency (33 MHz) to M4 frequency
+(80 MHz) this gives about 8 CPU cycles, depending on relative position of clock
+edges.</p>
+<p>MCU can't keep checking for requests in a busy loop because it is perfectly
+valid for host (PC) to read status register in order to check whether command
+executed by TPM already finished or not. For this reason interrupts must be
+used, which adds delay of <a href="https://developer.arm.com/documentation/100166/0001/Programmers-Model/Exceptions/Interrupt-latency?lang=en">12 cycles</a>
+(in good conditions, may be more). Additional delay may be applied because
+multiple bridges and clock domains exist between FPGA and M4 core.</p>
+<p>M4 has 3-stage pipeline, which steals another 3 cycles. Then result has to be
+sent back to FPGA through bridges mentioned earlier. Even without those, delay
+is already twice bigger than allowed, and it doesn't include any code to
+actually parse the request. For this reason, TPM register space must be
+implemented on FPGA side.</p>
+<p>Unfortunately, FPGA available on EOS S3 platform isn't fast enough to implement
+TPM register space logic and LPC running with standard frequency (33 MHz). Raw
+LPC module allowed for ~30 MHz without any optimisations, but it is possible
+that part of implementation was optimised out as unused - Yosys doesn't clearly
+report such cases. With TPM registers module and rather heavy optimising we
+could get to ~16.5 MHz, but this is way below the requirements.</p>
+<p>We decided to switch to <a href="https://orangecrab-fpga.github.io/orangecrab-hardware/">OrangeCrab</a>
+with Lattice LFE5U-25F-8MG285C FPGA. It has the Feather format, about 23 x 51 mm
+(slightly shorter than EOS S3), and has enough I/O for interfaces we need.</p>
+<h2 id="intro">Intro</h2>
+<p>The goal of this document is to select a target hardware (development board),
+which will be used for the development and prototyping of the TwPM. We have
+pre-selected some of the boards based on our best knowledge, and some
+suggestions from the community (e.g. during and after our
+<a href="https://fosdem.org/2023/schedule/event/twpm_osf_tpm/">presentation at FOSDEM 2023</a>).</p>
+<p>We aim to evaluate whether the pre-selected boards can meet the <a href="../hardware-requirements/">identified
+hardware requirements</a>.</p>
+<h2 id="infineon-cy8c6xxxx-series">Infineon CY8C6xxxx Series</h2>
+<h3 id="basic-information">Basic information</h3>
+<ul>
+<li>SoC<ul>
+<li>SoC integrates 2 CPUs as part of its structure:<ul>
+<li>ARM Cortex M4 (150MHz)</li>
+<li>ARM Cortex M0+ (100MHz)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Memory:<ul>
+<li>Flash: 384-1856 KB</li>
+<li>RAM: 176-944KB</li>
+</ul>
+</li>
+<li>Interfaces I2C, SPI, UART, USB</li>
+<li>Voltage range: 1.71 to 5.5V</li>
+</ul>
+<h3 id="spi-slave-frequency">SPI slave frequency</h3>
+<ul>
+<li>25 MHz</li>
+</ul>
+<h3 id="cryptographic-accelerators">Cryptographic accelerators</h3>
+<ul>
+<li>DES/TDES, AES, SHA, CRC, TRNG, RSA/ECC</li>
+</ul>
+<h3 id="tools-and-documentation">Tools and documentation</h3>
+<ul>
+<li><a href="https://www.infineon.com/cms/en/design-support/tools/sdk/modustoolbox-software/">Modus Toolbox</a></li>
+<li><a href="https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/">SoC datasheet</a></li>
+</ul>
+<h2 id="sparkfun-quicklogic-thing-plus-eos-s3">SparkFun QuickLogic Thing Plus - EOS S3</h2>
+<ul>
+<li>SoC<ul>
+<li>eFPGA-enabled ARM Cortex©-M4F MCU</li>
+</ul>
+</li>
+<li>Memory<ul>
+<li>Flash: 2 MB NOR</li>
+<li>RAM: up to 512 KB</li>
+</ul>
+</li>
+<li>Interfaces: FPGA-based solution</li>
+<li>Voltage range: 1.7 to 3.6V</li>
+</ul>
+<h3 id="spi-slave-frequency_1">SPI slave frequency</h3>
+<ul>
+<li>Up to 20 MHz in slave mode</li>
+</ul>
+<h3 id="cryptographic-accelerators_1">Cryptographic accelerators</h3>
+<ul>
+<li>Can be implemented in FPGA</li>
+</ul>
+<h3 id="tools-and-documentation_1">Tools and documentation</h3>
+<ul>
+<li>Supports open-source FPGA synthesis software - SymbiFlow (now known as
+  F4PGA).<ul>
+<li>Partial upstream support from F4PGA</li>
+<li><a href="https://github.com/YosysHQ/apicula/pull/45/files">lack of BlockRAM support</a>
+  can be a serious obstacle for complex FPGA designs, but should not be a
+  problem for a simple LPC controller</li>
+</ul>
+</li>
+<li>Downstream support for <a href="https://github.com/QuickLogic-Corp/zephyr/tree/eos-s3-support">Zephyr</a>
+  and FreeRTOS (as part of the <a href="https://github.com/QuickLogic-Corp/qorc-sdk">QORC SDK</a>)<ul>
+<li>Based on an old version of Zephyr</li>
+<li><a href="https://github.com/zephyrproject-rtos/zephyr/tree/main/boards/arm/quick_feather">Mainline Zephyr</a>
+  supports the most basic peripherals, and may be generally not usable without
+  porting additional drivers</li>
+</ul>
+</li>
+<li><a href="https://www.quicklogic.com/products/eos-s3/sparkfun-thing-plus/">Board webpage</a></li>
+<li><a href="https://www.quicklogic.com/wp-content/uploads/2020/06/QL-EOS-S3-Ultra-Low-Power-multicore-MCU-Datasheet.pdf">SoC datasheet</a></li>
+</ul>
+<h2 id="stm32l476rg-nucleo-board">STM32L476RG Nucleo board</h2>
+<ul>
+<li>CPU<ul>
+<li>ARM Cortex-M4 MCU with FPU (80MHz) with low power</li>
+</ul>
+</li>
+<li>Memory<ul>
+<li>Flash: 1 MB</li>
+<li>RAM: 128 KB</li>
+</ul>
+</li>
+<li>Interfaces I2C, SPI, UART, USB</li>
+<li>Voltage range: 1.71 to 5.5V</li>
+</ul>
+<h3 id="spi-slave-frequency_2">SPI slave frequency</h3>
+<blockquote>
+<p>In reality, the maximum SPI slave frequency achieved on this board so far was
+24 MHz and it worked reliably when writing only, not while reading. More
+details can be found in <a href="https://blog.3mdeb.com/2023/2023-07-28-optimizing-spi-on-stm32/">this
+blogpost</a>.</p>
+</blockquote>
+<ul>
+<li>SPI clock frequency:<ul>
+<li>Slave mode receiver, 1.7 &lt; VDD &lt; 3.6V: 40MHz</li>
+<li>Full duplex/Slave mode transmit, 2.7 &lt; VDD &lt; 3.6V: 26MHz</li>
+<li>Full duplex/Slave mode transmit, 1.71 &lt; VDD &lt; 3.6V: 16MHz</li>
+</ul>
+</li>
+</ul>
+<h3 id="cryptographic-accelerators_2">Cryptographic accelerators</h3>
+<ul>
+<li>True RNG</li>
+<li>Some (but not the one installed on the Nucleo board by default) STM32 chips
+  from this family offer also AES-128, AES-256 hardware encryption</li>
+</ul>
+<h3 id="tools-and-documentation_2">Tools and documentation</h3>
+<ul>
+<li>Good open-source RTOS Support (e.g. <a href="https://docs.zephyrproject.org/3.2.0/boards/arm/nucleo_l476rg/doc/index.html">Zephyr</a>)</li>
+<li><a href="https://www.st.com/en/development-tools/stm32cubeide.html">STM32CubeIDE</a></li>
+<li><a href="https://www.st.com/en/evaluation-tools/nucleo-l476rg.html">STM32L476RG Nucleo Web Page</a></li>
+<li><a href="https://www.st.com/resource/en/datasheet/stm32l476rg.pdf">STM32L476RG Nucleo Datasheet</a></li>
+</ul>
+<h2 id="stm32g474re-nucleo-board">STM32G474RE Nucleo board</h2>
+<ul>
+<li>CPU<ul>
+<li>ARM Cortex-M4 MCU (170MHz)</li>
+</ul>
+</li>
+<li>Memory:<ul>
+<li>Flash: 512 KB</li>
+<li>RAM: 128 KB (32 KB is used for parity checks, so only 96 KB is available
+  for program usage)</li>
+</ul>
+</li>
+<li>Interfaces I2C, SPI, UART, USB</li>
+<li>Voltage range: 1.71 to 5.5V</li>
+</ul>
+<h3 id="spi-slave-frequency_3">SPI slave frequency</h3>
+<ul>
+<li>Max SPI clock frequency:<ul>
+<li>Slave, receiver mode,  1.71V &lt; Vdd &lt; 3.6V: 50MHz</li>
+<li>Slave mode transmitter, with full duplex, 2.7V &lt; Vdd &lt; 3.6V: 41MHz</li>
+<li>Slave mode Transmitter, with full duplex, 1.7V &lt; Vdd &lt; 3.6V: 27MHz</li>
+</ul>
+</li>
+</ul>
+<h3 id="cryptographic-accelerators_3">Cryptographic accelerators</h3>
+<ul>
+<li>True RNG</li>
+<li>Some (but not the one installed on the Nucleo board by default) STM32 chips
+  from this family offer also AES-128, AES-256 hardware encryption</li>
+<li>Mathematical hardware accelerators<ul>
+<li>CORDIC for trigonometric functions acceleration</li>
+<li>FMAC: filter mathematical accelerator</li>
+<li>these are not that useful for the TwPM use-case</li>
+</ul>
+</li>
+</ul>
+<h3 id="tools-and-documentation_3">Tools and documentation</h3>
+<ul>
+<li>Good open-source RTOS Support (e.g. <a href="https://docs.zephyrproject.org/2.7.4/boards/arm/nucleo_g474re/doc/index.html">Zephyr</a>)</li>
+<li><a href="https://www.st.com/en/development-tools/stm32cubeide.html">STM32CubeIDE</a></li>
+<li><a href="https://www.st.com/en/evaluation-tools/nucleo-g474re.html">STM32G474 Nucleo Web Page</a></li>
+<li><a href="https://www.st.com/resource/en/datasheet/stm32g474re.pdf">STM32L476RG Nucleo Datasheet</a></li>
+</ul>
+<h2 id="scoring-methodology">Scoring methodology</h2>
+<ul>
+<li>Following methodology is applied to assign grades in the below table:<ul>
+<li>if the desired value is met, then <code>+1</code>,</li>
+<li>if the desired value is not met, then <code>0</code>,</li>
+<li>if the desired value is not present and would be difficult to workaround (or
+  there is no data about the given property), then <code>-1</code>,</li>
+<li>if this is a critical requirement, then multiply the result by <code>2</code>
+  (critical requirements are marked <strong>in bold</strong> in the table below).</li>
+</ul>
+</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>The above report outlines 4 development boards, that were evaluated more
+  closely, after the initial research.</li>
+<li>The supply voltage was not a challenging requirement and is similar across
+  devices.</li>
+<li>The actual data on current consumption is not clear at the moment. It might
+  also highly depend on the workflow, and enabled peripherals. To indicate that
+  risk, <code>-1</code> grade was added, where applicable. It will need actual
+  measurements in the future.</li>
+<li>All of the boards should meet the RAM and CPU requirements (although that was
+  was set to an arbitrary value right now, and is subject to change in the future).</li>
+<li>The most flexible choice would be the board with the <code>EOS S3</code> SoC, due to the
+  significant RAM and flash size, and integrated FPGA, which allows us to
+  implement LPC interface, and potentially also offload other features (SPI,
+  crypto), as needed</li>
+<li>If we would want to implement a TwPM module with SPI interface only, we could
+  try to go with either <code>STM32L476RG</code>, or <code>STM32G474RE</code>. The first one has a bit
+  more resources (flash, and RAM), but the second one features much higher CPU
+  and SPI speeds, which makes it an interesting target for the future.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Desired value</th>
+<th align="left">CY8C6xxxx</th>
+<th align="left">EOS S3</th>
+<th align="left">STM32L476RG</th>
+<th align="left">STM32G474RE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Supply voltage</td>
+<td align="left">1.8-3.3 V (+1)</td>
+<td align="left">1.7-5.5 V (+1)</td>
+<td align="left">1.62-3.63 V (+1)</td>
+<td align="left">1.71-3.6 V (+1)</td>
+<td align="left">1.71-3.6 (+1)</td>
+</tr>
+<tr>
+<td align="left">Current</td>
+<td align="left">&lt; 250 mA</td>
+<td align="left">(no data) (-1)</td>
+<td align="left">(no data) (-1)</td>
+<td align="left">(no data) (-1)</td>
+<td align="left">(no data) (-1)</td>
+</tr>
+<tr>
+<td align="left">Flash</td>
+<td align="left">&gt;= 1 MB</td>
+<td align="left">384-1856 KB (+1)</td>
+<td align="left">2 MB (+1)</td>
+<td align="left">1 MB (+1)</td>
+<td align="left">512 KB (0)</td>
+</tr>
+<tr>
+<td align="left"><strong>RAM</strong></td>
+<td align="left">&gt;= 128 KB</td>
+<td align="left">176-944KB (+2)</td>
+<td align="left">512 KB (+2)</td>
+<td align="left">128 KB (+2)</td>
+<td align="left">128 KB <sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup> (0)</td>
+</tr>
+<tr>
+<td align="left">Clock Frequency</td>
+<td align="left">&gt;= 80 MHz</td>
+<td align="left">150 MHz (+1)</td>
+<td align="left">80 MHz (+1)</td>
+<td align="left">80 (+1)</td>
+<td align="left">170 (+1)</td>
+</tr>
+<tr>
+<td align="left"><strong>LPC interface</strong></td>
+<td align="left">yes</td>
+<td align="left">no <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> (0)</td>
+<td align="left">no <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup> (0)</td>
+<td align="left">no (-2)</td>
+<td align="left">no (-2)</td>
+</tr>
+<tr>
+<td align="left"><strong>SPI Frequency</strong></td>
+<td align="left">&gt;= 20 MHz</td>
+<td align="left">25 MHz (+2)</td>
+<td align="left">20 (+2)</td>
+<td align="left">26 (+1)</td>
+<td align="left">41 (+2)</td>
+</tr>
+<tr>
+<td align="left"><strong>OSS support</strong></td>
+<td align="left">Fully OSS toolchain</td>
+<td align="left">limited (-2) <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+<td align="left">yes, limited (+1) <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></td>
+<td align="left">yes (+2)</td>
+<td align="left">yes (+2)</td>
+</tr>
+<tr>
+<td align="left">Crypto Acceleration</td>
+<td align="left">RNG/hash/enc</td>
+<td align="left">AES/SHA/RNG (+1) <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+<td align="left">can use FPGA (+1) <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></td>
+<td align="left">RNG (+1) <sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></td>
+<td align="left">RNG (+1) <sup id="fnref2:7"><a class="footnote-ref" href="#fn:7">7</a></sup></td>
+</tr>
+<tr>
+<td align="left">Score</td>
+<td align="left"></td>
+<td align="left">5</td>
+<td align="left">8</td>
+<td align="left">6</td>
+<td align="left">4</td>
+</tr>
+</tbody>
+</table>
+<!-- when "-" is in path, the link in mkdocs is generated with a single
+character, not three -->
+<!-- markdownlint-disable MD051 -->
+<!-- markdownlint-enable MD051 -->
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>It looks like the usage of proprietary tools is required, especially for the
+  programmable logic part&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Score is increased from <code>+1</code> o <code>+2</code> due to the support of additional
+  hash/encryption algorithms&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Support in the upstream project might miss some crucial drivers, as described
+  in the <a href="#sparkfun-quicklogic-thing-plus-eos-s3">EOS S3 section</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>The SoC does not provide crypto accelerators, but we could potentially
+  use FPGA to offload some operations&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Potentially could be implemented in programmable logic (not a "standard"
+  FPGA)&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Can be implemented in FPGA via LPC module, for example via Verilog&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>Some STM32 chips from this family offer also AES-128, AES-256 hardware encryption&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>32 KB is used for parity checks, so only 96 KB is available for program usage&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../hardware-requirements/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hardware requirements" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Hardware requirements
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../compliance/" class="md-footer__link md-footer__link--next" aria-label="Next: Compliance" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Compliance
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link", "navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
