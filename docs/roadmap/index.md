@@ -133,7 +133,7 @@ Milestones:
 - implementation of TPM register space
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: [Done](../changelog/#2024-03-14)
 
 ## 8. Explore the usage of using simpler hardware platform
 
@@ -168,7 +168,7 @@ Milestones:
 - test suite: use in real-world scenario (Fobnail)
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: In progress
 
 ## 10. Unique identification and randomness source
 
@@ -186,7 +186,7 @@ Milestones:
 - test suite: Windows HLK
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: In progress
 
 ## 11. Manufacturing process
 
@@ -218,4 +218,4 @@ Milestones:
 - prepare configuration file for whole project
 - review and update existing documentation, add entry to changelog
 
-State: Backlog
+State: In progress

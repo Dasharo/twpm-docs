@@ -6,9 +6,23 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # Changelog
 
+## 2024-03-14
+
+* Added testbench outputs to [Verilog modules](../development/verilog_modules/)
+* Added [SPI module description](../development/verilog_modules/#spi-module)
+    - Reset signal was added to the registers module, required because SPI clock
+      isn't free-running.
+* Added instructions for [connecting to mainboard through SPI](../tutorials/mainboard-connection/#protectli-vp66xx-spi)
+* Fixed broken links here and in [Development/Testing](../development/testing/)
+* Fixed command for running tests in [Development/Testing](../development/testing/)
+  (missing asterisks)
+* Published
+  [tests results as part of Task 7. Implement SPI TPM protocol](../test-results/2024_01_11_orange_crab_without_create_primary.html)
+* Updated [FPGA utilisation numbers](../development/verilog_modules/)
+
 ## 2024-01-16
 
-* Added page about [running tests](../development/testing.md)
+* Added page about [running tests](../development/testing/)
 * Published
   [tests results as part of Task 6. Base tests](../test-results/2024_01_11_orange_crab_without_create_primary.html)
 * Small changes to

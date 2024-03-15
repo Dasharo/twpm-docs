@@ -47,8 +47,9 @@ Reserved bits are read as 0. They may change in the future.
 
 * `op_type` is a type of operation expected from MCU. 0 is used as a default
   value to which this register returns after `complete` signal is acknowledged
-  by FPGA. 0xC is reserved as it may be part of 0xBADFABAC magic value. This
-  register is only valid if `exec` is set.
+  by FPGA, code should treat this value as error because no valid path produces
+  it when requesting interaction from MCU. 0xC is reserved as it may be part of
+  0xBADFABAC magic value. This register is only valid if `exec` is set.
 
 | op_type | Operation                                  |
 |--------:|--------------------------------------------|
