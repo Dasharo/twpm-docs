@@ -19,40 +19,72 @@ a guess about signal function based only on its name, which in some cases gives
 wrong results. Such cases are mentioned in the signal descriptions under the
 diagrams.
 
-Current FPGA utilization:
-
-<!-- TODO: update and split this for LPC and SPI after successful testing -->
+Current FPGA utilization for LPC:
 
 ```text
 Info: Device utilisation:
-Info:               TRELLIS_IO:    65/  197    32%
-Info:                     DCCA:     5/   56     8%
-Info:                   DP16KD:     5/   56     8%
-Info:               MULT18X18D:     1/   28     3%
-Info:                   ALU54B:     0/   14     0%
-Info:                  EHXPLLL:     1/    2    50%
-Info:                  EXTREFB:     0/    1     0%
-Info:                     DCUA:     0/    1     0%
-Info:                PCSCLKDIV:     0/    2     0%
-Info:                  IOLOGIC:    44/  128    34%
-Info:                 SIOLOGIC:     0/   69     0%
-Info:                      GSR:     0/    1     0%
-Info:                    JTAGG:     0/    1     0%
-Info:                     OSCG:     0/    1     0%
-Info:                    SEDGA:     0/    1     0%
-Info:                      DTR:     0/    1     0%
-Info:                  USRMCLK:     1/    1   100%
-Info:                  CLKDIVF:     1/    4    25%
-Info:                ECLKSYNCB:     1/   10    10%
-Info:                  DLLDELD:     0/    8     0%
-Info:                   DDRDLL:     1/    4    25%
-Info:                  DQSBUFM:     2/    8    25%
-Info:          TRELLIS_ECLKBUF:     3/    8    37%
-Info:             ECLKBRIDGECS:     1/    2    50%
-Info:                     DCSC:     0/    2     0%
-Info:               TRELLIS_FF:  5081/24288    20%
-Info:             TRELLIS_COMB: 12350/24288    50%
-Info:             TRELLIS_RAMW:   121/ 3036     3%
+Info: 	          TRELLIS_IO:    65/  197    32%
+Info: 	                DCCA:     5/   56     8%
+Info: 	              DP16KD:     5/   56     8%
+Info: 	          MULT18X18D:     1/   28     3%
+Info: 	              ALU54B:     0/   14     0%
+Info: 	             EHXPLLL:     1/    2    50%
+Info: 	             EXTREFB:     0/    1     0%
+Info: 	                DCUA:     0/    1     0%
+Info: 	           PCSCLKDIV:     0/    2     0%
+Info: 	             IOLOGIC:    44/  128    34%
+Info: 	            SIOLOGIC:     0/   69     0%
+Info: 	                 GSR:     0/    1     0%
+Info: 	               JTAGG:     0/    1     0%
+Info: 	                OSCG:     0/    1     0%
+Info: 	               SEDGA:     0/    1     0%
+Info: 	                 DTR:     0/    1     0%
+Info: 	             USRMCLK:     1/    1   100%
+Info: 	             CLKDIVF:     1/    4    25%
+Info: 	           ECLKSYNCB:     1/   10    10%
+Info: 	             DLLDELD:     0/    8     0%
+Info: 	              DDRDLL:     1/    4    25%
+Info: 	             DQSBUFM:     2/    8    25%
+Info: 	     TRELLIS_ECLKBUF:     3/    8    37%
+Info: 	        ECLKBRIDGECS:     1/    2    50%
+Info: 	                DCSC:     0/    2     0%
+Info: 	          TRELLIS_FF:  5049/24288    20%
+Info: 	        TRELLIS_COMB: 12639/24288    52%
+Info: 	        TRELLIS_RAMW:   121/ 3036     3%
+```
+
+Current FPGA utilization for SPI:
+
+```text
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:    62/  197    31%
+Info: 	                DCCA:     6/   56    10%
+Info: 	              DP16KD:     5/   56     8%
+Info: 	          MULT18X18D:     0/   28     0%
+Info: 	              ALU54B:     0/   14     0%
+Info: 	             EHXPLLL:     1/    2    50%
+Info: 	             EXTREFB:     0/    1     0%
+Info: 	                DCUA:     0/    1     0%
+Info: 	           PCSCLKDIV:     0/    2     0%
+Info: 	             IOLOGIC:    44/  128    34%
+Info: 	            SIOLOGIC:     0/   69     0%
+Info: 	                 GSR:     0/    1     0%
+Info: 	               JTAGG:     0/    1     0%
+Info: 	                OSCG:     0/    1     0%
+Info: 	               SEDGA:     0/    1     0%
+Info: 	                 DTR:     0/    1     0%
+Info: 	             USRMCLK:     1/    1   100%
+Info: 	             CLKDIVF:     1/    4    25%
+Info: 	           ECLKSYNCB:     1/   10    10%
+Info: 	             DLLDELD:     0/    8     0%
+Info: 	              DDRDLL:     1/    4    25%
+Info: 	             DQSBUFM:     2/    8    25%
+Info: 	     TRELLIS_ECLKBUF:     3/    8    37%
+Info: 	        ECLKBRIDGECS:     1/    2    50%
+Info: 	                DCSC:     0/    2     0%
+Info: 	          TRELLIS_FF:  5025/24288    20%
+Info: 	        TRELLIS_COMB: 12175/24288    50%
+Info: 	        TRELLIS_RAMW:   121/ 3036     3%
 ```
 
 ## Top level
@@ -166,6 +198,50 @@ List of ports:
 
 Source code: [Dasharo/verilog-lpc-module](https://github.com/Dasharo/verilog-lpc-module)
 
+Testbench results:
+
+```text
+VCD info: dumpfile lpc_periph_tb.vcd opened for output.
+Performing TPM write w/o delay
+Performing TPM write with delay
+Performing TPM read with delay
+Performing TPM read w/o delay
+Testing reset behaviour - TPM write w/o delay
+Testing reset behaviour - TPM read w/o delay
+Testing reset behaviour - TPM write with delay
+Testing reset behaviour - TPM read with delay
+Testing non-TPM transactions
+Testing extended LFRAME# timings - write
+Testing extended LFRAME# timings - read
+Testing abort mechanism - write
+Testing abort mechanism - read
+Testing interrupts - Continuous mode:
+  no interrupt reported when not requested?
+  proper IRQ reported?
+  IRQ number latched at start frame?
+  IRQ keeps being sent while active?
+  IRQ stops being sent when no longer active?
+  recovery and turn-around phases executed when int is deactivated?
+  IRQs reported with idle clock cycles before stop frame?
+  IRQs reported with idle clock cycles after stop frame?
+  IRQs reported with longer start pulse width?
+Testing interrupts - switching between modes:
+  peripheral doesn't initialize SERIRQ cycle in Quiet mode when not needed?
+  peripheral initializes SERIRQ cycle when IRQ needed in Quiet mode?
+  reset switches peripheral to Continuous mode?
+Testing interrupts - Quiet mode:
+  proper IRQ reported?
+  IRQ number latched at start frame?
+  IRQ keeps being sent while active?
+  IRQ stops being sent when no longer active?
+  recovery and turn-around phases executed when int is deactivated?
+  IRQs reported with idle clock cycles before stop frame?
+  peripheral keeps working after spurious interrupt?
+  IRQs reported with longer start pulse width?
+Testing interrupts - IRQ stops being reported on reset
+lpc_periph_tb.v:1344: $stop called at 518601000 (1ps)
+```
+
 This module is responsible for managing LPC communication. It responds only to
 TPM cycles, other cycle types are ignored. SERIRQ (both continuous and quiet
 mode), cycle aborts and LPC resets are implemented.
@@ -223,6 +299,21 @@ Ports for signals to/from data provider:
 
 Source code: [Dasharo/verilog-spi-module](https://github.com/Dasharo/verilog-spi-module)
 
+Testbench results:
+
+```text
+VCD info: dumpfile spi_periph_tb.vcd opened for output.
+Performing TPM write w/o delay
+Performing TPM write with delay
+Performing TPM read with delay
+Performing TPM read w/o delay
+Testing transfers with scattered clock between bytes
+Testing over-sized transfers
+Testing non-TPM addresses
+Testing crossing registers boundary
+spi_periph_tb.v:349: $stop called at 86540000 (1ps)
+```
+
 This module is responsible for managing SPI communication with PC. It only
 supports SPI protocol as described in TPM specification.
 
@@ -257,6 +348,27 @@ module is used to drive it directly in the top level module.
 
 Source code: [Dasharo/verilog-tpm-fifo-registers](https://github.com/Dasharo/verilog-tpm-fifo-registers)
 
+Testbench results:
+
+```text
+VCD info: dumpfile regs_tb.vcd opened for output.
+Testing simple register reads without delay
+Testing simple register reads with delay
+Checking register values against expected.txt
+Checking if RO registers are writable
+Testing mechanisms for changing locality
+Testing mechanisms for seizing locality
+Testing TPM_INT_VECTOR write without delay - proper locality
+Testing TPM_INT_VECTOR write with delay - proper locality
+Testing TPM_INT_VECTOR write without delay - wrong locality
+Testing TPM_INT_VECTOR write with delay - wrong locality
+Testing TPM_INT_VECTOR write without delay - no locality
+Testing TPM_INT_VECTOR write with delay - no locality
+Testing command/response exchange and TPM state machine - basic
+Testing command/response exchange and TPM state machine - advanced
+regs_tb.v:1075: $stop called at 2023220000 (1ps)
+```
+
 This module implements TPM register space. It also handles locality transitions,
 TPM interrupt generation and command finite state machine. Register values are
 reported accordingly to the current state. Registers not defined by PC Client
@@ -276,6 +388,8 @@ Ports for signals to/from LPC or SPI module:
   available in one clock cycle and no wait states (LPC) or exactly one wait
   state (SPI) has to be inserted. For LPC,the clock is free-running, but for SPI
   it is enabled only during the communication.
+- `reset`: reset signal, required to reset registers to their initial values,
+  active low.
 - `addr_i`: 16-bit address of register to access.
 - `data_i`: 8-bit data from LPC/SPI module.
 - `data_o`: 8-bit data to LPC/SPI module.
